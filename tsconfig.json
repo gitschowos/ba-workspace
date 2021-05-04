@@ -16,8 +16,13 @@
     "importHelpers": true,
     "paths": {
       "runtime-approach": [
-        "dist/runtime-approach/runtime-approach",
-        "dist/runtime-approach"
+        // "dist/runtime-approach/runtime-approach",
+        // "dist/runtime-approach",
+        // changed this to the following that ng serve works fine for developing
+        "projects/runtime-approach/src/public-api"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
       ]
     },
     "target": "es2015",

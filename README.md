@@ -1,5 +1,24 @@
 # BaWorkspace
 
+This is the Angular workspace for the bachelor-thesis of Josef Rothballer (Uni Bayreuth).
+
+The overall topic is creating configurable dynamic forms with angular.
+
+The following projects are parts of the workspace:
+
+## runtime-approach
+
+Angular Library, which should create a angular form during runtime from a predefined JSON model.
+
+
+
+## test-app
+
+Angular application, to display and test the implementations in different showcases
+
+
+#
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server

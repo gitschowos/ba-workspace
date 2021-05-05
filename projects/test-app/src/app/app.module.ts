@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RuntimeApproachModule } from 'runtime-approach';
 
 import { AppComponent } from './app.component';
+import { PrebuildFormModule } from './prebuild-form/prebuild-form.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    PrebuildFormModule,
     RuntimeApproachModule
   ],
   providers: [],

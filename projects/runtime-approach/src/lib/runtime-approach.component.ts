@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonReaderService } from './json-reader.service';
+import { Specification } from './model/base-model';
 
 @Component({
-  selector: 'lib-runtime-approach',
-  template: `
-    <p>
-      runtime-approach works!
-    </p>
+    selector: 'lib-runtime-approach',
+    template: `
+    <lib-dynamic-form [formSpecification]="spec"></lib-dynamic-form>
   `,
-  styles: [
-  ]
+    styles: [
+    ]
 })
 export class RuntimeApproachComponent implements OnInit {
+    spec!: Specification;
 
-  constructor() { }
+    constructor(
+        private reader: JsonReaderService
+    ) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.spec = this.reader.getModelFromJson();
+        console.log(this.spec);
+    }
 
 }

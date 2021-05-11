@@ -1,0 +1,18 @@
+<h1>
+    {{formSpecification.title}}
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+
+        <lib-form-renderer 
+            [elements]="formSpecification.content"
+            [fGroup]="fGroup"
+            >
+        </lib-form-renderer>
+
+        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+    </form>
+    <p>
+        {{formValue | json}}
+    </p>
+</div>

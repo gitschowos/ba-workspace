@@ -1,0 +1,45 @@
+{
+    "title": "Mein Formular",
+    "content": [
+        {
+            "type": "group",
+            "id": "a-group",
+            "label": "Adresse",
+            "options": {
+                "childs": [
+                    {
+                        "type": "input",
+                        "id": "text1",
+                        "label": "Name",
+                        "options": {
+                            "inputType": "text",
+                            "required": true,
+                            "placeholder": "Max Mustermann"
+                        }
+                    },
+                    {
+                        "type": "input",
+                        "id": "text2",
+                        "label": "E-Mail",
+                        "value": "meine@email.de",
+                        "options": {
+                            "inputType": "email",
+                            "required": false
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "input",
+            "id": "text3",
+            "label": "Passwort",
+            "options": {
+                "inputType": "password",
+                "required": true,
+                "placeholder": "password"
+            }
+        }
+    ],
+    "showClearButton": true
+}

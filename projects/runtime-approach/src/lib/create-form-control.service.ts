@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BaseOptions, FormElement, FormElementType, GroupOptions, Specification } from './model/base-model';
+import { BaseOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, Specification } from './model/base-model';
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +27,7 @@ export class CreateFormControlService {
                 if(element.value === undefined) {
                     element.value = '';
                 }
-                group[element.id] = (element.options as BaseOptions).required
+                group[element.id] = (element.options as FormElementOptions).required
                     ? new FormControl(element.value, Validators.required)
                     : new FormControl(element.value);
             }

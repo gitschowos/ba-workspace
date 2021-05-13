@@ -24,10 +24,12 @@
                         "value": "meine@email.de",
                         "options": {
                             "inputType": "email",
-                            "required": false
+                            "required": false,
+                            "acticateCond": "text1"
                         }
                     }
-                ]
+                ],
+                "acticateCond": "text3"
             }
         },
         {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { CreateFormControlService } from '../create-form-control.service';
 import { Specification } from '../model/base-model';
 
@@ -27,5 +27,10 @@ export class DynamicFormComponent implements OnInit {
 
     onSubmit(): void {
         this.formValue = this.fGroup.value;
+    }
+
+    //for the activateControl param of the root renderer
+    getDummyControl(): AbstractControl {
+        return new FormControl();
     }
 }

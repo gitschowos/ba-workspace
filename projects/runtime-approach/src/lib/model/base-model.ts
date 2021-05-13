@@ -3,24 +3,32 @@ export enum FormElementType {
     input = 'input'
 }
 
-export class BaseOptions {
-    required: boolean;
+export abstract class BaseOptions {
     displayCond: string;   // id of the FormElement to be valid for displaying
     acticateCond: string;  // id of the FormElement to be valid for activating
-    styling: string;
 
     constructor(source: any) {
-        this.required = parseAttribute(source, 'required', false, false);
         this.displayCond = parseAttribute(source, 'displayCond', false, '');
         this.acticateCond = parseAttribute(source, 'acticateCond', false, '');
+    }
+}
+
+export abstract class FormElementOptions extends BaseOptions {
+    styling: string;
+    required: boolean;
+
+    constructor(source: any) {
+        super(source);
+        this.required = parseAttribute(source, 'required', false, false);
         this.styling = parseAttribute(source, 'styling', false, '');
     }
 }
 
-export class GroupOptions {
+export class GroupOptions extends BaseOptions {
     childs: FormElement[];
 
     constructor(source: any) {
+        super(source);
         source = parseAttribute(source, 'childs', true);
         if(!Array.isArray(source)) {
             throw new Error("childs must be an array");
@@ -32,7 +40,7 @@ export class GroupOptions {
     }
 }
 
-export class InputFieldOptions extends BaseOptions {
+export class InputFieldOptions extends FormElementOptions {
     inputType: string;
     placeholder: string;
     autocomplete?: string[] | string;   //hardcoded array or string with api url
@@ -62,7 +70,7 @@ export class FormElement {
     id: string;
     label: string;
     value: any;
-    options: BaseOptions | GroupOptions;
+    options: BaseOptions;
 
     constructor(source: any) {
         const typeString = parseAttribute(source, 'type', true) as string;

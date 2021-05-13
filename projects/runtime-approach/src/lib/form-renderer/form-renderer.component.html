@@ -1,29 +1,32 @@
 <div *ngFor="let element of elements" [formGroup]="fGroup">
-    <div [ngSwitch]="element.type.toString()">
-        <div *ngSwitchCase="'group'">
-            <p>
-                (
-                {{element.label}}:
-                <lib-form-renderer [elements]="getGroupChilds(element)" [fGroup]="getFormGroup(element.id)">
-                </lib-form-renderer>
-                )
-            </p>
-        </div>
+    <div *ngIf="isDisplayed(element)">
+        <div [ngSwitch]="element.type.toString()">
+            <div *ngSwitchCase="'group'">
+                <p>
+                    (
+                    {{element.label}}:
+                    <lib-form-renderer [elements]="getGroupChilds(element)" [fGroup]="getFormGroup(element.id)">
+                    </lib-form-renderer>
+                    )
+                </p>
+            </div>
 
 
 
-        <div *ngSwitchCase="'input'">
-            <lib-input-field [fControl]="getFormControl(element.id)" [element]="element"></lib-input-field>
-        </div>
+            <div *ngSwitchCase="'input'">
+                <lib-input-field [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-input-field>
+            </div>
 
 
 
-        <div *ngSwitchDefault>
-            <!-- for debugging -->
-            default
-            {{element.type}}
-            <br>
-            {{element.type.toString()}}
+            <div *ngSwitchDefault>
+                <!-- for debugging -->
+                default
+                {{element.type}}
+                <br>
+                {{element.type.toString()}}
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { FormElement, InputFieldOptions } from '../../model/base-model';
 
 @Component({
@@ -10,6 +10,7 @@ import { FormElement, InputFieldOptions } from '../../model/base-model';
 export class InputFieldComponent implements OnInit {
     @Input() fControl!: FormControl;
     @Input() element!: FormElement;
+    //@Input() activateControl!: AbstractControl;
 
     options!: InputFieldOptions;
 
@@ -17,6 +18,16 @@ export class InputFieldComponent implements OnInit {
 
     ngOnInit(): void {
         this.options = this.element.options as InputFieldOptions;
+        // this.activateControl.statusChanges.subscribe(() => {
+        //     if(this.activateControl.valid) {
+        //         this.fControl.enable();
+        //     } else {
+        //         this.fControl.disable();
+        //     }
+        // });
+        // if(!this.activateControl.valid) {
+        //     this.fControl.disable();
+        // }
     }
 
 }

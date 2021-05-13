@@ -17,10 +17,6 @@ export class FormRendererComponent implements OnInit {
 
     }
 
-    isGroup(element: FormElement) {
-        return element.type === FormElementType.group;
-    }
-
     getFormGroup(id: string): FormGroup {
         const group = this.fGroup.get(id) as FormGroup;
         if (group === null || group === undefined) {
@@ -37,11 +33,7 @@ export class FormRendererComponent implements OnInit {
         return control;
     }
 
-    inputFieldOptions(element: FormElement): InputFieldOptions {
-        return (element.options as InputFieldOptions);
-    }
-
-    groupOptions(element: FormElement): GroupOptions {
-        return (element.options as GroupOptions);
+    getGroupChilds(element: FormElement): FormElement[] {
+        return (element.options as GroupOptions).childs;
     }
 }

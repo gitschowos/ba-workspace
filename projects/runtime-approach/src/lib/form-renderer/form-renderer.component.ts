@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { InputFieldOptions } from '../form-elements/input-field';
-import { FormElement, GroupOptions, FormElementType } from '../model/base-model';
+import { FormElement, FormElementType, GroupOptions, InputFieldOptions } from '../model/base-model';
 
 @Component({
     selector: 'lib-form-renderer',

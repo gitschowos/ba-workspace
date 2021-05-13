@@ -4,6 +4,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormRendererComponent } from './form-renderer/form-renderer.component';
 import { CommonModule } from '@angular/common';
+import { FormElementsModule } from './form-elements/form-elements.module';
 
 
 
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
       CommonModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      FormElementsModule
   ],
   exports: [
     RuntimeApproachComponent

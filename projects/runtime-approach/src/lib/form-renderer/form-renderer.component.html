@@ -1,31 +1,21 @@
 <div *ngFor="let element of elements" [formGroup]="fGroup">
     <div *ngIf="isGroup(element); else noGroup">
         <p>
-        (
-        {{element.label}}:
-        <lib-form-renderer 
-            [elements]="groupOptions(element).childs"
-            [fGroup]="getFormGroup(element.id)"
-            >
-        </lib-form-renderer>
-        )
+            (
+            {{element.label}}:
+            <lib-form-renderer [elements]="groupOptions(element).childs" [fGroup]="getFormGroup(element.id)">
+            </lib-form-renderer>
+            )
         </p>
     </div>
 
     <ng-template #noGroup>
         <div [ngSwitch]="element.type.toString()">
             <div *ngSwitchCase="'input'">
-                <p>
-                    {{element.label}}
-                    <br>
-                    <input [formControl]="getFormControl(element.id)"
-                        [type]="inputFieldOptions(element).inputType"
-                        [placeholder]="inputFieldOptions(element).placeholder"
-                        [required]="inputFieldOptions(element).required"
-                    >
-                </p>
+                <lib-input-field [fControl]="getFormControl(element.id)" [element]="element"></lib-input-field>
             </div>
-            <div *ngSwitchDefault>  <!-- for debugging -->
+            <div *ngSwitchDefault>
+                <!-- for debugging -->
                 default
                 {{element.type}}
                 <br>

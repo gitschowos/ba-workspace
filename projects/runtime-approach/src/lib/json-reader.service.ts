@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormElement, Specification } from './model/base-model';
+import { Specification } from './model/base-model';
 import data from './model/specification.json';
 
 @Injectable({

@@ -21,12 +21,38 @@ export class GroupOptions {
     childs: FormElement[];
 
     constructor(source: any) {
+        source = parseAttribute(source, 'childs', true);
         if(!Array.isArray(source)) {
-            throw new Error("childs must be a group");
+            throw new Error("childs must be an array");
         }
         this.childs = [];
         for (let child of source) {
             this.childs.push(new FormElement(child));
+        }
+    }
+}
+
+export class InputFieldOptions extends BaseOptions {
+    inputType: string;
+    placeholder: string;
+    autocomplete?: string[] | string;   //hardcoded array or string with api url
+
+    constructor(source: any) {
+        super(source);
+        this.inputType = parseAttribute(source, 'inputType', false, 'text');
+        this.placeholder = parseAttribute(source, 'placeholder', false, '') as string;
+        const autocomplete = parseAttribute(source, 'autocomplete', false, '');
+        if(Array.isArray(autocomplete)) {
+            const suggestions: string[] = [];
+            autocomplete.forEach(suggestion => {
+                suggestions.push(suggestion);
+            });
+            this.autocomplete = suggestions;
+        }
+        else {
+            if(autocomplete !== '') {
+                this.autocomplete = autocomplete;
+            }
         }
     }
 }
@@ -47,10 +73,16 @@ export class FormElement {
         this.value = parseAttribute(source, 'value', false, '');
 
         const options = parseAttribute(source, 'options', true);
-        if(options.childs !== undefined) {  // group
-            this.options = new GroupOptions(options.childs);
-        } else {
-            this.options = new BaseOptions(options);
+
+        switch(this.type) {
+            case FormElementType.group:
+                this.options = new GroupOptions(options);
+                break;
+            case FormElementType.input:
+                this.options = new InputFieldOptions(options);
+                break;
+            default:
+                throw new Error(typeString + " is not supported");
         }
     }
 }

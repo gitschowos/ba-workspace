@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { FormElement, InputFieldOptions } from '../../model/base-model';
 
 @Component({
@@ -13,10 +15,34 @@ export class InputFieldComponent implements OnInit {
 
     options!: InputFieldOptions;
 
+    hasAutoComplete!: boolean;
+    autoCompleteOptions: string[] = [];
+    filteredOptions!: Observable<string[]>;
+
     constructor() { }
 
     ngOnInit(): void {
         this.options = this.element.options as InputFieldOptions;
+        const autocomplete = this.options.autocomplete;
+        if(autocomplete !== undefined) {
+            this.hasAutoComplete = true;
+            if(Array.isArray(autocomplete)) {
+                this.autoCompleteOptions = autocomplete;
+            }
+            else {
+                console.log('API call for input field ' + this.element.id);
+            }
+            this.filteredOptions = this.fControl.valueChanges.pipe(
+                startWith(''),
+                map(value => this._filter(value))
+            );
+        }
+    }
+
+    private _filter(value: string): string[] {
+        const filterValue = value.toLowerCase();
+
+        return this.autoCompleteOptions.filter(option => option.toLowerCase().includes(filterValue));
     }
 
 }

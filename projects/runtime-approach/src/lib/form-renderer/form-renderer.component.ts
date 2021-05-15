@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { FormElement, FormElementType, GroupOptions, InputFieldOptions } from '../model/base-model';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FormElement, GroupOptions } from '../model/base-model';
 
 @Component({
     selector: 'lib-form-renderer',
@@ -15,34 +15,6 @@ export class FormRendererComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-
-        for (let element of this.elements) {
-            const activateControl = this.getActivateControl(element);
-            if(activateControl === null) {
-                continue;
-            }
-            let formControl = this.getAbstractControl(element.id);
-            activateControl.statusChanges.subscribe(() => {
-                console.log(element.id);
-                console.log(formControl);
-                if (activateControl.valid) {
-                    formControl.enable();
-                } else {
-                    formControl.disable();
-                }
-            });
-            if (!activateControl.valid) {
-                formControl.disable();
-            }
-        }
-    }
-
-    getAbstractControl(id: string): AbstractControl {
-        const control = this.fGroup.get(id) as AbstractControl;
-        if (control === null || control === undefined) {
-            throw new Error("No AbstractControl found for id " + id);
-        }
-        return control;
     }
 
     getFormGroup(id: string): FormGroup {
@@ -78,22 +50,6 @@ export class FormRendererComponent implements OnInit {
         }
         else {
             return control.valid;
-        }
-    }
-
-    getActivateControl(element: FormElement): AbstractControl | null {
-        
-        const cond = element.options.acticateCond;
-        if (cond === '') {
-            return null;
-        }
-        const control = this.fGroup.get(cond);
-        if (control === null) {
-            console.warn(cond + " was not found as control");
-            return null;
-        }
-        else {
-            return control;
         }
     }
 }

@@ -24,6 +24,7 @@
               "projects/test-app/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test-app/src/styles.css"
             ],
             "scripts": []
@@ -87,6 +88,7 @@
               "projects/test-app/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/test-app/src/styles.css"
             ],
             "scripts": []

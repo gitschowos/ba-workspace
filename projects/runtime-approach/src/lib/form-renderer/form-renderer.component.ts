@@ -10,7 +10,6 @@ import { FormElement, GroupOptions } from '../model/base-model';
 export class FormRendererComponent implements OnInit {
     @Input() elements!: FormElement[];
     @Input() fGroup!: FormGroup;
-    //@Input() activateControl!: AbstractControl;
 
     constructor() { }
 

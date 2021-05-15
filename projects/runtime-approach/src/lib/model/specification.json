@@ -50,7 +50,7 @@
                 "inputType": "text",
                 "required": false,
                 "placeholder": "Stadt eingeben",
-                "autocomplete": ["Bayreuth", "Weiden i. d. Opf.", "Weiherhammer"]
+                "autocomplete": "api/cities"
             }
         }
     ],

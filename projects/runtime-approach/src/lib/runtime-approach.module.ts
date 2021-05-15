@@ -5,6 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormRendererComponent } from './form-renderer/form-renderer.component';
 import { CommonModule } from '@angular/common';
 import { FormElementsModule } from './form-elements/form-elements.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 
 
@@ -17,7 +20,11 @@ import { FormElementsModule } from './form-elements/form-elements.module';
   imports: [
       CommonModule,
       ReactiveFormsModule,
-      FormElementsModule
+      FormElementsModule,
+      HttpClientModule,
+      HttpClientInMemoryWebApiModule.forRoot(
+          InMemoryDataService, { dataEncapsulation: false }
+      )
   ],
   exports: [
     RuntimeApproachComponent

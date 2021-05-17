@@ -1,6 +1,7 @@
 export enum FormElementType {
     group = 'group',
-    input = 'input'
+    input = 'input',
+    checkbox = 'checkbox'
 }
 
 export abstract class BaseOptions {
@@ -65,6 +66,13 @@ export class InputFieldOptions extends FormElementOptions {
     }
 }
 
+export class CheckboxOptions extends FormElementOptions {
+    
+    constructor(source: any) {
+        super(source);
+    }
+}
+
 export class FormElement {
     type: FormElementType;
     id: string;
@@ -88,6 +96,9 @@ export class FormElement {
                 break;
             case FormElementType.input:
                 this.options = new InputFieldOptions(options);
+                break;
+            case FormElementType.checkbox:
+                this.options = new CheckboxOptions(options);
                 break;
             default:
                 throw new Error(typeString + " is not supported");

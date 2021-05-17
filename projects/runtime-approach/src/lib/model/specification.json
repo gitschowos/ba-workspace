@@ -43,6 +43,14 @@
             }
         },
         {
+            "type": "checkbox",
+            "id": "checkbox1",
+            "label": "Stadt anzeigen",
+            "options": {
+                "required": false
+            }
+        },
+        {
             "type": "input",
             "id": "text4",
             "label": "Stadt",
@@ -50,7 +58,16 @@
                 "inputType": "text",
                 "required": false,
                 "placeholder": "Stadt eingeben",
-                "autocomplete": "api/cities"
+                "autocomplete": "api/cities",
+                "displayCond": "checkbox1"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "checkbox2",
+            "label": "Ich akzeptiere die allgemeinen Geschäftsbedingungen",
+            "options": {
+                "required": true
             }
         }
     ],

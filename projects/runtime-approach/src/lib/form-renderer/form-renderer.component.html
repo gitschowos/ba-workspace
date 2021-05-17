@@ -17,7 +17,10 @@
                 <lib-input-field [fControl]="getFormControl(element.id)" [element]="element">
                 </lib-input-field>
             </div>
-
+            <div *ngSwitchCase="'checkbox'">
+                <lib-checkbox [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-checkbox>
+            </div>
 
 
             <div *ngSwitchDefault>

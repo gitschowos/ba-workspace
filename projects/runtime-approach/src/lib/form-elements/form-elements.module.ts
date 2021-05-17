@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 
 @NgModule({
     declarations: [
-        InputFieldComponent
+        InputFieldComponent,
+        CheckboxComponent
     ],
     imports: [
         CommonModule,
@@ -16,6 +18,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ],
     exports: [
         InputFieldComponent,
+        CheckboxComponent
     ]
 })
 export class FormElementsModule { }

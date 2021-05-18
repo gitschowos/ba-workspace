@@ -29,9 +29,14 @@ export class CreateFormControlService {
                 if (element.value === undefined) {
                     element.value = '';
                 }
-                group[element.id] = (element.options as FormElementOptions).required
-                    ? new FormControl(element.value, Validators.required)
-                    : new FormControl(element.value);
+    
+                if((element.options as FormElementOptions).required) {
+                    group[element.id] = new FormControl(element.value, Validators.required);
+                    group[element.id].isRequired = true;
+                }
+                else {
+                    group[element.id] = new FormControl(element.value);
+                }
             }
         }
 

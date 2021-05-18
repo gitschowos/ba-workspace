@@ -1,9 +1,11 @@
 export interface Schema {
     //path to the json specification
-    pathToJson: string;
+    jsonFile: string;
+
+    currPath: string;
 
     //path where the files should be generated
-    path?: string;
+    destinationPath?: string;
 
     //the name of the angular project
     project?: string;

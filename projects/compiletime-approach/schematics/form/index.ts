@@ -1,7 +1,8 @@
-import { Rule, Tree, SchematicsException, apply, url, applyTemplates, move, chain, mergeWith } from '@angular-devkit/schematics';
+import { Rule, Tree, SchematicsException, apply, url, template, move, chain, mergeWith } from '@angular-devkit/schematics';
 import { workspaces, virtualFs, strings, normalize } from '@angular-devkit/core'
 
 import { Schema } from './schema';
+import { Specification } from './base-model';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
     return {
@@ -25,35 +26,48 @@ function createHost(tree: Tree): workspaces.WorkspaceHost {
 }
 
 export function form(options: Schema): Rule {
-    return async (tree: Tree) => {
+    return async (tree: Tree) => {      
         const host = createHost(tree);
         const { workspace } = await workspaces.readWorkspace('/', host);
-
+        
         if (!options.project) {
             options.project = workspace.extensions.defaultProject as string;
         }
-
+        
         const project = workspace.projects.get(options.project);
         if (!project) {
             throw new SchematicsException(`Invalid project name: ${options.project}`);
         }
-
+        
         const projectType = project.extensions.projectType === 'application' ? 'app' : 'lib';
+        
+        if (options.destinationPath === undefined) {
+            options.destinationPath = `${project.sourceRoot}/${projectType}`;
+        }
+        
 
-        if (options.path === undefined) {
-            options.path = `${project.sourceRoot}/${projectType}`;
+        let pathToJson = '';
+        if(options.currPath) {
+            pathToJson += options.currPath;
+        }
+        pathToJson += options.jsonFile;
+        const jsonFileString = tree.read(pathToJson)?.toString();
+        if(!jsonFileString) {
+            throw new SchematicsException(`No json found here: ${pathToJson}`);
         }
 
+        const data = JSON.parse(jsonFileString);
+
         //parse the json to the data model here
-        const elements = {};
+        const specification = new Specification(data);
 
         const templateSource = apply(url('./files'), [
-            applyTemplates({
+            template({
                 classify: strings.classify,
                 dasherize: strings.dasherize,
-                elements: elements
+                specification
             }),
-            move(normalize(options.path as string))
+            move(normalize(options.destinationPath as string))
         ]);
 
         return chain([

@@ -4,6 +4,29 @@
     "title": "Compiletime form generator",
     "type": "object",
     "properties": {
-        
-    }
+        "jsonFile": {
+            "description": "json file where the form is specified in",
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "Path to the json form specification:"
+        },
+        "currPath": {
+            "description": "The current path where the ng generate command gets called",
+            "type": "string",
+            "format": "path",
+            "visible": false
+        },
+        "destinationPath": {
+            "description": "Path where the files should be generated",
+            "type": "string"
+        },
+        "project": {
+            "description": "Name of the angular project",
+            "type": "string"
+        }
+    },
+    "required": ["jsonFile"]
 }

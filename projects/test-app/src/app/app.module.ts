@@ -6,15 +6,15 @@ import { AppComponent } from './app.component';
 import { PrebuildFormModule } from './prebuild-form/prebuild-form.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    PrebuildFormModule,
-    RuntimeApproachModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        PrebuildFormModule,
+        RuntimeApproachModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,6 +21,12 @@
         // changed this to the following that ng serve works fine for developing
         "projects/runtime-approach/src/public-api"
       ],
+      "compiletime-approach": [
+        //"dist/compiletime-approach/compiletime-approach",
+        //"dist/compiletime-approach"
+        // changed this to the following that ng serve works fine for developing
+        "projects/compiletime-approach/src/public-api"
+      ],
       "@angular/*": [
         "./node_modules/@angular/*"
       ]

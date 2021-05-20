@@ -2,7 +2,8 @@ import { Rule, Tree, SchematicsException, apply, url, template, move, chain, mer
 import { workspaces, virtualFs, strings, normalize } from '@angular-devkit/core'
 
 import { Schema } from './schema';
-import { Specification } from './base-model';
+import * as Model from './base-model';
+import * as helpers from './helpers';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
     return {
@@ -59,13 +60,15 @@ export function form(options: Schema): Rule {
         const data = JSON.parse(jsonFileString);
 
         //parse the json to the data model here
-        const specification = new Specification(data);
+        const specification = new Model.Specification(data);
 
         const templateSource = apply(url('./files'), [
             template({
                 classify: strings.classify,
                 dasherize: strings.dasherize,
-                specification
+                specification,
+                Model,
+                helpers
             }),
             move(normalize(options.destinationPath as string))
         ]);

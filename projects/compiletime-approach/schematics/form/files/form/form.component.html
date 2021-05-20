@@ -1,4 +1,14 @@
-<p>
-    Form works!
+<h1>
     <%=specification.title %>
-</p>
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+
+
+
+        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+    </form>
+    <p>
+        {{formValue | json}}
+    </p>
+</div>

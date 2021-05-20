@@ -3,8 +3,9 @@
 </h1>
 <div>
     <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
-
-
+        <% for (let element of specification.content) { %>
+            <%=formElements.htmlTemplates.get(element.type)(element) %>
+        <% } %>
 
         <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
     </form>

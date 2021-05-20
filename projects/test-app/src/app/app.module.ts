@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RuntimeApproachModule } from 'runtime-approach';
 
 import { AppComponent } from './app.component';
+import { FormModule } from './form/form.module';
 import { PrebuildFormModule } from './prebuild-form/prebuild-form.module';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PrebuildFormModule } from './prebuild-form/prebuild-form.module';
     imports: [
         BrowserModule,
         PrebuildFormModule,
-        RuntimeApproachModule
+        RuntimeApproachModule,
+        FormModule
     ],
     providers: [],
     bootstrap: [AppComponent]

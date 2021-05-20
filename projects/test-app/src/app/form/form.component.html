@@ -1,0 +1,61 @@
+<h1>
+    Mein Formular
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+
+
+        <p>
+        <div formGroupName='aGroup'>
+            (
+            Adresse:
+
+            <p>
+                Name
+                <br>
+                <input formControlName='text1' type='text' placeholder='Max Mustermann'>
+            </p>
+
+            <p>
+                E-Mail
+                <br>
+                <input formControlName='text2' type='email' placeholder=''>
+            </p>
+
+            )
+        </div>
+
+
+
+        <p>
+            Passwort
+            <br>
+            <input formControlName='text3' type='password' placeholder='password'>
+        </p>
+
+
+        <p>
+            <input formControlName='checkbox1' type='checkbox'>
+            Stadt anzeigen
+        </p>
+
+
+        <p>
+            Stadt
+            <br>
+            <input formControlName='text4' type='text' placeholder='Stadt eingeben'>
+        </p>
+
+
+        <p>
+            <input formControlName='checkbox2' type='checkbox'>
+            Ich akzeptiere die allgemeinen Geschäftsbedingungen
+        </p>
+
+
+        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+    </form>
+    <p>
+        {{formValue | json}}
+    </p>
+</div>

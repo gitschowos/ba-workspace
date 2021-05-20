@@ -4,6 +4,7 @@ import { workspaces, virtualFs, strings, normalize } from '@angular-devkit/core'
 import { Schema } from './schema';
 import * as Model from './base-model';
 import * as helpers from './helpers';
+import * as formElements from './form-elements';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
     return {
@@ -68,7 +69,8 @@ export function form(options: Schema): Rule {
                 dasherize: strings.dasherize,
                 specification,
                 Model,
-                helpers
+                helpers,
+                formElements
             }),
             move(normalize(options.destinationPath as string))
         ]);

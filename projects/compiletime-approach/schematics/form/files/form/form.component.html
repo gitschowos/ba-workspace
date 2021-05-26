@@ -4,7 +4,7 @@
 <div>
     <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
         <% for (let element of specification.content) { %>
-            <%=formElements.htmlTemplates.get(element.type)(element) %>
+            <%=formElements.getHtmlTemplate(element) %>
         <% } %>
 
         <button type="submit" [disabled]="!fGroup.valid">Absenden</button>

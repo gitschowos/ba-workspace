@@ -1,4 +1,4 @@
-import { strings } from '@angular-devkit/core'; 
+import { strings } from '@angular-devkit/core';
 import { FormElement, FormElementType, GroupOptions, InputFieldOptions } from "./base-model";
 
 const groupHtmlTemplate = (element: FormElement): string => {
@@ -7,7 +7,7 @@ const groupHtmlTemplate = (element: FormElement): string => {
     let childStrings = '';
     for (const child of options.childs) {
         const template = htmlTemplates.get(child.type);
-        if(template) {
+        if (template) {
             childStrings += template(child) + '\n';
         }
     }
@@ -48,9 +48,28 @@ const checkboxHtmlTemplate = (element: FormElement): string => {
     </p>`;
 }
 
-export const htmlTemplates: Map<FormElementType, (element: FormElement) => string> = 
-new Map([
-    [FormElementType.group, groupHtmlTemplate],
-    [FormElementType.input, inputFieldHtmlTemplate],
-    [FormElementType.checkbox, checkboxHtmlTemplate],
-])
+const htmlTemplates: Map<FormElementType, (element: FormElement) => string> =
+    new Map([
+        [FormElementType.group, groupHtmlTemplate],
+        [FormElementType.input, inputFieldHtmlTemplate],
+        [FormElementType.checkbox, checkboxHtmlTemplate],
+    ])
+
+export const getHtmlTemplate = (element: FormElement) => {
+    const htmlTemplate = htmlTemplates.get(element.type);
+    let templateString = `Template for type ${element.type} not found.`;
+    if (htmlTemplate !== undefined) {
+        templateString = htmlTemplate(element);
+    }
+
+    if (element.options.displayCond === '') {
+        return templateString;
+    }
+    else {
+        const fControlId = strings.camelize(element.options.displayCond);
+        return `
+        <div *ngIf="hasLegalValue('${fControlId}')">
+            ${templateString}
+        </div>`;
+    }
+}

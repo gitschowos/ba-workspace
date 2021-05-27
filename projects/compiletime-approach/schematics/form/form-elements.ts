@@ -13,18 +13,32 @@ const groupHtmlTemplate = (element: FormElement): string => {
     }
 
     return `
-    <p>
         <div formGroupName='${strings.camelize(element.id)}'>
         (
         ${element.label}:
         ${childStrings}
         )
         </div>
+        <p>
     `;
 }
 
 const inputFieldHtmlTemplate = (element: FormElement): string => {
     const options = element.options as InputFieldOptions;
+
+    let autocomplete = '';
+    if(options.autocomplete !== undefined) {
+        autocomplete += `
+            [matAutocomplete]="auto"
+        >
+
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of ${strings.camelize(element.id)}FilteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete
+        `;
+    }
 
     return `
     <p>
@@ -32,7 +46,7 @@ const inputFieldHtmlTemplate = (element: FormElement): string => {
         <br>
         <input formControlName='${strings.camelize(element.id)}'
             type='${options.inputType}' placeholder='${options.placeholder}'
-        >
+        ${autocomplete}>
     </p>`;
 }
 

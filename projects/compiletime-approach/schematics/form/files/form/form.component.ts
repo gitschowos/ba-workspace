@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { ApiService } from './api.service';
 
 @Component({
     selector: 'ct-form',
@@ -13,13 +16,27 @@ export class FormComponent implements OnInit {
     formValue: any;
 
     constructor(
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private httpClient: ApiService
     ) { }
 
     ngOnInit() {
+        this.setupDisableConditions();
+
+        this.setupAutoCompletes();
+    }
+
+    setupDisableConditions() {
         let res: AbstractControl | null;
         <%= helpers.setupDisableConditions(specification.content, '') %>
-     }
+    }
+
+
+    <%= helpers.autoCompleteFields(specification.content) %>
+    setupAutoCompletes() {
+        <%= helpers.autoCompleteSetup(specification.content, '') %>
+    }
+
 
     onSubmit(): void {
         this.formValue = this.fGroup.value;

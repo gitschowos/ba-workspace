@@ -1,16 +1,20 @@
 # BaWorkspace
 
-This is the Angular workspace for the bachelor-thesis of Josef Rothballer (Uni Bayreuth).
+This is the Angular workspace for the bachelor-thesis of Josef Rothballer, Universität Bayreuth.
 
 The overall topic is creating configurable dynamic forms with angular.
+The form is predefined in a JSON file. A UML-Diagram of the structure for the JSON can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf
+
 
 The following projects are parts of the workspace:
 
 ## runtime-approach
 
-Angular Library, which should create a angular form during runtime from a predefined JSON model.
+Angular Library, which has a component that generates a form during runtime from a predefined JSON model.
 
+## compiletime-approach
 
+Angular Library, which holds an angular-cli schematics command, that generates angular components describing a form from a predefined JSON model.
 
 ## test-app
 

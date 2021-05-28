@@ -44,24 +44,14 @@ export class GroupOptions extends BaseOptions {
 export class InputFieldOptions extends FormElementOptions {
     inputType: string;
     placeholder: string;
-    autocomplete?: string[] | string;   //hardcoded array or string with api url
-
+    autocomplete?: Suggestions;
     constructor(source: any) {
         super(source);
         this.inputType = parseAttribute(source, 'inputType', false, 'text');
         this.placeholder = parseAttribute(source, 'placeholder', false, '') as string;
         const autocomplete = parseAttribute(source, 'autocomplete', false, '');
-        if(Array.isArray(autocomplete)) {
-            const suggestions: string[] = [];
-            autocomplete.forEach(suggestion => {
-                suggestions.push(suggestion);
-            });
-            this.autocomplete = suggestions;
-        }
-        else {
-            if(autocomplete !== '') {
-                this.autocomplete = autocomplete;
-            }
+        if (autocomplete !== '') {
+            this.autocomplete = new Suggestions(autocomplete);
         }
     }
 }
@@ -70,6 +60,29 @@ export class CheckboxOptions extends FormElementOptions {
     
     constructor(source: any) {
         super(source);
+    }
+}
+
+export class Suggestions {
+    content: string[] | string;     //hardcoded array or string with api url
+
+    constructor(source: any) {
+        this.content = [];
+        if (Array.isArray(source)) {
+            source.forEach(value => {
+                (this.content as string[]).push(value);
+            });
+        }
+        else if (typeof source === 'string') {
+            this.content = source as string;
+        }
+        else {
+            throw new Error(source + " is not a valid value for suggestions.");
+        }
+    }
+
+    isHardcoded(): boolean {
+        return Array.isArray(this.content);
     }
 }
 

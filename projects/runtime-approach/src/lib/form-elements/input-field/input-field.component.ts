@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { ApiService } from '../../api.service';
+import { SuggestionsService } from '../../suggestions.service';
 import { FormElement, InputFieldOptions } from '../../model/base-model';
 
 @Component({
@@ -21,7 +21,7 @@ export class InputFieldComponent implements OnInit {
     filteredOptions!: Observable<string[]>;
 
     constructor(
-        private httpClient: ApiService
+        private suggestions: SuggestionsService
     ) { }
 
     ngOnInit(): void {
@@ -29,19 +29,12 @@ export class InputFieldComponent implements OnInit {
         const autocomplete = this.options.autocomplete;
         if(autocomplete !== undefined) {
             this.hasAutoComplete = true;
-            if(Array.isArray(autocomplete)) {
-                this.autoCompleteOptions = autocomplete;
-            }
-            else {
-                //console.log('API call for input field ' + this.element.id);
-                const url = autocomplete;
-                this.httpClient.getSuggestions(url).subscribe(
-                    suggestions => {
-                        this.autoCompleteOptions = suggestions
-                        this.fControl.setValue(this.fControl.value);
-                    }
-                )
-            }
+
+            this.suggestions.getSuggestions(autocomplete).subscribe( suggestions => {
+                this.autoCompleteOptions = suggestions;
+                this.fControl.setValue(this.fControl.value);
+            });
+
             this.filteredOptions = this.fControl.valueChanges.pipe(
                 startWith(''),
                 map(value => this._filter(value))

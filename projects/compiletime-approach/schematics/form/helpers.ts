@@ -96,10 +96,10 @@ export const autoCompleteSetup = (elements: FormElement[], prefix: string): stri
                 }
                 const optionsName = `this.${strings.camelize(element.id)}Options`;
                 const filteredOptionsName = `this.${strings.camelize(element.id)}FilteredOptions`;
-                if (Array.isArray(autocomplete)) {
+                if (autocomplete.isHardcoded()) {
                     let arrayString = '';
                     let first = true;
-                    for (const property of autocomplete) {
+                    for (const property of autocomplete.content as string[]) {
                         arrayString += first ? '' : ', ';
                         first = false;
 
@@ -111,7 +111,7 @@ export const autoCompleteSetup = (elements: FormElement[], prefix: string): stri
                 }
                 else {
                     result += `
-                    this.httpClient.getSuggestions('${autocomplete}').subscribe(
+                    this.httpClient.getSuggestions('${autocomplete.content}').subscribe(
                         suggestions => {
                             ${optionsName} = suggestions
                             //this.fControl.setValue(this.fControl.value);

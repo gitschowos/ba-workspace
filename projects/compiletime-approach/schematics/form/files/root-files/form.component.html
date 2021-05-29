@@ -1,0 +1,19 @@
+<h1>
+    <%=specification.title %>
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+        <% for (let element of specification.content) { %>
+            <% if (element.type === 'group') { %>
+                <ct-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+            <% } else { %>
+                <ct-<%= dasherize(element.id) %> [fControl]="getFormControl('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+            <% } %>
+        <% } %>
+
+        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+    </form>
+    <p>
+        {{formValue | json}}
+    </p>
+</div>

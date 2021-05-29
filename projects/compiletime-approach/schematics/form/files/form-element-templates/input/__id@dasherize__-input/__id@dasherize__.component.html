@@ -1,0 +1,9 @@
+<p>
+    <%= element.label %>
+    <br>
+    <input [formControl]="fControl" 
+        type="<%= element.options.inputType %>"
+        placeholder="<%= element.options.placeholder %>"
+        <% if(element.options.required) { %> required <% } %>
+        >
+

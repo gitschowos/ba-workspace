@@ -1,10 +1,9 @@
 import { Rule, Tree, SchematicsException, apply, url, template, move, chain, mergeWith, MergeStrategy } from '@angular-devkit/schematics';
-import { workspaces, virtualFs, strings, normalize } from '@angular-devkit/core'
+import { strings, workspaces, virtualFs, normalize } from '@angular-devkit/core'
 
 import { Schema } from './schema';
-import * as Model from './base-model';
+import { FormElement, FormElementType, GroupOptions, Specification } from './base-model';
 import * as helpers from './helpers';
-import * as formElements from './form-elements';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
     return {
@@ -25,6 +24,37 @@ function createHost(tree: Tree): workspaces.WorkspaceHost {
             return tree.exists(path);
         },
     };
+}
+
+function createFormElementComponents(elements: FormElement[], myChain: Rule[], componentNames: string[], componentImports: string[],
+    basePath: string, currPath: string) {
+    const templatePath = './files/form-element-templates/';
+    for (const element of elements) {
+        //element.options = element.options as CheckboxOptions;
+
+        const templateSource = apply(url(templatePath + element.type), [
+            template({
+                classify: strings.classify,
+                dasherize: strings.dasherize,
+                camelize: strings.camelize,
+                element,
+                id: element.id  //for filenames
+            }),
+            move(normalize(basePath + currPath))
+        ]);
+        myChain.push(mergeWith(templateSource, MergeStrategy.Overwrite));
+
+        const componentName = strings.classify(element.id) + 'Component';
+        componentNames.push(componentName);
+        componentImports.push(
+            `import { ${componentName} } from '.${currPath}/${strings.dasherize(element.id)}-${element.type}/${strings.dasherize(element.id)}.component';`
+        );
+
+        if (element.type === FormElementType.group) {
+            createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports, 
+            basePath, currPath + `/${strings.dasherize(element.id)}-group`);
+        }
+    }
 }
 
 export function form(options: Schema): Rule {
@@ -61,22 +91,30 @@ export function form(options: Schema): Rule {
         const data = JSON.parse(jsonFileString);
 
         //parse the json to the data model here
-        const specification = new Model.Specification(data);
+        const specification = new Specification(data);
 
-        const templateSource = apply(url('./files'), [
+        let myChain: Rule[] = [];
+        let componentNames: string[] = [];
+        let componentImports: string[] = [];
+
+        createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '');
+
+
+        const templateSource = apply(url('./files/root-files'), [
             template({
                 classify: strings.classify,
                 dasherize: strings.dasherize,
+                camelize: strings.camelize,
                 specification,
-                Model,
                 helpers,
-                formElements
+                componentNames,
+                componentImports
             }),
-            move(normalize(options.destinationPath as string))
+            move(normalize((options.destinationPath as string) + '/ct-form'))
         ]);
+        myChain.push(mergeWith(templateSource, MergeStrategy.Overwrite));
 
-        return chain([
-            mergeWith(templateSource, MergeStrategy.Overwrite)
-        ])
+
+        return chain(myChain);
     }
 }

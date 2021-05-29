@@ -8,8 +8,16 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FormComponent } from './form.component';
 import { InMemoryDataService } from './in-memory-data.service';
 
+<% for (const i of componentImports) { %>
+<%= i %>
+<% } %>
+
 @NgModule({
-    declarations: [ FormComponent ],
+    declarations: [ 
+        FormComponent,
+        <% for (const i of componentNames) { %>
+        <%= i %>,  <% } %> 
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
@@ -21,4 +29,4 @@ import { InMemoryDataService } from './in-memory-data.service';
     ],
     exports: [ FormComponent ]
 })
-export class FormModule { }
+export class CtFormModule { }

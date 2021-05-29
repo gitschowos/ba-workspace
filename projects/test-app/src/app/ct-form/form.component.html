@@ -1,0 +1,33 @@
+<h1>
+    Mein Formular
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+        
+            
+                <ct-a-group [fGroup]="getFormGroup('aGroup')" ></ct-a-group>
+            
+        
+            
+                <ct-text3 [fControl]="getFormControl('text3')" ></ct-text3>
+            
+        
+            
+                <ct-checkbox1 [fControl]="getFormControl('checkbox1')" ></ct-checkbox1>
+            
+        
+            
+                <ct-text4 [fControl]="getFormControl('text4')" ></ct-text4>
+            
+        
+            
+                <ct-checkbox2 [fControl]="getFormControl('checkbox2')" ></ct-checkbox2>
+            
+        
+
+        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+    </form>
+    <p>
+        {{formValue | json}}
+    </p>
+</div>

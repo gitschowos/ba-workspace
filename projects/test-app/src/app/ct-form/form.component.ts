@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, AbstractControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { FormBuilder, AbstractControl, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ApiService } from './api.service';
 
 @Component({
@@ -30,8 +28,6 @@ checkbox2: ['', Validators.required],
 
     ngOnInit() {
         this.setupDisableConditions();
-
-        this.setupAutoCompletes();
     }
 
     setupDisableConditions() {
@@ -72,30 +68,6 @@ checkbox2: ['', Validators.required],
     }
 
 
-    
-                text4Options: string[] = [];
-                text4FilteredOptions!: Observable<string[]>;
-                
-    setupAutoCompletes() {
-        
-                    this.httpClient.getSuggestions('api/cities').subscribe(
-                        suggestions => {
-                            this.text4Options = suggestions
-                            //this.fControl.setValue(this.fControl.value);
-                        }
-                    );
-                    
-                const fControl = this.fGroup.get('text4');
-                if (fControl !== null) {
-                    this.text4FilteredOptions = fControl.valueChanges.pipe(
-                        startWith(''),
-                        map(value => this.text4Options.filter(option => option.toLowerCase().includes(value.toLowerCase())))
-                    );
-                }
-                
-    }
-
-
     onSubmit(): void {
         this.formValue = this.fGroup.value;
     }
@@ -114,6 +86,22 @@ checkbox2: ['', Validators.required],
                 return control.value !== '' && control.value !== undefined && control.value !== false;
             }
         }
+    }
+
+    getFormControl(id: string): FormControl {
+        const control = this.fGroup.get(id) as FormControl;
+        if (control === null || control === undefined) {
+            throw new Error("No FormControl found for id " + id);
+        }
+        return control;
+    }
+
+    getFormGroup(id: string): FormGroup {
+        const group = this.fGroup.get(id) as FormGroup;
+        if (group === null || group === undefined) {
+            throw new Error("No FormGroup found for id " + id);
+        }
+        return group;
     }
 
     private getAbstractControl(id: string, currGroup: FormGroup): AbstractControl {

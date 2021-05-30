@@ -22,7 +22,7 @@
                         "type": "input",
                         "id": "text2",
                         "label": "E-Mail",
-                        "value": "meine@email.de",
+                        "value": "your@email.com",
                         "options": {
                             "inputType": "email",
                             "required": false,

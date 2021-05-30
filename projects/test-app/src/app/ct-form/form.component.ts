@@ -10,7 +10,7 @@ export class FormComponent implements OnInit {
     fGroup = this.fb.group({
         aGroup: this.fb.group({
 text1: ['', Validators.required],
-text2: ['meine@email.de'],
+text2: ['your@email.com'],
 }),
 text3: ['', Validators.required],
 checkbox1: [''],

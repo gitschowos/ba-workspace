@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Specification } from './model/base-model';
-import data from './model/specification.json';
+import data from '../../../../json/specification.json';
 
 @Injectable({
     providedIn: 'root'

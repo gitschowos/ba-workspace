@@ -27,7 +27,7 @@ function createHost(tree: Tree): workspaces.WorkspaceHost {
 }
 
 function createFormElementComponents(elements: FormElement[], myChain: Rule[], componentNames: string[], componentImports: string[],
-    basePath: string, currPath: string) {
+    basePath: string, currPath: string, pathToRoot: string) {
     const templatePath = './files/form-element-templates/';
     for (const element of elements) {
         //element.options = element.options as CheckboxOptions;
@@ -38,7 +38,8 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
                 dasherize: strings.dasherize,
                 camelize: strings.camelize,
                 element,
-                id: element.id  //for filenames
+                id: element.id,  //for filenames
+                pathToRoot
             }),
             move(normalize(basePath + currPath))
         ]);
@@ -52,7 +53,7 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
 
         if (element.type === FormElementType.group) {
             createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports, 
-            basePath, currPath + `/${strings.dasherize(element.id)}-group`);
+            basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../');
         }
     }
 }
@@ -97,7 +98,7 @@ export function form(options: Schema): Rule {
         let componentNames: string[] = [];
         let componentImports: string[] = [];
 
-        createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '');
+        createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '', '../');
 
 
         const templateSource = apply(url('./files/root-files'), [

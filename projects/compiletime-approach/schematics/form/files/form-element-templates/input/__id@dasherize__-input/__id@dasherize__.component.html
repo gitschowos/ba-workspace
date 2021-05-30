@@ -5,5 +5,14 @@
         type="<%= element.options.inputType %>"
         placeholder="<%= element.options.placeholder %>"
         <% if(element.options.required) { %> required <% } %>
+        <% if(element.options.autocomplete !== undefined) { %> [matAutocomplete]="auto" <% } %>
         >
+    <% if(element.options.autocomplete !== undefined) { %> 
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    <% } %>
+    
 

@@ -3,11 +3,13 @@
         (
         <%= element.label %>
         <% for (let child of element.options.childs) { %>
+            <% if (element.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= element.options.displayCond %>')"> <% } %>
             <% if (child.type === 'group') { %>
                 <ct-<%= dasherize(child.id) %> [fGroup]="getFormGroup('<%= camelize(child.id) %>')" ></ct-<%= dasherize(child.id) %>>
             <% } else { %>
                 <ct-<%= dasherize(child.id) %> [fControl]="getFormControl('<%= camelize(child.id) %>')" ></ct-<%= dasherize(child.id) %>>
             <% } %>
+            <% if (element.options.displayCond !== '') { %> </div> <% } %>
         <% } %>
         )
     </p>

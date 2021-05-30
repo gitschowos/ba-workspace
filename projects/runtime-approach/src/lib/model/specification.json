@@ -14,7 +14,8 @@
                         "options": {
                             "inputType": "text",
                             "required": true,
-                            "placeholder": "Max Mustermann"
+                            "placeholder": "Max Mustermann",
+                            "autocomplete": ["Josef", "Johannes", "Lukas", "Anna", "Maria", "Lena"]
                         }
                     },
                     {

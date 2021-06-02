@@ -28,4 +28,21 @@ export class <%= classify(element.id) %>Component implements OnInit {
         }
         return group;
     }
+
+    hasLegalValue(fControlId: string): boolean {
+        const control = this.fGroup.get(fControlId);
+        if (control === null) {
+            console.warn(fControlId + " was not found as control");
+            return true;
+        }
+        else {
+            if((control as any).isRequired) {
+                return control.valid;
+            }
+            else {
+                return control.value !== '' && control.value !== undefined &&
+                 control.value !== null && control.value !== false;
+            }
+        }
+    }
 }

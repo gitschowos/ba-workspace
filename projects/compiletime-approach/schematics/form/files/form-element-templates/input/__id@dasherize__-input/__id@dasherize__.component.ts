@@ -41,9 +41,14 @@ export class <%= classify(element.id) %>Component implements OnInit {
         filteredOptions!: Observable<string[]>;
 
         private _filter(value: string): string[] {
-            const filterValue = value.toLowerCase();
+            if (typeof(value) === 'string') {
+                const filterValue = value.toLowerCase();
     
-            return this.autoCompleteOptions.filter(option => option.toLowerCase().includes(filterValue));
+                return this.autoCompleteOptions.filter(option => option.toLowerCase().includes(filterValue));
+            }
+            else {
+                return this.autoCompleteOptions;
+            }
         }
 
     <% } %>

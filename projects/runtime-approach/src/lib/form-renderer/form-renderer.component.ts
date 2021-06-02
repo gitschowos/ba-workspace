@@ -53,7 +53,8 @@ export class FormRendererComponent implements OnInit {
                 return control.valid;
             }
             else {
-                return control.value !== '' && control.value !== undefined && control.value !== false;
+                return control.value !== '' && control.value !== undefined &&
+                 control.value !== null && control.value !== false;
             }
         }
     }

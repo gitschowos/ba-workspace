@@ -4,7 +4,7 @@
 <div>
     <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
         <% for (let element of specification.content) { %>
-            <% if (element.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= element.options.displayCond %>')"> <% } %>
+            <% if (element.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= camelize(element.options.displayCond) %>')"> <% } %>
             <% if (element.type === 'group') { %>
                 <ct-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
             <% } else { %>

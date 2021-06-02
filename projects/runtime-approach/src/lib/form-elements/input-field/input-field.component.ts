@@ -27,10 +27,10 @@ export class InputFieldComponent implements OnInit {
     ngOnInit(): void {
         this.options = this.element.options as InputFieldOptions;
         const autocomplete = this.options.autocomplete;
-        if(autocomplete !== undefined) {
+        if (autocomplete !== undefined) {
             this.hasAutoComplete = true;
 
-            this.suggestions.getSuggestions(autocomplete).subscribe( suggestions => {
+            this.suggestions.getSuggestions(autocomplete).subscribe(suggestions => {
                 this.autoCompleteOptions = suggestions;
                 this.fControl.setValue(this.fControl.value);
             });
@@ -43,9 +43,14 @@ export class InputFieldComponent implements OnInit {
     }
 
     private _filter(value: string): string[] {
-        const filterValue = value.toLowerCase();
+        if (typeof(value) === 'string') {
+            const filterValue = value.toLowerCase();
 
-        return this.autoCompleteOptions.filter(option => option.toLowerCase().includes(filterValue));
+            return this.autoCompleteOptions.filter(option => option.toLowerCase().includes(filterValue));
+        }
+        else {
+            return this.autoCompleteOptions;
+        }
     }
 
 }

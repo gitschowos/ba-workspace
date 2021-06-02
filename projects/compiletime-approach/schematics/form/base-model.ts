@@ -6,11 +6,11 @@ export enum FormElementType {
 
 export abstract class BaseOptions {
     displayCond: string;   // id of the FormElement to be valid for displaying
-    acticateCond: string;  // id of the FormElement to be valid for activating
+    activateCond: string;  // id of the FormElement to be valid for activating
 
     constructor(source: any) {
         this.displayCond = parseAttribute(source, 'displayCond', false, '');
-        this.acticateCond = parseAttribute(source, 'acticateCond', false, '');
+        this.activateCond = parseAttribute(source, 'activateCond', false, '');
     }
 }
 

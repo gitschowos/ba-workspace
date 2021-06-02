@@ -29,7 +29,7 @@ export const setupDisableConditions = (elements: FormElement[], prefix: string):
     let result = '';
     for (const element of elements) {
         const elementId = strings.camelize(element.id);
-        const conditionId = strings.camelize(element.options.acticateCond);
+        const conditionId = strings.camelize(element.options.activateCond);
         if (conditionId !== '') {
             result += `
             res = this.fGroup.get('${prefix + elementId}');

@@ -29,8 +29,8 @@ export class CreateFormControlService {
                 if (element.value === undefined) {
                     element.value = '';
                 }
-    
-                if((element.options as FormElementOptions).required) {
+
+                if ((element.options as FormElementOptions).required) {
                     group[element.id] = new FormControl(element.value, Validators.required);
                     group[element.id].isRequired = true;
                 }
@@ -46,19 +46,21 @@ export class CreateFormControlService {
     private setupDisableConditions(elements: FormElement[], currGroup: FormGroup): void {
         for (let element of elements) {
             const activateControl = this.getActivateControl(element, currGroup);
-            if (activateControl === null) {
-                continue;
-            }
-            let formControl = this.getAbstractControl(element.id, currGroup);
-            activateControl.statusChanges.subscribe(() => {
-                if (activateControl.valid) {
-                    formControl.enable();
-                } else {
+
+            if (activateControl !== null) {
+
+                let formControl = this.getAbstractControl(element.id, currGroup);
+                activateControl.statusChanges.subscribe(() => {
+                    if (this.hasLegalValue(activateControl)) {
+                        formControl.enable();
+                    } else {
+                        formControl.disable();
+                    }
+                });
+                if (!this.hasLegalValue(activateControl)) {
                     formControl.disable();
                 }
-            });
-            if (!activateControl.valid) {
-                formControl.disable();
+
             }
 
             if (element.type === FormElementType.group) {
@@ -68,15 +70,24 @@ export class CreateFormControlService {
         }
     }
 
+    private hasLegalValue(control: AbstractControl): boolean {
+        if ((control as any).isRequired) {
+            return control.valid;
+        }
+        else {
+            return control.value !== '' && control.value !== undefined && control.value !== false;
+        }
+    }
+
     private getActivateControl(element: FormElement, currGroup: FormGroup): AbstractControl | null {
 
-        const cond = element.options.acticateCond;
+        const cond = element.options.activateCond;
         if (cond === '') {
             return null;
         }
         const control = currGroup.get(cond);
         if (control === null) {
-            console.warn(cond + " was not found as control");
+            console.warn("Activation condition: " + cond + " was not found as control");
             return null;
         }
         else {

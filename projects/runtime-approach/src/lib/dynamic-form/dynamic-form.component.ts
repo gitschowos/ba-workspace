@@ -21,7 +21,7 @@ export class DynamicFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.fGroup = this.createFormControl.createFormControls(this.formSpecification);
-        console.log(this.fGroup.value);
+        //console.log(this.fGroup.value);
         this.formValue = "";
     }
 

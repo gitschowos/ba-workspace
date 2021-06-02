@@ -1,0 +1,152 @@
+{
+    "title": "Fahrzeugsuche",
+    "content": [
+        {
+            "type": "group",
+            "id": "zustand-auswahl",
+            "label": "Fahrzeugzustand",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "neu",
+                        "label": "Neu",
+                        "options": {
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "gebraucht",
+                        "label": "Gebraucht",
+                        "options": {
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "modell-auswahl",
+            "label": "Marke, Modell, Variante",
+            "options":{
+                "childs":[
+                    {
+                        "type": "input",
+                        "id": "marke",
+                        "label": "Marke",
+                        "options":{
+                            "inputType": "text",
+                            "required": true,
+                            "autocomplete": ["beliebig", "BMW", "Mercedes-Benz", "Audi", "Volkswagen", "Ford", "Tesla", "Toyota", "Porsche"]
+                        }
+                    },
+                    {
+                        "type": "input",
+                        "id":"modell",
+                        "label":"Modell",
+                        "options":{
+                            "inputType":"text",
+                            "activateCond":"marke",
+                            "required": false
+                        }
+                    },
+                    {
+                        "type": "input",
+                        "id": "variante",
+                        "label":"Variante",
+                        "options": {
+                            "inputType":"text",
+                            "placeholder":"z. B. GTI ..."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"typ-auswahl",
+            "label":"Fahrzeugtyp",
+            "options":{
+                "childs":[
+                    {
+                        "type":"checkbox",
+                        "id":"roadster",
+                        "label":"Cabrio / Roadster",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"kleinwagen",
+                        "label":"Kleinwagen",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"kombi",
+                        "label":"Kombi",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"limousine",
+                        "label":"Limousine",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"sportwagen",
+                        "label":"Sportwagen / Coupè",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"suv",
+                        "label":"SUV / Geländewagen / Pickup",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"van",
+                        "label":"Van / Minibus",
+                        "options":{}
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"andere",
+                        "label":"Andere",
+                        "value": true,
+                        "options":{}
+                    },
+                    {
+                        "type":"group",
+                        "id":"sitzplaetze-auswahl",
+                        "label":"Anzahl Sitzplätze",
+                        "options":{
+                            "childs":[
+                                {
+                                    "type":"input",
+                                    "id":"sitzplatz-von",
+                                    "options":{
+                                        "inputType":"number",
+                                        "placeholder":"von",
+                                        "autocomplete":["1", "2", "3"]
+                                    }
+                                },
+                                {
+                                    "type":"input",
+                                    "id":"sitzplatz-bis",
+                                    "options":{
+                                        "inputType":"number",
+                                        "placeholder":"bis",
+                                        "autocomplete":["4", "5", "6", "7", "8", "9"]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "showClearButton": true
+}

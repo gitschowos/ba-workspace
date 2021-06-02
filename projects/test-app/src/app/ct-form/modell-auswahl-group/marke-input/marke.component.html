@@ -1,0 +1,18 @@
+<p>
+    Marke
+    <br>
+    <input [formControl]="fControl" 
+        type="text"
+        placeholder=""
+         required 
+         [matAutocomplete]="auto" 
+        >
+     
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    
+    
+

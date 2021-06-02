@@ -9,32 +9,68 @@ import { FormComponent } from './form.component';
 import { InMemoryDataService } from './in-memory-data.service';
 
 
-import { AGroupComponent } from './a-group-group/a-group.component';
+import { ZustandAuswahlComponent } from './zustand-auswahl-group/zustand-auswahl.component';
 
-import { Text1Component } from './a-group-group/text1-input/text1.component';
+import { NeuComponent } from './zustand-auswahl-group/neu-checkbox/neu.component';
 
-import { Text2Component } from './a-group-group/text2-input/text2.component';
+import { GebrauchtComponent } from './zustand-auswahl-group/gebraucht-checkbox/gebraucht.component';
 
-import { Text3Component } from './text3-input/text3.component';
+import { ModellAuswahlComponent } from './modell-auswahl-group/modell-auswahl.component';
 
-import { Checkbox1Component } from './checkbox1-checkbox/checkbox1.component';
+import { MarkeComponent } from './modell-auswahl-group/marke-input/marke.component';
 
-import { Text4Component } from './text4-input/text4.component';
+import { ModellComponent } from './modell-auswahl-group/modell-input/modell.component';
 
-import { Checkbox2Component } from './checkbox2-checkbox/checkbox2.component';
+import { VarianteComponent } from './modell-auswahl-group/variante-input/variante.component';
+
+import { TypAuswahlComponent } from './typ-auswahl-group/typ-auswahl.component';
+
+import { RoadsterComponent } from './typ-auswahl-group/roadster-checkbox/roadster.component';
+
+import { KleinwagenComponent } from './typ-auswahl-group/kleinwagen-checkbox/kleinwagen.component';
+
+import { KombiComponent } from './typ-auswahl-group/kombi-checkbox/kombi.component';
+
+import { LimousineComponent } from './typ-auswahl-group/limousine-checkbox/limousine.component';
+
+import { SportwagenComponent } from './typ-auswahl-group/sportwagen-checkbox/sportwagen.component';
+
+import { SuvComponent } from './typ-auswahl-group/suv-checkbox/suv.component';
+
+import { VanComponent } from './typ-auswahl-group/van-checkbox/van.component';
+
+import { AndereComponent } from './typ-auswahl-group/andere-checkbox/andere.component';
+
+import { SitzplaetzeAuswahlComponent } from './typ-auswahl-group/sitzplaetze-auswahl-group/sitzplaetze-auswahl.component';
+
+import { SitzplatzVonComponent } from './typ-auswahl-group/sitzplaetze-auswahl-group/sitzplatz-von-input/sitzplatz-von.component';
+
+import { SitzplatzBisComponent } from './typ-auswahl-group/sitzplaetze-auswahl-group/sitzplatz-bis-input/sitzplatz-bis.component';
 
 
 @NgModule({
     declarations: [ 
         FormComponent,
         
-        AGroupComponent,  
-        Text1Component,  
-        Text2Component,  
-        Text3Component,  
-        Checkbox1Component,  
-        Text4Component,  
-        Checkbox2Component,   
+        ZustandAuswahlComponent,  
+        NeuComponent,  
+        GebrauchtComponent,  
+        ModellAuswahlComponent,  
+        MarkeComponent,  
+        ModellComponent,  
+        VarianteComponent,  
+        TypAuswahlComponent,  
+        RoadsterComponent,  
+        KleinwagenComponent,  
+        KombiComponent,  
+        LimousineComponent,  
+        SportwagenComponent,  
+        SuvComponent,  
+        VanComponent,  
+        AndereComponent,  
+        SitzplaetzeAuswahlComponent,  
+        SitzplatzVonComponent,  
+        SitzplatzBisComponent,   
     ],
     imports: [
         CommonModule,

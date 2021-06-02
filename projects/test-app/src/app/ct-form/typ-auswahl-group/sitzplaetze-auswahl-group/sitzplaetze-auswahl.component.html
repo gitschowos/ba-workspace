@@ -1,0 +1,20 @@
+<div [formGroup]="fGroup">
+        (
+        Anzahl Sitzplätze
+        
+            
+            
+                <ct-sitzplatz-von [fControl]="getFormControl('sitzplatzVon')" ></ct-sitzplatz-von>
+            
+            
+        
+             <div *ngIf="hasLegalValue('sitzplatzVon')"> 
+            
+                <ct-sitzplatz-bis [fControl]="getFormControl('sitzplatzBis')" ></ct-sitzplatz-bis>
+            
+             </div> 
+        
+        )
+    <p>
+</div>
+

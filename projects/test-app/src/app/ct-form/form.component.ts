@@ -8,14 +8,29 @@ import { ApiService } from './api.service';
 })
 export class FormComponent implements OnInit {
     fGroup = this.fb.group({
-        aGroup: this.fb.group({
-text1: ['', Validators.required],
-text2: ['your@email.com'],
+        zustandAuswahl: this.fb.group({
+neu: [''],
+gebraucht: [''],
 }),
-text3: ['', Validators.required],
-checkbox1: [''],
-text4: [''],
-checkbox2: ['', Validators.required],
+modellAuswahl: this.fb.group({
+marke: ['', Validators.required],
+modell: [''],
+variante: [''],
+}),
+typAuswahl: this.fb.group({
+roadster: [''],
+kleinwagen: [''],
+kombi: [''],
+limousine: [''],
+sportwagen: [''],
+suv: [''],
+van: [''],
+andere: ['true'],
+sitzplaetzeAuswahl: this.fb.group({
+sitzplatzVon: [''],
+sitzplatzBis: [''],
+}),
+}),
 
     });
 
@@ -33,34 +48,18 @@ checkbox2: ['', Validators.required],
     setupDisableConditions() {
         let res: AbstractControl | null;
         
-            res = this.fGroup.get('aGroup');
+            res = this.fGroup.get('modellAuswahl.modell');
             if(res !== null) {
                 const control = res;
-                const activateControl = this.getAbstractControl('text3', this.fGroup);
+                const activateControl = this.getAbstractControl('modellAuswahl.marke', this.fGroup);
                 activateControl.statusChanges.subscribe(() => {
-                    if (this.hasLegalValue('text3')) {
+                    if (this.hasLegalValue('modellAuswahl.marke')) {
                         control.enable();
                     } else {
                         control.disable();
                     }
                 });
-                if(!this.hasLegalValue('text3')) {
-                    control.disable();
-                }
-            }
-            
-            res = this.fGroup.get('aGroup.text2');
-            if(res !== null) {
-                const control = res;
-                const activateControl = this.getAbstractControl('aGroup.text1', this.fGroup);
-                activateControl.statusChanges.subscribe(() => {
-                    if (this.hasLegalValue('aGroup.text1')) {
-                        control.enable();
-                    } else {
-                        control.disable();
-                    }
-                });
-                if(!this.hasLegalValue('aGroup.text1')) {
+                if(!this.hasLegalValue('modellAuswahl.marke')) {
                     control.disable();
                 }
             }
@@ -83,7 +82,8 @@ checkbox2: ['', Validators.required],
                 return control.valid;
             }
             else {
-                return control.value !== '' && control.value !== undefined && control.value !== false;
+                return control.value !== '' && control.value !== undefined &&
+                 control.value !== null && control.value !== false;
             }
         }
     }

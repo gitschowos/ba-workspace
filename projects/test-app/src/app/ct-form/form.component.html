@@ -1,36 +1,24 @@
 <h1>
-    Mein Formular
+    Fahrzeugsuche
 </h1>
 <div>
     <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
         
             
             
-                <ct-a-group [fGroup]="getFormGroup('aGroup')" ></ct-a-group>
+                <ct-zustand-auswahl [fGroup]="getFormGroup('zustandAuswahl')" ></ct-zustand-auswahl>
             
             
         
             
             
-                <ct-text3 [fControl]="getFormControl('text3')" ></ct-text3>
+                <ct-modell-auswahl [fGroup]="getFormGroup('modellAuswahl')" ></ct-modell-auswahl>
             
             
         
             
             
-                <ct-checkbox1 [fControl]="getFormControl('checkbox1')" ></ct-checkbox1>
-            
-            
-        
-             <div *ngIf="hasLegalValue('checkbox1')"> 
-            
-                <ct-text4 [fControl]="getFormControl('text4')" ></ct-text4>
-            
-             </div> 
-        
-            
-            
-                <ct-checkbox2 [fControl]="getFormControl('checkbox2')" ></ct-checkbox2>
+                <ct-typ-auswahl [fGroup]="getFormGroup('typAuswahl')" ></ct-typ-auswahl>
             
             
         

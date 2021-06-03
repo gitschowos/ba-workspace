@@ -35,6 +35,7 @@ sitzplatzBis: [''],
     });
 
     formValue: any;
+    initialValue: any;
 
     constructor(
         private fb: FormBuilder,
@@ -42,6 +43,7 @@ sitzplatzBis: [''],
     ) { }
 
     ngOnInit() {
+        this.initialValue = this.fGroup.getRawValue();
         this.setupDisableConditions();
     }
 
@@ -69,6 +71,10 @@ sitzplatzBis: [''],
 
     onSubmit(): void {
         this.formValue = this.fGroup.value;
+    }
+
+    onReset(): void {
+        this.fGroup.setValue(this.initialValue);
     }
 
     hasLegalValue(fControlId: string): boolean {

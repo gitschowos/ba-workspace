@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
     });
 
     formValue: any;
+    initialValue: any;
 
     constructor(
         private fb: FormBuilder,
@@ -19,6 +20,7 @@ export class FormComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.initialValue = this.fGroup.getRawValue();
         this.setupDisableConditions();
     }
 
@@ -30,6 +32,10 @@ export class FormComponent implements OnInit {
 
     onSubmit(): void {
         this.formValue = this.fGroup.value;
+    }
+
+    onReset(): void {
+        this.fGroup.setValue(this.initialValue);
     }
 
     hasLegalValue(fControlId: string): boolean {

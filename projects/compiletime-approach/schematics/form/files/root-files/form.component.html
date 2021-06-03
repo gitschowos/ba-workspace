@@ -13,6 +13,8 @@
             <% if (element.options.displayCond !== '') { %> </div> <% } %>
         <% } %>
 
+        <% if (specification.showResetButton) { %> <button type="button" (click)="onReset()">Zurücksetzen</button> <% } %>
+        <% if (specification.showClearButton) { %> <button type="reset">Löschen</button> <% } %>
         <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
     </form>
     <p>

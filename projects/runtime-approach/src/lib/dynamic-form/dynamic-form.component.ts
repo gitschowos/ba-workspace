@@ -14,6 +14,7 @@ export class DynamicFormComponent implements OnInit {
     fGroup!: FormGroup;
 
     formValue: any;
+    initialValue: any;
 
     constructor(
         private createFormControl: CreateFormControlService
@@ -23,10 +24,15 @@ export class DynamicFormComponent implements OnInit {
         this.fGroup = this.createFormControl.createFormControls(this.formSpecification);
         //console.log(this.fGroup.value);
         this.formValue = "";
+        this.initialValue = this.fGroup.getRawValue();
     }
 
     onSubmit(): void {
         this.formValue = this.fGroup.value;
+    }
+
+    onReset(): void {
+        this.fGroup.setValue(this.initialValue);
     }
 
     //for the activateControl param of the root renderer

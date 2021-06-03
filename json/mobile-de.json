@@ -151,5 +151,6 @@
             }
         }
     ],
-    "showClearButton": true
+    "showClearButton": false,
+    "showResetButton": true
 }

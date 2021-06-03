@@ -1,10 +1,8 @@
 <p>
     <input type="checkbox"
         [formControl]="fControl"
-        <% if(element.options.required) { %>
-            required
-        <% } %>
-
+        <% if(element.options.required) { %> required <% } %>
+        style="<%= element.options.styling %>"
     >
     <%= element.label %>
 

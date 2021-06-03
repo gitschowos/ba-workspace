@@ -3,6 +3,7 @@
     <br>
     <input [formControl]="fControl" 
         type="<%= element.options.inputType %>"
+        style="<%= element.options.styling %>"
         placeholder="<%= element.options.placeholder %>"
         <% if(element.options.required) { %> required <% } %>
         <% if(element.options.autocomplete !== undefined) { %> [matAutocomplete]="auto" <% } %>

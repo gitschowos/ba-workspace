@@ -56,7 +56,8 @@
                         "label":"Variante",
                         "options": {
                             "inputType":"text",
-                            "placeholder":"z. B. GTI ..."
+                            "placeholder":"z. B. GTI ...",
+                            "styling":"width: 100px"
                         }
                     }
                 ]

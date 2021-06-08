@@ -1,8 +1,9 @@
 <p>
-    <input type="checkbox"
+    <mat-checkbox
         [formControl]="fControl"
         
-        style=""
+        [disabled]="fControl.disabled"
+        [style]=""
     >
-    Andere
-
+        Andere
+    </mat-checkbox>

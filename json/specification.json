@@ -26,11 +26,11 @@
                         "options": {
                             "inputType": "email",
                             "required": false,
-                            "acticateCond": "text1"
+                            "activateCond": "text1"
                         }
                     }
                 ],
-                "acticateCond": "text3"
+                "activateCond": "text3"
             }
         },
         {

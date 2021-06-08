@@ -1,8 +1,16 @@
 <p>
-    <input type="checkbox"
+    <!-- <input type="checkbox"
         [formControl]="fControl"
         [required]="options.required"
         [style]="options.styling"
     >
-    {{element.label}}
+    {{element.label}} -->
+    <mat-checkbox
+        [formControl]="fControl"
+        [required]="options.required"
+        [style]="options.styling"
+        [disabled]="fControl.disabled"
+    >
+        {{element.label}}
+    </mat-checkbox>
 

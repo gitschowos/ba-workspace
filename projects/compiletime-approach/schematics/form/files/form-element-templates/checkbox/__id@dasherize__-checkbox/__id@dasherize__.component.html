@@ -1,8 +1,9 @@
 <p>
-    <input type="checkbox"
+    <mat-checkbox
         [formControl]="fControl"
-        <% if(element.options.required) { %> required <% } %>
-        style="<%= element.options.styling %>"
+        <% if(element.options.required) { %> [required]="true" <% } %>
+        [disabled]="fControl.disabled"
+        [style]="<%= element.options.styling %>"
     >
-    <%= element.label %>
-
+        <%= element.label %>
+    </mat-checkbox>

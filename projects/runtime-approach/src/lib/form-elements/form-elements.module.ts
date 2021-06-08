@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +22,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         MatAutocompleteModule,
         MatCheckboxModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
     ],
     exports: [
         InputFieldComponent,

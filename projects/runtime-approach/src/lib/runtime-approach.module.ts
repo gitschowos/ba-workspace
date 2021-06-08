@@ -8,6 +8,7 @@ import { FormElementsModule } from './form-elements/form-elements.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -24,7 +25,9 @@ import { InMemoryDataService } from './in-memory-data.service';
       HttpClientModule,
       HttpClientInMemoryWebApiModule.forRoot(
           InMemoryDataService, { dataEncapsulation: false }
-      )
+      ),
+
+      MatButtonModule
   ],
   exports: [
     RuntimeApproachComponent

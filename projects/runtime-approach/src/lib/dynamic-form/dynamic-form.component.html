@@ -10,10 +10,10 @@
             >
         </lib-form-renderer>
 
-        <button *ngIf="formSpecification.showResetButton" type="button" (click)="onReset()">Zurücksetzen</button>
-        <button *ngIf="formSpecification.showClearButton" type="reset">Löschen</button>
+        <button mat-button color="primary" *ngIf="formSpecification.showResetButton" type="button" (click)="onReset()">Zurücksetzen</button>
+        <button mat-button color="primary" *ngIf="formSpecification.showClearButton" type="reset">Löschen</button>
 
-        <button type="submit" [disabled]="!fGroup.valid">Absenden</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!fGroup.valid">Absenden</button>
     </form>
     <p>
         {{formValue | json}}

@@ -12,6 +12,7 @@
                         "id": "neu",
                         "label": "Neu",
                         "options": {
+                            "showAsSwitch": true
                         }
                     },
                     {
@@ -19,6 +20,7 @@
                         "id": "gebraucht",
                         "label": "Gebraucht",
                         "options": {
+                            "showAsSwitch": true
                         }
                     }
                 ]

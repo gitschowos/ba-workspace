@@ -1,8 +1,18 @@
+<% if(!element.options.showAsSwitch) { %>
 <mat-checkbox
     [formControl]="fControl"
-    <% if(element.options.required) { %> [required]="true" <% } %>
     [disabled]="fControl.disabled"
-    [style]="<%= element.options.styling %>"
+    <% if(element.options.required) { %> required <% } %>
+    style="<%= element.options.styling %>"
 >
     <%= element.label %>
 </mat-checkbox>
+<% } else { %>
+<mat-slide-toggle [formControl]="fControl" 
+    [disabled]="fControl.disabled"
+    <% if(element.options.required) { %> required <% } %>
+    style="<%= element.options.styling %>"
+>
+    <%= element.label %>
+</mat-slide-toggle>
+<% } %>

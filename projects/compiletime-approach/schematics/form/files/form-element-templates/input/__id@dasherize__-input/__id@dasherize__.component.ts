@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-<% if(element.options.autocomplete !== undefined) { %> 
+import { element } from 'protractor';
+<% if(element.options.autocomplete !== undefined && !element.options.autocomplete.isHardcoded()) { %> 
 import { ApiService } from '<%= pathToRoot %>api.service';
+<% } if(element.options.autocomplete !== undefined) { %> 
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 <% } %>
+
 
 @Component({
     selector: 'ct-<%= dasherize(element.id) %>',
@@ -14,7 +17,7 @@ export class <%= classify(element.id) %>Component implements OnInit {
     @Input() fControl!: FormControl;
     
     constructor(
-        <% if(element.options.autocomplete !== undefined) { %> private api: ApiService <% } %>
+        <% if(element.options.autocomplete !== undefined && !element.options.autocomplete.isHardcoded()) { %> private api: ApiService <% } %>
     ) { }
 
     ngOnInit(): void {

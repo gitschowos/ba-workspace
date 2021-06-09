@@ -1,0 +1,11 @@
+<label id="radio-label"> <%= element.label %>: </label>
+<mat-radio-group
+    [formControl]="fControl"
+    aria-labelledby="radio-label"
+    class="radio-group"
+    style="<%= element.options.styling %>"
+    >
+    <mat-radio-button *ngFor="let option of values" [value]="option" class="radio-button">
+        {{option}}
+    </mat-radio-button>
+</mat-radio-group>

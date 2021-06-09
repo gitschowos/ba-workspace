@@ -123,6 +123,7 @@
                         "id":"sitzplaetze-auswahl",
                         "label":"Anzahl Sitzplätze",
                         "options":{
+                            "displayCond":"van",
                             "childs":[
                                 {
                                     "type":"input",

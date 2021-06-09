@@ -42,14 +42,14 @@ export class FormRendererComponent implements OnInit {
             return true;
         }
 
-        const control = this.fGroup.get(cond);
+        const control = this.getFormControl(cond);
         if (control === null) {
             console.warn(cond + " was not found as control");
             return true;
         }
         else {
             //console.log(control);
-            if((control as any).isRequired) {
+            if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {

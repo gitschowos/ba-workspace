@@ -1,10 +1,6 @@
-<p>
-    <mat-checkbox
-        [formControl]="fControl"
-        [required]="options.required"
-        [style]="options.styling"
-        [disabled]="fControl.disabled"
-    >
-        {{element.label}}
-    </mat-checkbox>
-
+<mat-checkbox [formControl]="fControl" 
+    [required]="options.required" 
+    [style]="options.styling"
+    [disabled]="fControl.disabled">
+    {{element.label}}
+</mat-checkbox>

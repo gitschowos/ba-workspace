@@ -3,11 +3,15 @@
         <div [ngSwitch]="element.type.toString()">
             <div *ngSwitchCase="'group'">
                 <p>
-                    (
-                    {{element.label}}:
-                    <lib-form-renderer [elements]="getGroupChilds(element)" [fGroup]="getFormGroup(element.id)">
-                    </lib-form-renderer>
-                    )
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="group-title"> {{element.label}} </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <lib-form-renderer [elements]="getGroupChilds(element)" [fGroup]="getFormGroup(element.id)">
+                            </lib-form-renderer>
+                        </ng-template>
+                    </mat-expansion-panel>
                 </p>
             </div>
 

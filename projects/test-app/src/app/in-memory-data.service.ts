@@ -12,7 +12,10 @@ export class InMemoryDataService implements InMemoryDbService {
     createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {
         const cities = [
             'Weiden', 'Regensburg', 'München'
-        ]
-        return { cities };
+        ];
+        const engines = [
+            'Diesel', 'Benzin', 'Gas', 'Wasserstoff', 'Elektro'
+        ];
+        return { cities, engines };
     }
 }

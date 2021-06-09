@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RuntimeApproachComponent } from './runtime-approach.component';
@@ -15,26 +13,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  declarations: [
-    RuntimeApproachComponent,
-    DynamicFormComponent,
-    FormRendererComponent
-  ],
-  imports: [
-      CommonModule,
-      ReactiveFormsModule,
-      FormElementsModule,
-      BrowserAnimationsModule,
-      HttpClientModule,
-      HttpClientInMemoryWebApiModule.forRoot(
-          InMemoryDataService, { dataEncapsulation: false }
-      ),
+    declarations: [
+        RuntimeApproachComponent,
+        DynamicFormComponent,
+        FormRendererComponent
+    ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormElementsModule,
+        BrowserAnimationsModule,
 
-      MatButtonModule,
-      MatExpansionModule
-  ],
-  exports: [
-    RuntimeApproachComponent
-  ]
+        MatButtonModule,
+        MatExpansionModule
+    ],
+    exports: [
+        RuntimeApproachComponent
+    ]
 })
 export class RuntimeApproachModule { }

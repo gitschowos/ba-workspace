@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { FormComponent } from './form.component';
 
@@ -29,11 +27,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
         CommonModule,
         ReactiveFormsModule,
         HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(
-            InMemoryDataService, { dataEncapsulation: false }
-            ),
-            
-            
+        
         MatAutocompleteModule,
         MatCheckboxModule,
         MatFormFieldModule,

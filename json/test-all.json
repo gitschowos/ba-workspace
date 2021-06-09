@@ -1,0 +1,240 @@
+{
+    "title": "Test of all supported elements",
+    "content": [
+        {
+            "type": "group",
+            "id": "checkboxes",
+            "label": "Checkboxes",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox",
+                        "label": "Regular",
+                        "options": {
+                            "showAsSwitch": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox",
+                        "label": "As Slider",
+                        "options": {
+                            "showAsSwitch": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-activation",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "activateCond": "regular-checkbox"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-activation",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": true,
+                            "activateCond": "regular-checkbox"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-required-checkbox",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-required-checkbox",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "radios",
+            "label": "Radios",
+            "options": {
+                "childs": [
+                    {
+                        "type": "radio",
+                        "id": "hardcoded-radio",
+                        "label": "Hardcoded Radio",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "api-radio",
+                        "label": "Radio from Api",
+                        "options": {
+                            "pickingOptions": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "disabled-radio",
+                        "label": "Activated by 'Hardcoded Radio'",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "activateCond": "hardcoded-radio"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "required-radio",
+                        "label": "Required",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "dropdowns",
+            "label": "Dropdowns",
+            "options": {
+                "childs": [
+                    {
+                        "type": "dropdown",
+                        "id": "hardcoded-dropdown",
+                        "label": "Hardcoded Dropdown",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "api-dropdown",
+                        "label": "Dropdown from Api",
+                        "options": {
+                            "values": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "disabled-dropdown",
+                        "label": "Activated by Hardcoded Dropdown",
+                        "options": {
+                            "values": "api/cities",
+                            "activateCond": "hardcoded-dropdown"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown",
+                        "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": "api/cities",
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "required-dropdown",
+                        "label": "Required",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "inputs",
+            "label": "Inputs",
+            "options": {
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"regular-input",
+                        "label":"Regular Input",
+                        "options":{}
+                    },
+                    {
+                        "type":"input",
+                        "id":"with-placheholder",
+                        "label":"With Placeholder",
+                        "options":{
+                            "placeholder":"Some example text"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-hardcoded",
+                        "label":"Hardcoded Autocomplete",
+                        "options":{
+                            "autocomplete": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-api",
+                        "label":"Autocomplete from api",
+                        "options":{
+                            "autocomplete": "api/cities"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"disabled-input",
+                        "label":"Activated by Regular Input",
+                        "options":{
+                            "activateCond":"regular-input"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"required-input",
+                        "label":"Required",
+                        "options":{
+                            "required":true
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "showClearButton": false,
+    "showResetButton": true
+}

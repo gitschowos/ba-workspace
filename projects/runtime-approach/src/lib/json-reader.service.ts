@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Specification } from './model/base-model';
-import data from '../../../../json/mobile-de.json';
+import data from '../../../../json/test-all.json';
 
 @Injectable({
     providedIn: 'root'

@@ -3,7 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'ct-zustand-auswahl',
-    templateUrl: './zustand-auswahl.component.html'
+    templateUrl: './zustand-auswahl.component.html',
+    styles: [".group-title { font-weight: bold; }"]
 })
 export class ZustandAuswahlComponent implements OnInit {
     @Input() fGroup!: FormGroup;
@@ -36,7 +37,7 @@ export class ZustandAuswahlComponent implements OnInit {
             return true;
         }
         else {
-            if((control as any).isRequired) {
+            if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {

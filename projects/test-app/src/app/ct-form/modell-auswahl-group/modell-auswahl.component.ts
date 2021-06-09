@@ -3,7 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'ct-modell-auswahl',
-    templateUrl: './modell-auswahl.component.html'
+    templateUrl: './modell-auswahl.component.html',
+    styles: [".group-title { font-weight: bold; }"]
 })
 export class ModellAuswahlComponent implements OnInit {
     @Input() fGroup!: FormGroup;
@@ -36,7 +37,7 @@ export class ModellAuswahlComponent implements OnInit {
             return true;
         }
         else {
-            if((control as any).isRequired) {
+            if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {

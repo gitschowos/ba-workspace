@@ -84,7 +84,7 @@ sitzplatzBis: [''],
             return true;
         }
         else {
-            if((control as any).isRequired) {
+            if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {

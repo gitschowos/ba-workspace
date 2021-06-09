@@ -1,20 +1,29 @@
 <div [formGroup]="fGroup">
-        (
-        Anzahl Sitzplätze
-        
-            
-            
-                <ct-sitzplatz-von [fControl]="getFormControl('sitzplatzVon')" ></ct-sitzplatz-von>
-            
-            
-        
-             <div *ngIf="hasLegalValue('sitzplatzVon')"> 
-            
-                <ct-sitzplatz-bis [fControl]="getFormControl('sitzplatzBis')" ></ct-sitzplatz-bis>
-            
-             </div> 
-        
-        )
     <p>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="group-title"> Anzahl Sitzplätze </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+            
+                
+                
+                    <div>
+                    <ct-sitzplatz-von [fControl]="getFormControl('sitzplatzVon')" ></ct-sitzplatz-von>
+                    </div>
+                
+                
+            
+                 <div *ngIf="hasLegalValue('sitzplatzVon')"> 
+                
+                    <div>
+                    <ct-sitzplatz-bis [fControl]="getFormControl('sitzplatzBis')" ></ct-sitzplatz-bis>
+                    </div>
+                
+                 </div> 
+            
+            </ng-template>
+        </mat-expansion-panel>
+    </p>
 </div>
 

@@ -1,20 +1,29 @@
 <div [formGroup]="fGroup">
-        (
-        Fahrzeugzustand
-        
-            
-            
-                <ct-neu [fControl]="getFormControl('neu')" ></ct-neu>
-            
-            
-        
-            
-            
-                <ct-gebraucht [fControl]="getFormControl('gebraucht')" ></ct-gebraucht>
-            
-            
-        
-        )
     <p>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="group-title"> Fahrzeugzustand </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+            
+                
+                
+                    <div>
+                    <ct-neu [fControl]="getFormControl('neu')" ></ct-neu>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-gebraucht [fControl]="getFormControl('gebraucht')" ></ct-gebraucht>
+                    </div>
+                
+                
+            
+            </ng-template>
+        </mat-expansion-panel>
+    </p>
 </div>
 

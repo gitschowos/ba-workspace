@@ -3,7 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'ct-sitzplaetze-auswahl',
-    templateUrl: './sitzplaetze-auswahl.component.html'
+    templateUrl: './sitzplaetze-auswahl.component.html',
+    styles: [".group-title { font-weight: bold; }"]
 })
 export class SitzplaetzeAuswahlComponent implements OnInit {
     @Input() fGroup!: FormGroup;
@@ -36,7 +37,7 @@ export class SitzplaetzeAuswahlComponent implements OnInit {
             return true;
         }
         else {
-            if((control as any).isRequired) {
+            if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {

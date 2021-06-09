@@ -1,19 +1,18 @@
-<p>
-    <mat-form-field appearance="standard">
-        <mat-label></mat-label>
-        <input matInput
-            [formControl]="fControl"
-            type="number"
-            placeholder="bis"
-            style=""
-            
-             [matAutocomplete]="auto" 
-        >
-         
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{option}}
-                </mat-option>
-            </mat-autocomplete>
+<mat-form-field appearance="standard">
+    <mat-label></mat-label>
+    <input matInput
+        [formControl]="fControl"
+        type="number"
+        placeholder="bis"
+        style=""
         
-    </mat-form-field>
+         [matAutocomplete]="auto" 
+    >
+     
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    
+</mat-form-field>

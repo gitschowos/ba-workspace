@@ -1,62 +1,83 @@
 <div [formGroup]="fGroup">
-        (
-        Fahrzeugtyp
-        
-            
-            
-                <ct-roadster [fControl]="getFormControl('roadster')" ></ct-roadster>
-            
-            
-        
-            
-            
-                <ct-kleinwagen [fControl]="getFormControl('kleinwagen')" ></ct-kleinwagen>
-            
-            
-        
-            
-            
-                <ct-kombi [fControl]="getFormControl('kombi')" ></ct-kombi>
-            
-            
-        
-            
-            
-                <ct-limousine [fControl]="getFormControl('limousine')" ></ct-limousine>
-            
-            
-        
-            
-            
-                <ct-sportwagen [fControl]="getFormControl('sportwagen')" ></ct-sportwagen>
-            
-            
-        
-            
-            
-                <ct-suv [fControl]="getFormControl('suv')" ></ct-suv>
-            
-            
-        
-            
-            
-                <ct-van [fControl]="getFormControl('van')" ></ct-van>
-            
-            
-        
-            
-            
-                <ct-andere [fControl]="getFormControl('andere')" ></ct-andere>
-            
-            
-        
-            
-            
-                <ct-sitzplaetze-auswahl [fGroup]="getFormGroup('sitzplaetzeAuswahl')" ></ct-sitzplaetze-auswahl>
-            
-            
-        
-        )
     <p>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="group-title"> Fahrzeugtyp </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+            
+                
+                
+                    <div>
+                    <ct-roadster [fControl]="getFormControl('roadster')" ></ct-roadster>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-kleinwagen [fControl]="getFormControl('kleinwagen')" ></ct-kleinwagen>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-kombi [fControl]="getFormControl('kombi')" ></ct-kombi>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-limousine [fControl]="getFormControl('limousine')" ></ct-limousine>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-sportwagen [fControl]="getFormControl('sportwagen')" ></ct-sportwagen>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-suv [fControl]="getFormControl('suv')" ></ct-suv>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-van [fControl]="getFormControl('van')" ></ct-van>
+                    </div>
+                
+                
+            
+                
+                
+                    <div>
+                    <ct-andere [fControl]="getFormControl('andere')" ></ct-andere>
+                    </div>
+                
+                
+            
+                 <div *ngIf="hasLegalValue('van')"> 
+                
+                    <ct-sitzplaetze-auswahl [fGroup]="getFormGroup('sitzplaetzeAuswahl')" ></ct-sitzplaetze-auswahl>
+                
+                 </div> 
+            
+            </ng-template>
+        </mat-expansion-panel>
+    </p>
 </div>
 

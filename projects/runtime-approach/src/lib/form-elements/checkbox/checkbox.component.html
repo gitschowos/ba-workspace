@@ -1,6 +1,12 @@
-<mat-checkbox [formControl]="fControl" 
-    [required]="options.required" 
-    [style]="options.styling"
-    [disabled]="fControl.disabled">
-    {{element.label}}
-</mat-checkbox>
+<div *ngIf="!options.showAsSwitch; else elseBlock">
+    <mat-checkbox [formControl]="fControl" [required]="options.required" [style]="options.styling"
+        [disabled]="fControl.disabled">
+        {{element.label}}
+    </mat-checkbox>
+</div>
+<ng-template #elseBlock>
+    <mat-slide-toggle [formControl]="fControl" [required]="options.required" [style]="options.styling"
+        [disabled]="fControl.disabled">
+        {{element.label}}
+    </mat-slide-toggle>
+</ng-template>

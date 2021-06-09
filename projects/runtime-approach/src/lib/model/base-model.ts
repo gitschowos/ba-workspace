@@ -81,9 +81,11 @@ export class RadioOptions extends FormElementOptions {
 }
 
 export class CheckboxOptions extends FormElementOptions {
+    showAsSwitch: boolean;
 
     constructor(source: any) {
         super(source);
+        this.showAsSwitch = parseAttribute(source, 'showAsSwitch', false, false) as boolean;
     }
 }
 

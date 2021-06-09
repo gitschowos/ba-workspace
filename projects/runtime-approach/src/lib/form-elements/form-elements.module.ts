@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -27,6 +28,7 @@ import { RadioComponent } from './radio/radio.component';
         ReactiveFormsModule,
         MatAutocompleteModule,
         MatCheckboxModule,
+        MatSlideToggleModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,

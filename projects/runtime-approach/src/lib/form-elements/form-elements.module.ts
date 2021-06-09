@@ -6,15 +6,18 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 @NgModule({
     declarations: [
         InputFieldComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        DropdownComponent
     ],
     imports: [
         CommonModule,
@@ -23,10 +26,12 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
         MatCheckboxModule,
         MatFormFieldModule,
         MatInputModule,
+        MatSelectModule
     ],
     exports: [
         InputFieldComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        DropdownComponent
     ]
 })
 export class FormElementsModule { }

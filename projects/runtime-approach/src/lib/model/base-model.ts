@@ -1,7 +1,8 @@
 export enum FormElementType {
     group = 'group',
     input = 'input',
-    checkbox = 'checkbox'
+    checkbox = 'checkbox',
+    dropdown = 'dropdown'
 }
 
 export abstract class BaseOptions {
@@ -31,7 +32,7 @@ export class GroupOptions extends BaseOptions {
     constructor(source: any) {
         super(source);
         source = parseAttribute(source, 'childs', true);
-        if(!Array.isArray(source)) {
+        if (!Array.isArray(source)) {
             throw new Error("childs must be an array");
         }
         this.childs = [];
@@ -56,8 +57,20 @@ export class InputFieldOptions extends FormElementOptions {
     }
 }
 
+export class DropdownOptions extends FormElementOptions {
+    values: Suggestions;
+    multiple: boolean
+
+    constructor(source: any) {
+        super(source);
+        const values = parseAttribute(source, 'values', true);
+        this.values = new Suggestions(values);
+        this.multiple = parseAttribute(source, 'multiple', false, false) as boolean;
+    }
+}
+
 export class CheckboxOptions extends FormElementOptions {
-    
+
     constructor(source: any) {
         super(source);
     }
@@ -103,7 +116,7 @@ export class FormElement {
 
         const options = parseAttribute(source, 'options', true);
 
-        switch(this.type) {
+        switch (this.type) {
             case FormElementType.group:
                 this.options = new GroupOptions(options);
                 break;
@@ -112,6 +125,9 @@ export class FormElement {
                 break;
             case FormElementType.checkbox:
                 this.options = new CheckboxOptions(options);
+                break;
+            case FormElementType.dropdown:
+                this.options = new DropdownOptions(options);
                 break;
             default:
                 throw new Error(typeString + " is not supported");
@@ -127,13 +143,13 @@ export class Specification {
 
     constructor(source: any) {
         this.title = parseAttribute(source, 'title', false, '');
-        
+
         this.showClearButton = parseAttribute(source, 'showClearButton', false, false);
         this.showResetButton = parseAttribute(source, 'showResetButton', false, false);
 
         const content = parseAttribute(source, 'content', true);
         let elements: FormElement[] = [];
-        if(!Array.isArray(content)) {
+        if (!Array.isArray(content)) {
             throw new Error("content attribute must be an array of FormElements.");
         }
         content.forEach(element => {

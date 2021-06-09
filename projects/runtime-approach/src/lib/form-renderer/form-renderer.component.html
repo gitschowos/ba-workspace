@@ -25,6 +25,10 @@
                 <lib-checkbox [fControl]="getFormControl(element.id)" [element]="element">
                 </lib-checkbox>
             </div>
+            <div *ngSwitchCase="'dropdown'">
+                <lib-dropdown [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-dropdown>
+            </div>
 
 
             <div *ngSwitchDefault>

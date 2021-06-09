@@ -148,6 +148,15 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type":"dropdown",
+                        "id":"tueren",
+                        "label":"Anzahl Türen",
+                        "options":{
+                            "values": ["2/3", "4/5", "6/7"],
+                            "multiple":true
+                        }
                     }
                 ]
             }

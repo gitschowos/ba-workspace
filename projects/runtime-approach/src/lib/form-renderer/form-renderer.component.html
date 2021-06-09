@@ -29,6 +29,10 @@
                 <lib-dropdown [fControl]="getFormControl(element.id)" [element]="element">
                 </lib-dropdown>
             </div>
+            <div *ngSwitchCase="'radio'">
+                <lib-radio [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-radio>
+            </div>
 
 
             <div *ngSwitchDefault>

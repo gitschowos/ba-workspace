@@ -7,17 +7,20 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { RadioComponent } from './radio/radio.component';
 
 
 @NgModule({
     declarations: [
         InputFieldComponent,
         CheckboxComponent,
-        DropdownComponent
+        DropdownComponent,
+        RadioComponent
     ],
     imports: [
         CommonModule,
@@ -26,12 +29,14 @@ import { DropdownComponent } from './dropdown/dropdown.component';
         MatCheckboxModule,
         MatFormFieldModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        MatRadioModule
     ],
     exports: [
         InputFieldComponent,
         CheckboxComponent,
-        DropdownComponent
+        DropdownComponent,
+        RadioComponent
     ]
 })
 export class FormElementsModule { }

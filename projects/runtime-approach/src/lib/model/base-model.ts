@@ -2,7 +2,8 @@ export enum FormElementType {
     group = 'group',
     input = 'input',
     checkbox = 'checkbox',
-    dropdown = 'dropdown'
+    dropdown = 'dropdown',
+    radio = 'radio'
 }
 
 export abstract class BaseOptions {
@@ -69,6 +70,16 @@ export class DropdownOptions extends FormElementOptions {
     }
 }
 
+export class RadioOptions extends FormElementOptions {
+    pickingOptions: Suggestions;
+
+    constructor(source: any) {
+        super(source);
+        const values = parseAttribute(source, 'pickingOptions', true);
+        this.pickingOptions = new Suggestions(values);
+    }
+}
+
 export class CheckboxOptions extends FormElementOptions {
 
     constructor(source: any) {
@@ -128,6 +139,9 @@ export class FormElement {
                 break;
             case FormElementType.dropdown:
                 this.options = new DropdownOptions(options);
+                break;
+            case FormElementType.radio:
+                this.options = new RadioOptions(options);
                 break;
             default:
                 throw new Error(typeString + " is not supported");

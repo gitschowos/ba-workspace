@@ -160,6 +160,31 @@
                     }
                 ]
             }
+        },
+        {
+            "type":"group",
+            "id":"others",
+            "label":"Weitere Optionen",
+            "options":{
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"first-registration",
+                        "label":"Erstzulassung ab",
+                        "options":{
+                            "inputType":"date"
+                        }
+                    },
+                    {
+                        "type":"radio",
+                        "id":"engine",
+                        "label":"Antriebsart",
+                        "options":{
+                            "pickingOptions":"api/engines"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "showClearButton": false,

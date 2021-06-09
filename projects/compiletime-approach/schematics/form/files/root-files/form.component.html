@@ -8,7 +8,9 @@
             <% if (element.type === 'group') { %>
                 <ct-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
             <% } else { %>
+                <div>
                 <ct-<%= dasherize(element.id) %> [fControl]="getFormControl('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+                </div>
             <% } %>
             <% if (element.options.displayCond !== '') { %> </div> <% } %>
         <% } %>

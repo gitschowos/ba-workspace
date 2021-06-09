@@ -30,6 +30,11 @@ sitzplaetzeAuswahl: this.fb.group({
 sitzplatzVon: [''],
 sitzplatzBis: [''],
 }),
+tueren: [''],
+}),
+others: this.fb.group({
+firstRegistration: [''],
+engine: ['Benzin'],
 }),
 
     });

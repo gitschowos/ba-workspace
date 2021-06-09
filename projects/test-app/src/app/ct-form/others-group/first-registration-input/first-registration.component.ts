@@ -5,10 +5,10 @@ import { element } from 'protractor';
 
 
 @Component({
-    selector: 'ct-variante',
-    templateUrl: './variante.component.html'
+    selector: 'ct-first-registration',
+    templateUrl: './first-registration.component.html'
 })
-export class VarianteComponent implements OnInit {
+export class FirstRegistrationComponent implements OnInit {
     @Input() fControl!: FormControl;
     
     constructor(

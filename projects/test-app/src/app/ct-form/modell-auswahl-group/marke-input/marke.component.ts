@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { element } from 'protractor';
  
-import { ApiService } from '../../api.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+
 
 
 @Component({
@@ -14,7 +15,7 @@ export class MarkeComponent implements OnInit {
     @Input() fControl!: FormControl;
     
     constructor(
-         private api: ApiService 
+        
     ) { }
 
     ngOnInit(): void {

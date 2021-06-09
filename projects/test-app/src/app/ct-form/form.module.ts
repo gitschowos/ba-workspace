@@ -2,18 +2,18 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { FormComponent } from './form.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 import { ZustandAuswahlComponent } from './zustand-auswahl-group/zustand-auswahl.component';
@@ -54,6 +54,14 @@ import { SitzplatzVonComponent } from './typ-auswahl-group/sitzplaetze-auswahl-g
 
 import { SitzplatzBisComponent } from './typ-auswahl-group/sitzplaetze-auswahl-group/sitzplatz-bis-input/sitzplatz-bis.component';
 
+import { TuerenComponent } from './typ-auswahl-group/tueren-dropdown/tueren.component';
+
+import { OthersComponent } from './others-group/others.component';
+
+import { FirstRegistrationComponent } from './others-group/first-registration-input/first-registration.component';
+
+import { EngineComponent } from './others-group/engine-radio/engine.component';
+
 
 @NgModule({
     declarations: [ 
@@ -77,23 +85,26 @@ import { SitzplatzBisComponent } from './typ-auswahl-group/sitzplaetze-auswahl-g
         AndereComponent,  
         SitzplaetzeAuswahlComponent,  
         SitzplatzVonComponent,  
-        SitzplatzBisComponent,   
+        SitzplatzBisComponent,  
+        TuerenComponent,  
+        OthersComponent,  
+        FirstRegistrationComponent,  
+        EngineComponent,   
     ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(
-            InMemoryDataService, { dataEncapsulation: false }
-            ),
-            
-            
+        
+        MatExpansionModule,
+        MatButtonModule,
         MatAutocompleteModule,
         MatCheckboxModule,
+        MatSlideToggleModule,
         MatFormFieldModule,
         MatInputModule,
-        MatButtonModule,
-        MatExpansionModule
+        MatSelectModule,
+        MatRadioModule
     ],
     exports: [ FormComponent ]
 })

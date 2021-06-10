@@ -11,12 +11,14 @@ import { FormElementsModule } from './form-elements/form-elements.module';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { FormFillerComponent } from './form-filler/form-filler.component';
 
 @NgModule({
     declarations: [
         RuntimeApproachComponent,
         DynamicFormComponent,
-        FormRendererComponent
+        FormRendererComponent,
+        FormFillerComponent
     ],
     imports: [
         CommonModule,

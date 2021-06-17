@@ -1,9 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { DropdownOptions, FormElement, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification } from '../model/base-model';
+import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification } from '../model/base-model';
 import { SuggestionsService } from '../suggestions.service';
 
 import _ from 'lodash'
+
+interface ElementToFill {
+    control: FormControl,
+    possibleValues: any[],
+    exampleValue?: any
+}
 
 @Component({
     selector: 'lib-form-filler',
@@ -14,24 +20,28 @@ export class FormFillerComponent implements OnInit {
     @Input() fGroup!: FormGroup;
     @Input() specification!: Specification;
 
-    elementsToFill: {
-        control: FormControl,
-        possibleValues: any[]
-    }[] = [];
+    useExamples!: FormControl;
+
+    elementsToFill: ElementToFill[] = [];
 
     constructor(
         private suggestions: SuggestionsService
     ) { }
 
     ngOnInit(): void {
+        this.useExamples = new FormControl(false);
         this.setupFillingElements(this.specification.content, this.fGroup);
     }
 
     fillForm(): void {
         for (const element of this.elementsToFill) {
-            if (element.possibleValues.length > 0) {
-                const value = _.sample(element.possibleValues);
-                element.control.setValue(value);
+            if (this.useExamples.value && element.exampleValue !== undefined) {
+                element.control.setValue(element.exampleValue);
+            } else { //dont use the examples
+                if (element.possibleValues.length > 0) {
+                    const value = _.sample(element.possibleValues);
+                    element.control.setValue(value);
+                }
             }
         }
     }
@@ -49,19 +59,28 @@ export class FormFillerComponent implements OnInit {
             }
             else {  // control is FormControl
                 let possibleValues: any[] = [];
+                const options = element.options as FormElementOptions;
                 switch (element.type) {
 
                     case FormElementType.checkbox:
                         possibleValues = [true, false];
-                        this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
+                        let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                        if (options.exampleValue !== undefined) {
+                            elementToFill.exampleValue = options.exampleValue;
+                        }
+                        this.elementsToFill.push(elementToFill);
                         break;
 
                     case FormElementType.radio:
                         this.suggestions.getSuggestions((element.options as RadioOptions).pickingOptions).subscribe(values => {
                             possibleValues = Object.assign([], values);
                             possibleValues.push('');
-                            this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
-                        })
+                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                            if (options.exampleValue !== undefined) {
+                                elementToFill.exampleValue = options.exampleValue;
+                            }
+                            this.elementsToFill.push(elementToFill);
+                        });
                         break;
 
                     case FormElementType.dropdown:
@@ -75,8 +94,12 @@ export class FormFillerComponent implements OnInit {
                                     possibleValues.push(_.sampleSize(values, i));
                                 }
                             }
-                            this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
-                        })
+                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                            if (options.exampleValue !== undefined) {
+                                elementToFill.exampleValue = options.exampleValue;
+                            }
+                            this.elementsToFill.push(elementToFill);
+                        });
                         break;
 
                     case FormElementType.input:
@@ -86,10 +109,18 @@ export class FormFillerComponent implements OnInit {
                         if (autocomplete !== undefined) {
                             this.suggestions.getSuggestions(autocomplete).subscribe(values => {
                                 values.forEach(value => possibleValues.push(value));
-                                this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
-                            })
+                                let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                                if (options.exampleValue !== undefined) {
+                                    elementToFill.exampleValue = options.exampleValue;
+                                }
+                                this.elementsToFill.push(elementToFill);
+                            });
                         } else {
-                            this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
+                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                            if (options.exampleValue !== undefined) {
+                                elementToFill.exampleValue = options.exampleValue;
+                            }
+                            this.elementsToFill.push(elementToFill);
                         }
                         break;
 
@@ -97,7 +128,6 @@ export class FormFillerComponent implements OnInit {
                         console.warn('No example form filling supported for type ' + element.type);
                         break;
                 }
-                //this.elementsToFill.push({ control: control as FormControl, possibleValues: possibleValues });
             }
         }
     }

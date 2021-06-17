@@ -12,7 +12,8 @@
                         "id": "regular-checkbox",
                         "label": "Regular",
                         "options": {
-                            "showAsSwitch": false
+                            "showAsSwitch": false,
+                            "exampleValue": true
                         }
                     },
                     {
@@ -20,7 +21,8 @@
                         "id": "slider-checkbox",
                         "label": "As Slider",
                         "options": {
-                            "showAsSwitch": true
+                            "showAsSwitch": true,
+                            "exampleValue": false
                         }
                     },
                     {
@@ -75,7 +77,8 @@
                                 "Berlin",
                                 "Hamburg",
                                 "Hannover"
-                            ]
+                            ],
+                            "exampleValue":"Hamburg"
                         }
                     },
                     {
@@ -130,7 +133,8 @@
                                 "Berlin",
                                 "Hamburg",
                                 "Hannover"
-                            ]
+                            ],
+                            "exampleValue":"Hamburg"
                         }
                     },
                     {
@@ -185,7 +189,9 @@
                         "type":"input",
                         "id":"regular-input",
                         "label":"Regular Input",
-                        "options":{}
+                        "options":{
+                            "exampleValue":"Beispieleingabe"
+                        }
                     },
                     {
                         "type":"input",

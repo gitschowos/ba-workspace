@@ -4,14 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormElementsModule } from './form-elements/form-elements.module';
 import { RuntimeApproachComponent } from './runtime-approach.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { FormRendererComponent } from './form-renderer/form-renderer.component';
-import { FormElementsModule } from './form-elements/form-elements.module';
+import { FormFillerComponent } from './form-filler/form-filler.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { FormFillerComponent } from './form-filler/form-filler.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [
@@ -28,7 +30,9 @@ import { FormFillerComponent } from './form-filler/form-filler.component';
         BrowserAnimationsModule,
 
         MatButtonModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatCheckboxModule,
+        MatDividerModule
     ],
     exports: [
         RuntimeApproachComponent

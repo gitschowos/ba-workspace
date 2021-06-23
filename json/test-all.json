@@ -107,11 +107,7 @@
                         "id": "required-radio",
                         "label": "Required",
                         "options": {
-                            "pickingOptions": [
-                                "Berlin",
-                                "Hamburg",
-                                "Hannover"
-                            ],
+                            "pickingOptions": "api/engines",
                             "required": true
                         }
                     }
@@ -158,6 +154,19 @@
                         "type": "dropdown",
                         "id": "multiple-dropdown",
                         "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-api",
+                        "label": "Dropdown with multiple selection (from API)",
                         "options": {
                             "values": "api/cities",
                             "multiple": true

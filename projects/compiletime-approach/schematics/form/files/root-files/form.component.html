@@ -19,7 +19,12 @@
         <% if (specification.showClearButton) { %> <button mat-button color="primary" type="reset">Löschen</button> <% } %>
         <button mat-raised-button color="primary" type="submit" [disabled]="!fGroup.valid">Absenden</button>
     </form>
-    <p>
-        {{formValue | json}}
-    </p>
 </div>
+<p></p>
+<mat-divider></mat-divider>
+<div>
+    <ct-form-filler [fGroup]="fGroup"></ct-form-filler>
+</div>
+<p>
+    {{formValue | json}}
+</p>

@@ -2,7 +2,7 @@ import { Rule, Tree, SchematicsException, apply, url, template, move, chain, mer
 import { strings, workspaces, virtualFs, normalize } from '@angular-devkit/core'
 
 import { Schema } from './schema';
-import { FormElement, FormElementType, GroupOptions, Specification } from './base-model';
+import { DropdownOptions, FormElement, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification, Suggestions } from './base-model';
 import * as helpers from './helpers';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
@@ -52,9 +52,42 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
         );
 
         if (element.type === FormElementType.group) {
-            createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports, 
-            basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../');
+            createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports,
+                basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../');
         }
+    }
+}
+
+function collectApiUrls(elements: FormElement[], apiUrls: string[]) {
+    for (const element of elements) {
+        let values: Suggestions;
+        switch (element.type) {
+            case FormElementType.group:
+                collectApiUrls((element.options as GroupOptions).childs, apiUrls);
+                continue;
+            case FormElementType.input:
+                const autocomplete = (element.options as InputFieldOptions).autocomplete;
+                if(autocomplete === undefined) {
+                    continue;
+                } else {
+                    values = autocomplete;
+                    break;
+                }
+            case FormElementType.radio:
+                values = (element.options as RadioOptions).pickingOptions;
+                break;
+            case FormElementType.dropdown:
+                values = (element.options as DropdownOptions).values;
+                break;
+            default:
+                continue;
+        }
+        if (!values.isHardcoded()) {
+            const url = values.content as string;
+            if(!apiUrls.includes(url)) {
+                apiUrls.push(url);
+            }
+        }        
     }
 }
 
@@ -101,6 +134,9 @@ export function form(options: Schema): Rule {
         createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '', '../');
 
 
+        let apiUrls: string[] = [];
+        collectApiUrls(specification.content, apiUrls); // for example generator
+
         const templateSource = apply(url('./files/root-files'), [
             template({
                 classify: strings.classify,
@@ -109,7 +145,8 @@ export function form(options: Schema): Rule {
                 specification,
                 helpers,
                 componentNames,
-                componentImports
+                componentImports,
+                apiUrls
             }),
             move(normalize((options.destinationPath as string) + '/ct-form'))
         ]);

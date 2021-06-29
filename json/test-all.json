@@ -248,6 +248,23 @@
                     }
                 ]
             }
+        },
+        {
+            "type":"group",
+            "id":"chip-lists",
+            "label":"Chips",
+            "options":{
+                "childs":[
+                    {
+                        "type":"chiplist",
+                        "id":"regular-chiplist",
+                        "label":"Regular chiplist",
+                        "options":{
+                            
+                        }
+                    }
+                ]
+            }
         }
     ],
     "showClearButton": false,

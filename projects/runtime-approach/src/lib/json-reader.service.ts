@@ -16,6 +16,14 @@ export class JsonReaderService {
     }
 
     private parseSpecification(source: unknown): Specification {
-        return new Specification(source);
+        try {
+            return new Specification(source);
+        } catch (error) {
+            console.error(error);
+            return new Specification({
+                title: "- Error in json specification -",
+                content: []
+            })
+        }
     }
 }

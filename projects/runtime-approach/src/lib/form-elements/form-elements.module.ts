@@ -9,11 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { RadioComponent } from './radio/radio.component';
+import { ChiplistComponent } from './chiplist/chiplist.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { RadioComponent } from './radio/radio.component';
         InputFieldComponent,
         CheckboxComponent,
         DropdownComponent,
-        RadioComponent
+        RadioComponent,
+        ChiplistComponent
     ],
     imports: [
         CommonModule,
@@ -32,13 +36,16 @@ import { RadioComponent } from './radio/radio.component';
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
-        MatRadioModule
+        MatRadioModule,
+        MatChipsModule,
+        MatIconModule
     ],
     exports: [
         InputFieldComponent,
         CheckboxComponent,
         DropdownComponent,
-        RadioComponent
+        RadioComponent,
+        ChiplistComponent
     ]
 })
 export class FormElementsModule { }

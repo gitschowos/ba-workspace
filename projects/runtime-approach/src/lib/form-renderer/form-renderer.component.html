@@ -33,6 +33,10 @@
                 <lib-radio [fControl]="getFormControl(element.id)" [element]="element">
                 </lib-radio>
             </div>
+            <div *ngSwitchCase="'chiplist'">
+                <lib-chiplist [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-chiplist>
+            </div>
 
 
             <div *ngSwitchDefault>

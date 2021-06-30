@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import _ from 'lodash';
 import { CreateFormControlService } from '../create-form-control.service';
 import { Specification } from '../model/base-model';
 
@@ -32,7 +33,7 @@ export class DynamicFormComponent implements OnInit {
     }
 
     onReset(): void {
-        this.fGroup.setValue(this.initialValue);
+        this.fGroup.setValue(_.cloneDeep(this.initialValue));
     }
 
     //for the activateControl param of the root renderer

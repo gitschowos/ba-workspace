@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormElement, FormElementOptions, FormElementType, GroupOptions, Specification } from './model/base-model';
+import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, Specification } from './model/base-model';
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +27,7 @@ export class CreateFormControlService {
             }
             else {
                 if (element.value === undefined) {
-                    element.value = '';
+                    element.value = this.getInitialValue(element);
                 }
 
                 if ((element.options as FormElementOptions).required) {
@@ -102,5 +102,19 @@ export class CreateFormControlService {
             throw new Error("No AbstractControl found for id " + id);
         }
         return control;
+    }
+
+    private getInitialValue(element: FormElement): any {
+        switch(element.type) {
+            case FormElementType.dropdown:
+                if((element.options as DropdownOptions).multiple) {
+                    return [];
+                }
+                return '';
+            case FormElementType.chiplist:
+                return [];
+            default:
+                return '';
+        }
     }
 }

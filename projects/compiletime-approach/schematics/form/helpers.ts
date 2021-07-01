@@ -3,13 +3,28 @@ import _ from 'lodash';
 import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions } from "./base-model";
 
 export const createFormControlString = (element: FormElement): string => {
-    const value = element.value === undefined ? getInitialValueString(element) : `'${element.value}'`;
+    const value = element.value === undefined ? getInitialValueString(element) : getValueString(element.value);
     let validator = '';
     if ((element.options as FormElementOptions).required) {
         validator = ', Validators.required';
     }
     return `${strings.camelize(element.id)}: [${value}${validator}],`
 };
+
+const getValueString = (value: any): string => {
+    let res = '';
+    if(Array.isArray(value)) {
+        res = '[';
+        value.forEach((element) => {
+            res += "'" + element + "',";
+        });
+        res += ']';
+    }
+    else {
+        res = "'" + value + "'";
+    }
+    return res;
+}
 
 const getInitialValueString = (element: FormElement): string => {
     switch(element.type) {

@@ -33,7 +33,6 @@ export class <%= classify(element.id) %>Component implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.fControl.setValue([]);
         <% if(element.options.suggestions.isHardcoded()) { %> 
             <% for (let suggestion of element.options.suggestions.content) { %>
             this.allSuggestions.push('<%= suggestion %>'); <% } %>

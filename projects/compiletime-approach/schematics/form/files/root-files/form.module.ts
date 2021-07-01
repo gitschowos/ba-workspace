@@ -16,6 +16,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 <% for (const i of componentImports) { %>
 <%= i %> <% } %>
@@ -41,7 +43,9 @@ import { MatDividerModule } from '@angular/material/divider';
         MatInputModule,
         MatSelectModule,
         MatRadioModule,
-        MatDividerModule
+        MatDividerModule,
+        MatChipsModule,
+        MatIconModule
     ],
     exports: [ FormComponent ]
 })

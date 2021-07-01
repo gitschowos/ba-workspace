@@ -3,13 +3,27 @@ import _ from 'lodash';
 import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions } from "./base-model";
 
 export const createFormControlString = (element: FormElement): string => {
-    const value = element.value === undefined ? "''" : `'${element.value}'`;
+    const value = element.value === undefined ? getInitialValueString(element) : `'${element.value}'`;
     let validator = '';
     if ((element.options as FormElementOptions).required) {
         validator = ', Validators.required';
     }
     return `${strings.camelize(element.id)}: [${value}${validator}],`
 };
+
+const getInitialValueString = (element: FormElement): string => {
+    switch(element.type) {
+        case FormElementType.dropdown:
+            if((element.options as DropdownOptions).multiple) {
+                return "[]";
+            }
+            return "''";
+        case FormElementType.chiplist:
+            return "[]";
+        default:
+            return "''";
+    }
+}
 
 export const createFormGroupString = (elements: FormElement[]): string => {
     let result = '';

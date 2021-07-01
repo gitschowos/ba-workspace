@@ -30,8 +30,6 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
     basePath: string, currPath: string, pathToRoot: string) {
     const templatePath = './files/form-element-templates/';
     for (const element of elements) {
-        //element.options = element.options as CheckboxOptions;
-
         const templateSource = apply(url(templatePath + element.type), [
             template({
                 classify: strings.classify,

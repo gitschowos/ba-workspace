@@ -3,7 +3,8 @@ export enum FormElementType {
     input = 'input',
     checkbox = 'checkbox',
     dropdown = 'dropdown',
-    radio = 'radio'
+    radio = 'radio',
+    chiplist = 'chiplist'
 }
 
 export abstract class BaseOptions {
@@ -91,6 +92,22 @@ export class CheckboxOptions extends FormElementOptions {
     }
 }
 
+export class ChipListOptions extends FormElementOptions {
+    suggestions: Suggestions;
+    placeholder: string;
+    removable: boolean;
+    onlySuggestions: boolean;
+
+    constructor(source: any) {
+        super(source);
+        const suggestions = parseAttribute(source, 'suggestions', true);
+        this.suggestions = new Suggestions(suggestions);
+        this.placeholder = parseAttribute(source, 'placeholder', false, '');
+        this.removable = parseAttribute(source, 'removable', false, false);
+        this.onlySuggestions = parseAttribute(source, 'onlySuggestions', false, false);
+    }
+}
+
 export class Suggestions {
     content: string[] | string;     //hardcoded array or string with api url
 
@@ -127,7 +144,7 @@ export class FormElement {
 
         this.id = parseAttribute(source, 'id', true);
         this.label = parseAttribute(source, 'label', false, this.id);
-        this.value = parseAttribute(source, 'value', false, '');
+        this.value = parseAttribute(source, 'value', false, undefined);
 
         const options = parseAttribute(source, 'options', true);
 
@@ -146,6 +163,9 @@ export class FormElement {
                 break;
             case FormElementType.radio:
                 this.options = new RadioOptions(options);
+                break;
+            case FormElementType.chiplist:
+                this.options = new ChipListOptions(options);
                 break;
             default:
                 throw new Error(typeString + " is not supported");

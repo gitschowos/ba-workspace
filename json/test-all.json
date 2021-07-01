@@ -263,7 +263,8 @@
                         "label":"Regular chiplist",
                         "options":{
                             "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
-                            "placeholder":"Früchte auswählen..."
+                            "placeholder":"Früchte auswählen...",
+                            "exampleValue":["Blaubeere", "Schwarzbeere", "Beispielbeere"]
                         }
                     },
                     {

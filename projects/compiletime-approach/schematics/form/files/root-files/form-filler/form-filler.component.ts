@@ -43,8 +43,7 @@ export class FormFillerComponent implements OnInit {
             });
         }
 
-        this.elementsToFill = [
-            <%= helpers.createElementsToFill(specification.content, '') %>];
+        this.elementsToFill = this.getElementsToFill();
     }
 
     fillForm(): void {
@@ -73,5 +72,10 @@ export class FormFillerComponent implements OnInit {
             throw new Error("No FormControl found for id " + id);
         }
         return control;
+    }
+
+    private getElementsToFill(): ElementToFill[] {
+        return [
+            <%= helpers.createElementsToFill(specification.content, '') %>];
     }
 }

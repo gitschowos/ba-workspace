@@ -103,7 +103,7 @@ export class ChipListOptions extends FormElementOptions {
         const suggestions = parseAttribute(source, 'suggestions', true);
         this.suggestions = new Suggestions(suggestions);
         this.placeholder = parseAttribute(source, 'placeholder', false, '');
-        this.removable = parseAttribute(source, 'removable', false, false);
+        this.removable = parseAttribute(source, 'removable', false, true);
         this.onlySuggestions = parseAttribute(source, 'onlySuggestions', false, false);
     }
 }

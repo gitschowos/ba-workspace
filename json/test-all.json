@@ -262,11 +262,48 @@
                         "id":"regular-chiplist",
                         "label":"Regular chiplist",
                         "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"api-chiplist",
+                        "label":"Chiplist with API-call",
+                        "options":{
                             "suggestions":"api/cities",
-                            "removable":true,
-                            "placeholder":"write down a city",
-                            "onlySuggestions":true,
-                            "required":true
+                            "placeholder":"Städte ausählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"not-removable-chiplist",
+                        "label":"Chiplist with non-removable chips",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "removable": false
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"only-suggestions-chiplist",
+                        "label":"Chiplist with only Suggestion-chips are valid and predefined",
+                        "value": ["Brombeere", "Apfel"],
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "onlySuggestions": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"required-chiplist",
+                        "label":"Required",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "required": true
                         }
                     }
                 ]

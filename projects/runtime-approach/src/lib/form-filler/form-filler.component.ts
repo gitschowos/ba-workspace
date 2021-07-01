@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification } from '../model/base-model';
+import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification } from '../model/base-model';
 import { SuggestionsService } from '../suggestions.service';
 
 import _ from 'lodash'
@@ -103,7 +103,7 @@ export class FormFillerComponent implements OnInit {
                         break;
 
                     case FormElementType.input:
-                        possibleValues.push(Math.random().toString(36).substr(2));
+                        possibleValues.push(this.generateRandomString());
                         possibleValues.push('');
                         const autocomplete = (element.options as InputFieldOptions).autocomplete;
                         if (autocomplete !== undefined) {
@@ -124,11 +124,32 @@ export class FormFillerComponent implements OnInit {
                         }
                         break;
 
+                    case FormElementType.chiplist:
+                        const chipListOptions = options as ChipListOptions;
+                        if (!chipListOptions.onlySuggestions) {
+                            possibleValues.push([this.generateRandomString()]);
+                        }
+                        this.suggestions.getSuggestions(chipListOptions.suggestions).subscribe(values => {
+                            for (let i = 0; i <= values.length; i++) {
+                                possibleValues.push(_.sampleSize(values, i));
+                            }
+                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
+                            if (options.exampleValue !== undefined) {
+                                elementToFill.exampleValue = options.exampleValue;
+                            }
+                            this.elementsToFill.push(elementToFill);
+                        });
+                        break;
+
                     default:
                         console.warn('No example form filling supported for type ' + element.type);
                         break;
                 }
             }
         }
+    }
+
+    private generateRandomString(): string {
+        return Math.random().toString(36).substr(2);
     }
 }

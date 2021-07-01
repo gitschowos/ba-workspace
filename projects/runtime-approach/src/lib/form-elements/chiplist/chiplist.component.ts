@@ -1,12 +1,12 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { COMMA, ENTER, TAB } from '@angular/cdk/keycodes';
-import { ChipListOptions, FormElement } from '../../model/base-model';
-import { SuggestionsService } from '../../suggestions.service';
+import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ChipListOptions, FormElement } from '../../model/base-model';
+import { SuggestionsService } from '../../suggestions.service';
 
 @Component({
     selector: 'lib-chiplist',
@@ -23,8 +23,6 @@ export class ChiplistComponent implements OnInit {
     allSuggestions: string[] = [];
     filteredSuggestions!: Observable<string[]>;
 
-    selectable = true;
-    removable = true;
     seperatorKeysCodes: number[] = [ENTER, COMMA, TAB];
 
     @ViewChild('chipInput') chipInput!: ElementRef<HTMLInputElement>;
@@ -35,7 +33,6 @@ export class ChiplistComponent implements OnInit {
 
     ngOnInit(): void {
         this.options = this.element.options as ChipListOptions;
-        this.fControl.setValue([]);
 
         this.suggestions.getSuggestions(this.options.suggestions).subscribe(values => {
             this.allSuggestions = values;

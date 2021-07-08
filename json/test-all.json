@@ -306,6 +306,15 @@
                             "placeholder":"Früchte auswählen...",
                             "required": true
                         }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"disabled-chiplist",
+                        "label":"Activated by Regular Chiplist",
+                        "options":{
+                            "suggestions":"api/engines",
+                            "activateCond":"regular-chiplist"
+                        }
                     }
                 ]
             }

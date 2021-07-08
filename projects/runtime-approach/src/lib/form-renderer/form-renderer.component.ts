@@ -48,13 +48,12 @@ export class FormRendererComponent implements OnInit {
             return true;
         }
         else {
-            //console.log(control);
             if((control as any).isRequired || control instanceof FormGroup) {
                 return control.valid;
             }
             else {
                 return control.value !== '' && control.value !== undefined &&
-                 control.value !== null && control.value !== false;
+                 control.value !== null && control.value !== false && control.value.length !== 0;
             }
         }
     }

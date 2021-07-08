@@ -42,7 +42,7 @@ export class <%= classify(element.id) %>Component implements OnInit {
             }
             else {
                 return control.value !== '' && control.value !== undefined &&
-                 control.value !== null && control.value !== false;
+                 control.value !== null && control.value !== false && control.value.length !== 0;
             }
         }
     }

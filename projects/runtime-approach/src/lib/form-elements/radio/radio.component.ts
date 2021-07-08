@@ -25,5 +25,10 @@ export class RadioComponent implements OnInit {
         this.suggestions.getSuggestions(this.options.pickingOptions).subscribe(values => {
             this.values = values;
         });
+        this.fControl.valueChanges.subscribe(value => {
+            if(this.values.indexOf(value) !== -1) {
+                this.fControl.markAsTouched();
+            }
+        });
     }
 }

@@ -19,6 +19,20 @@ export class CreateFormControlService {
         return formGroup;
     }
 
+    getFormControl(element: FormElement): FormControl {
+        let value = element.value;
+        if (element.value === undefined) {
+            value = this.getInitialValue(element);
+        }
+
+        if ((element.options as FormElementOptions).required) {
+            return new FormControl(value, Validators.required);
+        }
+        else {
+            return new FormControl(value);
+        }
+    }
+
     private buildFormControlsR(elements: FormElement[], group: any): any {
         for (let element of elements) {
             if (element.type === FormElementType.group) {
@@ -26,16 +40,9 @@ export class CreateFormControlService {
                     new FormGroup(this.buildFormControlsR((element.options as GroupOptions).childs, {}));
             }
             else {
-                if (element.value === undefined) {
-                    element.value = this.getInitialValue(element);
-                }
-
+                group[element.id] = this.getFormControl(element);
                 if ((element.options as FormElementOptions).required) {
-                    group[element.id] = new FormControl(element.value, Validators.required);
                     group[element.id].isRequired = true;
-                }
-                else {
-                    group[element.id] = new FormControl(element.value);
                 }
             }
         }
@@ -76,7 +83,7 @@ export class CreateFormControlService {
         }
         else {
             return control.value !== '' && control.value !== undefined &&
-             control.value !== null && control.value !== false && control.value.length !== 0;
+                control.value !== null && control.value !== false && control.value.length !== 0;
         }
     }
 
@@ -105,13 +112,17 @@ export class CreateFormControlService {
     }
 
     private getInitialValue(element: FormElement): any {
-        switch(element.type) {
+        switch (element.type) {
+            case FormElementType.checkbox:
+                return false;
             case FormElementType.dropdown:
-                if((element.options as DropdownOptions).multiple) {
+                if ((element.options as DropdownOptions).multiple) {
                     return [];
                 }
                 return '';
             case FormElementType.chiplist:
+                return [];
+            case FormElementType.table:
                 return [];
             default:
                 return '';

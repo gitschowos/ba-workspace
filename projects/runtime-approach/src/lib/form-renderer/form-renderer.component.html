@@ -15,36 +15,14 @@
                 </p>
             </div>
 
-
-
-            <div *ngSwitchCase="'input'">
-                <lib-input-field [fControl]="getFormControl(element.id)" [element]="element">
-                </lib-input-field>
-            </div>
-            <div *ngSwitchCase="'checkbox'">
-                <lib-checkbox [fControl]="getFormControl(element.id)" [element]="element">
-                </lib-checkbox>
-            </div>
-            <div *ngSwitchCase="'dropdown'">
-                <lib-dropdown [fControl]="getFormControl(element.id)" [element]="element">
-                </lib-dropdown>
-            </div>
-            <div *ngSwitchCase="'radio'">
-                <lib-radio [fControl]="getFormControl(element.id)" [element]="element">
-                </lib-radio>
-            </div>
-            <div *ngSwitchCase="'chiplist'">
-                <lib-chiplist [fControl]="getFormControl(element.id)" [element]="element">
-                </lib-chiplist>
+            <div *ngSwitchCase="'table'">
+                <lib-table [fControl]="getFormControl(element.id)" [element]="element">
+                </lib-table>
             </div>
 
 
             <div *ngSwitchDefault>
-                <!-- for debugging -->
-                default
-                {{element.type}}
-                <br>
-                {{element.type.toString()}}
+                <lib-form-element-renderer [element]="element" [control]="getFormControl(element.id)"></lib-form-element-renderer>
             </div>
         </div>
     </div>

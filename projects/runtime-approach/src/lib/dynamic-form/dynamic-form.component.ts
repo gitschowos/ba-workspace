@@ -25,7 +25,7 @@ export class DynamicFormComponent implements OnInit {
         this.fGroup = this.createFormControl.createFormControls(this.formSpecification);
         //console.log(this.fGroup.value);
         this.formValue = "";
-        this.initialValue = this.fGroup.getRawValue();
+        this.initialValue = _.cloneDeep(this.fGroup.getRawValue());
     }
 
     onSubmit(): void {

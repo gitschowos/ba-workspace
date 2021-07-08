@@ -318,6 +318,33 @@
                     }
                 ]
             }
+        },
+        {
+            "type":"table",
+            "id":"regular-table",
+            "label":"Regular Table",
+            "options":{
+                "required": true,
+                "deletable": true,
+                "columns":[
+                    {
+                        "type":"chiplist",
+                        "id":"table-input",
+                        "label":"Stadt",
+                        "options":{
+                            "suggestions":"api/cities"
+                        }
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"table-checkbox",
+                        "label":"Checked",
+                        "options":{
+                            "showAsSwitch": true
+                        }
+                    }
+                ]
+            }
         }
     ],
     "showClearButton": true,

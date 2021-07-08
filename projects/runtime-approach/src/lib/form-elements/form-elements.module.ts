@@ -11,12 +11,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { RadioComponent } from './radio/radio.component';
 import { ChiplistComponent } from './chiplist/chiplist.component';
+import { TableComponent } from './table/table.component';
+import { FormElementRendererComponent } from './form-element-renderer/form-element-renderer.component';
 
 
 @NgModule({
@@ -24,8 +28,10 @@ import { ChiplistComponent } from './chiplist/chiplist.component';
         InputFieldComponent,
         CheckboxComponent,
         DropdownComponent,
+        FormElementRendererComponent,
         RadioComponent,
-        ChiplistComponent
+        ChiplistComponent,
+        TableComponent
     ],
     imports: [
         CommonModule,
@@ -38,14 +44,18 @@ import { ChiplistComponent } from './chiplist/chiplist.component';
         MatSelectModule,
         MatRadioModule,
         MatChipsModule,
-        MatIconModule
+        MatIconModule,
+        MatTableModule,
+        MatButtonModule
     ],
     exports: [
         InputFieldComponent,
         CheckboxComponent,
         DropdownComponent,
+        FormElementRendererComponent,
         RadioComponent,
-        ChiplistComponent
+        ChiplistComponent,
+        TableComponent
     ]
 })
 export class FormElementsModule { }

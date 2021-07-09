@@ -2,7 +2,7 @@ import { Rule, Tree, SchematicsException, apply, url, template, move, chain, mer
 import { strings, workspaces, virtualFs, normalize } from '@angular-devkit/core'
 
 import { Schema } from './schema';
-import { DropdownOptions, FormElement, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification, Suggestions } from './base-model';
+import { DropdownOptions, FormElement, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification, Suggestions, TableOptions } from './base-model';
 import * as helpers from './helpers';
 
 function createHost(tree: Tree): workspaces.WorkspaceHost {
@@ -35,6 +35,7 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
                 classify: strings.classify,
                 dasherize: strings.dasherize,
                 camelize: strings.camelize,
+                helpers,
                 element,
                 id: element.id,  //for filenames
                 pathToRoot
@@ -52,6 +53,10 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
         if (element.type === FormElementType.group) {
             createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports,
                 basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../');
+        }
+        else if (element.type === FormElementType.table) {
+            createFormElementComponents((element.options as TableOptions).columns, myChain, componentNames, componentImports,
+                basePath, currPath + `/${strings.dasherize(element.id)}-table`, pathToRoot + '../');
         }
     }
 }

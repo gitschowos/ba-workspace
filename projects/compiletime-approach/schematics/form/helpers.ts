@@ -2,13 +2,13 @@ import { strings } from '@angular-devkit/core';
 import _ from 'lodash';
 import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions } from "./base-model";
 
-export const createFormControlString = (element: FormElement): string => {
+export const createFormControlString = (element: FormElement, camelize: boolean = true): string => {
     const value = element.value === undefined ? getInitialValueString(element) : getValueString(element.value);
     let validator = '';
     if ((element.options as FormElementOptions).required) {
         validator = ', Validators.required';
     }
-    return `${strings.camelize(element.id)}: [${value}${validator}],`
+    return `'${camelize ? strings.camelize(element.id) : element.id}': [${value}${validator}],`
 };
 
 const getValueString = (value: any): string => {
@@ -16,9 +16,16 @@ const getValueString = (value: any): string => {
     if (Array.isArray(value)) {
         res = '[';
         value.forEach((element) => {
-            res += "'" + element + "',";
+            res += getValueString(element) + ',';
         });
         res += ']';
+    }
+    else if (typeof(value) === 'object') {
+        res = '{';
+        Object.keys(value).forEach((key) => {
+            res += "'" + key + "': " + getValueString(value[key]) + ',';
+        })
+        res += '}';
     }
     else {
         res = "'" + value + "'";
@@ -28,6 +35,8 @@ const getValueString = (value: any): string => {
 
 const getInitialValueString = (element: FormElement): string => {
     switch (element.type) {
+        case FormElementType.checkbox:
+            return "false";
         case FormElementType.dropdown:
             if ((element.options as DropdownOptions).multiple) {
                 return "[]";
@@ -35,21 +44,24 @@ const getInitialValueString = (element: FormElement): string => {
             return "''";
         case FormElementType.chiplist:
             return "[]";
+        case FormElementType.table:
+            return "[]";
         default:
             return "''";
     }
 }
 
-export const createFormGroupString = (elements: FormElement[]): string => {
+export const createFormGroupString = (elements: FormElement[], camelize: boolean = true): string => {
     let result = '';
     for (const element of elements) {
         if (element.type === FormElementType.group) {
-            result += strings.camelize(element.id) + ': this.fb.group({\n';
+            result += camelize ? strings.camelize(element.id) : element.id;
+            result += ': this.fb.group({\n';
             result += createFormGroupString((element.options as GroupOptions).childs);
             result += '}),\n';
         }
         else {
-            result += createFormControlString(element) + '\n';
+            result += createFormControlString(element, camelize) + '\n';
         }
     }
     return result;

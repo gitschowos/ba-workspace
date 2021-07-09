@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, AbstractControl, FormGroup, Validators, FormControl } from '@angular/forms';
+import _ from 'lodash';
 import { ApiService } from './api.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class FormComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.initialValue = this.fGroup.getRawValue();
+        this.initialValue = _.cloneDeep(this.fGroup.getRawValue());
         this.setupDisableConditions();
     }
 
@@ -35,7 +36,7 @@ export class FormComponent implements OnInit {
     }
 
     onReset(): void {
-        this.fGroup.setValue(this.initialValue);
+        this.fGroup.setValue(_.cloneDeep(this.initialValue));
     }
 
     hasLegalValue(fControlId: string): boolean {

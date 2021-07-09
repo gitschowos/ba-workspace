@@ -323,6 +323,10 @@
             "type":"table",
             "id":"regular-table",
             "label":"Regular Table",
+            "value":[
+                {"table-input":["Bamberg"], "table-checkbox":true},
+                {"table-input":["Hallo", "Welt"], "table-checkbox":false}
+            ],
             "options":{
                 "required": true,
                 "deletable": true,
@@ -332,7 +336,9 @@
                         "id":"table-input",
                         "label":"Stadt",
                         "options":{
-                            "suggestions":"api/cities"
+                            "suggestions":"api/cities",
+                            "required":true,
+                            "activateCond":"table-checkbox"
                         }
                     },
                     {
@@ -340,7 +346,8 @@
                         "id":"table-checkbox",
                         "label":"Checked",
                         "options":{
-                            "showAsSwitch": true
+                            "showAsSwitch": true,
+                            "required": true
                         }
                     }
                 ]

@@ -4,7 +4,8 @@ export enum FormElementType {
     checkbox = 'checkbox',
     dropdown = 'dropdown',
     radio = 'radio',
-    chiplist = 'chiplist'
+    chiplist = 'chiplist',
+    table = 'table'
 }
 
 export abstract class BaseOptions {
@@ -108,6 +109,28 @@ export class ChipListOptions extends FormElementOptions {
     }
 }
 
+export class TableOptions extends FormElementOptions {
+    columns: FormElement[];
+    deletable: boolean;
+
+    constructor(source: any) {
+        super(source);
+        this.deletable = parseAttribute(source, 'deletable', false, true) as boolean;
+        const fields = parseAttribute(source, 'columns', true);
+        if (!Array.isArray(fields)) {
+            throw new Error("childs must be an array");
+        }
+        this.columns = [];
+        for (let column of fields) {
+            const element = new FormElement(column)
+            if(element.type === FormElementType.group || element.type === FormElementType.table) {
+                throw new Error(column + 'no group or table allowed in a table.');
+            }
+            this.columns.push(element);
+        }
+    }
+}
+
 export class Suggestions {
     content: string[] | string;     //hardcoded array or string with api url
 
@@ -166,6 +189,9 @@ export class FormElement {
                 break;
             case FormElementType.chiplist:
                 this.options = new ChipListOptions(options);
+                break;
+            case FormElementType.table:
+                this.options = new TableOptions(options);
                 break;
             default:
                 throw new Error(typeString + " is not supported");

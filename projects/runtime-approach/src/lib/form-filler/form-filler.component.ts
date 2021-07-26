@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Specification } from '../model/base-model';
+import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, TableOptions, Specification } from '../model/base-model';
 import { SuggestionsService } from '../suggestions.service';
 
 import _ from 'lodash'
+import { of, Observable, forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface ElementToFill {
     control: FormControl,
@@ -58,94 +60,109 @@ export class FormFillerComponent implements OnInit {
                 this.setupFillingElements(childs, control as FormGroup);
             }
             else {  // control is FormControl
-                let possibleValues: any[] = [];
                 const options = element.options as FormElementOptions;
-                switch (element.type) {
 
-                    case FormElementType.checkbox:
-                        possibleValues = [true, false];
+                if (element.type === FormElementType.table) {
+                    const columns = (options as TableOptions).columns;
+                    const allPossibleValues = [];
+                    for (const column of columns) {
+                        allPossibleValues.push(this.getPossibleValues(column));
+                    }
+
+                    let possibleValues: any[] = [];
+
+                    const join = forkJoin(allPossibleValues);
+                    join.subscribe(allArrays => {
+                        const exampleRows = 3;
+                        let i = 0;
+                        while (i < exampleRows) {
+                            const row: any = {};
+                            for (let j = 0; j < allArrays.length; j++) {
+                                row[columns[j].id] = _.sample(allArrays[j]);
+                            }
+                            possibleValues.push([row]);
+                            i++;
+                        }
                         let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
                         if (options.exampleValue !== undefined) {
                             elementToFill.exampleValue = options.exampleValue;
                         }
                         this.elementsToFill.push(elementToFill);
-                        break;
-
-                    case FormElementType.radio:
-                        this.suggestions.getSuggestions((element.options as RadioOptions).pickingOptions).subscribe(values => {
-                            possibleValues = Object.assign([], values);
-                            possibleValues.push('');
-                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
-                            if (options.exampleValue !== undefined) {
-                                elementToFill.exampleValue = options.exampleValue;
-                            }
-                            this.elementsToFill.push(elementToFill);
-                        });
-                        break;
-
-                    case FormElementType.dropdown:
-                        this.suggestions.getSuggestions((element.options as DropdownOptions).values).subscribe(values => {
-                            if (!(element.options as DropdownOptions).multiple) {
-                                possibleValues = Object.assign([], values);
-                                possibleValues.push('');
-                            }
-                            else {  //multiple values to select
-                                for (let i = 0; i <= values.length; i++) {
-                                    possibleValues.push(_.sampleSize(values, i));
-                                }
-                            }
-                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
-                            if (options.exampleValue !== undefined) {
-                                elementToFill.exampleValue = options.exampleValue;
-                            }
-                            this.elementsToFill.push(elementToFill);
-                        });
-                        break;
-
-                    case FormElementType.input:
-                        possibleValues.push(this.generateRandomString());
-                        possibleValues.push('');
-                        const autocomplete = (element.options as InputFieldOptions).autocomplete;
-                        if (autocomplete !== undefined) {
-                            this.suggestions.getSuggestions(autocomplete).subscribe(values => {
-                                values.forEach(value => possibleValues.push(value));
-                                let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
-                                if (options.exampleValue !== undefined) {
-                                    elementToFill.exampleValue = options.exampleValue;
-                                }
-                                this.elementsToFill.push(elementToFill);
-                            });
-                        } else {
-                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
-                            if (options.exampleValue !== undefined) {
-                                elementToFill.exampleValue = options.exampleValue;
-                            }
-                            this.elementsToFill.push(elementToFill);
+                    });
+                } 
+                else {  //normal form element, no table
+                    this.getPossibleValues(element).subscribe(values => {
+                        let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: values };
+                        if (options.exampleValue !== undefined) {
+                            elementToFill.exampleValue = options.exampleValue;
                         }
-                        break;
-
-                    case FormElementType.chiplist:
-                        const chipListOptions = options as ChipListOptions;
-                        if (!chipListOptions.onlySuggestions) {
-                            possibleValues.push([this.generateRandomString()]);
-                        }
-                        this.suggestions.getSuggestions(chipListOptions.suggestions).subscribe(values => {
-                            for (let i = 0; i <= values.length; i++) {
-                                possibleValues.push(_.sampleSize(values, i));
-                            }
-                            let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };
-                            if (options.exampleValue !== undefined) {
-                                elementToFill.exampleValue = options.exampleValue;
-                            }
-                            this.elementsToFill.push(elementToFill);
-                        });
-                        break;
-
-                    default:
-                        console.warn('No example form filling supported for type ' + element.type);
-                        break;
+                        this.elementsToFill.push(elementToFill);
+                    });
                 }
             }
+        }
+    }
+
+    private getPossibleValues(element: FormElement): Observable<any> {
+        switch (element.type) {
+            case FormElementType.checkbox:
+                return of([true, false]);
+
+            case FormElementType.radio:
+                return this.suggestions.getSuggestions((element.options as RadioOptions).pickingOptions).pipe(map(values => {
+                    const examples = _.cloneDeep(values);
+                    examples.push('');
+                    return examples;
+                }));
+
+            case FormElementType.dropdown:
+                return this.suggestions.getSuggestions((element.options as DropdownOptions).values).pipe(map(values => {
+                    if (!(element.options as DropdownOptions).multiple) {
+                        const examples = _.cloneDeep(values);
+                        examples.push('');
+                        return examples;
+                    }
+                    else {
+                        const examples = [];
+                        for (let i = 1; i <= values.length; i++) {
+                            examples.push(_.sampleSize(values, i));
+                        }
+                        return examples;
+                    }
+                }));
+
+
+            case FormElementType.input:
+                const autocomplete = (element.options as InputFieldOptions).autocomplete;
+                if (autocomplete !== undefined) {
+                    return this.suggestions.getSuggestions(autocomplete).pipe(map(values => {
+                        const examples = _.cloneDeep(values);
+                        examples.push('', this.generateRandomString());
+                        return examples;
+                    }));
+                } else {
+                    return of(['', this.generateRandomString()]);
+                }
+
+            case FormElementType.chiplist:
+                const chipListOptions = element.options as ChipListOptions;
+                const res = this.suggestions.getSuggestions(chipListOptions.suggestions).pipe(map(values => {
+                    const pickedValues = [];
+                    for (let i = 0; i <= values.length; i++) {
+                        pickedValues.push(_.sampleSize(values, i));
+                    }
+                    return pickedValues;
+                }));
+                if (!chipListOptions.onlySuggestions) {
+                    res.pipe(map(values => {
+                        values.push([this.generateRandomString()]);
+                    }));
+                }
+                return res;
+
+            default:
+                console.warn('No example form filling supported for type ' + element.type);
+                return of([]);
         }
     }
 

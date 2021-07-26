@@ -223,6 +223,34 @@ export const setupDisableConditions = (elements: FormElement[], prefix: string):
     return result;
 }
 
+export const setupTableDisableConditions = (elements: FormElement[]): string => {
+    let result = 'let res: AbstractControl | null;';
+    for (const element of elements) {
+        const elementId = element.id;
+        const conditionId = element.options.activateCond;
+        if (conditionId !== '') {
+            result += `
+            res = this.inputRowFormGroup.get('${elementId}');
+            if(res !== null) {
+                const control = res;
+                const activateControl = this.getFormControl('${conditionId}');
+                activateControl.statusChanges.subscribe(() => {
+                    if (this.hasLegalValue('${conditionId}')) {
+                        control.enable();
+                    } else {
+                        control.disable();
+                    }
+                });
+                if(!this.hasLegalValue('${conditionId}')) {
+                    control.disable();
+                }
+            }
+            `;
+        }
+    }
+    return result;
+}
+
 export const autoCompleteFields = (elements: FormElement[]): string => {
     let result = '';
     for (const element of elements) {

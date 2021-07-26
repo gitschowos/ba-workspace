@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import _ from 'lodash';
 
@@ -34,6 +34,8 @@ export class <%= classify(element.id) %>Component implements OnInit {
         });
         <% for (let column of element.options.columns) { %>
         this.displayedColumns.push('<%= column.id %>');<% } %>
+        
+        <%= helpers.setupTableDisableConditions(element.options.columns) %>
 
         this.initialInputRowValue = _.cloneDeep(this.inputRowFormGroup.value);
 
@@ -86,5 +88,22 @@ export class <%= classify(element.id) %>Component implements OnInit {
             return value.join(', ');
         }
         return value;
+    }
+
+    private hasLegalValue(fControlId: string): boolean {
+        const control = this.inputRowFormGroup.get(fControlId);
+        if (control === null) {
+            console.warn(fControlId + " was not found as control");
+            return true;
+        }
+        else {
+            if((control as any).isRequired || control instanceof FormGroup) {
+                return control.valid;
+            }
+            else {
+                return control.value !== '' && control.value !== undefined &&
+                 control.value !== null && control.value !== false && control.value.length !== 0;
+            }
+        }
     }
 }

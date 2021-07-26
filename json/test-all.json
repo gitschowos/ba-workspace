@@ -320,34 +320,43 @@
             }
         },
         {
-            "type":"table",
-            "id":"regular-table",
-            "label":"Regular Table",
-            "value":[
-                {"table-input":["Bamberg"], "table-checkbox":true},
-                {"table-input":["Hallo", "Welt"], "table-checkbox":false}
-            ],
+            "type":"group",
+            "id":"tables",
+            "label":"Tables",
             "options":{
-                "required": true,
-                "deletable": true,
-                "columns":[
+                "childs":[
                     {
-                        "type":"chiplist",
-                        "id":"table-input",
-                        "label":"Stadt",
+                        "type":"table",
+                        "id":"regular-table",
+                        "label":"Regular Table",
+                        "value":[
+                            {"table-input":["Bamberg"], "table-checkbox":true},
+                            {"table-input":["Hallo", "Welt"], "table-checkbox":false}
+                        ],
                         "options":{
-                            "suggestions":"api/cities",
-                            "required":true,
-                            "activateCond":"table-checkbox"
-                        }
-                    },
-                    {
-                        "type":"checkbox",
-                        "id":"table-checkbox",
-                        "label":"Checked",
-                        "options":{
-                            "showAsSwitch": true,
-                            "required": true
+                            "required": true,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table-input",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table-checkbox"
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table-checkbox",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]

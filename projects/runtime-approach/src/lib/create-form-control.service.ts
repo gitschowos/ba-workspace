@@ -50,7 +50,7 @@ export class CreateFormControlService {
         return group;
     }
 
-    private setupDisableConditions(elements: FormElement[], currGroup: FormGroup): void {
+    setupDisableConditions(elements: FormElement[], currGroup: FormGroup): void {
         for (let element of elements) {
             const activateControl = this.getActivateControl(element, currGroup);
 

@@ -36,6 +36,8 @@ export class TableComponent implements OnInit {
             this.inputRowFormGroup.addControl(element.id, this.formControlService.getFormControl(element));
             this.displayedColumns.push(element.id);
         }
+        this.formControlService.setupDisableConditions(this.elements, this.inputRowFormGroup);
+
         this.initialInputRowValue = _.cloneDeep(this.inputRowFormGroup.value);
 
         this.fControl.updateValueAndValidity();

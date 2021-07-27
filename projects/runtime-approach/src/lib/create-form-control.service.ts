@@ -44,6 +44,9 @@ export class CreateFormControlService {
                 if ((element.options as FormElementOptions).required) {
                     group[element.id].isRequired = true;
                 }
+                if (element.type === FormElementType.table) {
+                    group[element.id].isTable = true;
+                }
             }
         }
 

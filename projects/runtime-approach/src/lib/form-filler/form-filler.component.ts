@@ -42,7 +42,7 @@ export class FormFillerComponent implements OnChanges {
             } else if (Array.isArray(element.possibleValues)) { //dont use the examples
                 if (element.possibleValues.length > 0) {
                     const value = _.sample(element.possibleValues);
-                    if(typeof element.control.value[0] === 'object') {  //table
+                    if((element.control as any).isTable) {
                         element.control.value.unshift(value);   //add row without resetting the whole table
                         element.control.updateValueAndValidity();
                     }

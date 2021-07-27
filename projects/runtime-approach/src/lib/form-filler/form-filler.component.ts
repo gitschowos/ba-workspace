@@ -110,14 +110,17 @@ export class FormFillerComponent implements OnInit {
     }
 
     private getPossibleValues(element: FormElement): Observable<any> {
+        const required = (element.options as FormElementOptions).required;
         switch (element.type) {
             case FormElementType.checkbox:
-                return of([true, false]);
+                return required ? of([true]) : of([true, false]);
 
             case FormElementType.radio:
                 return this.suggestions.getSuggestions((element.options as RadioOptions).pickingOptions).pipe(map(values => {
                     const examples = _.cloneDeep(values);
-                    examples.push('');
+                    if(!required) {
+                        examples.push('');
+                    }
                     return examples;
                 }));
 
@@ -125,7 +128,9 @@ export class FormFillerComponent implements OnInit {
                 return this.suggestions.getSuggestions((element.options as DropdownOptions).values).pipe(map(values => {
                     if (!(element.options as DropdownOptions).multiple) {
                         const examples = _.cloneDeep(values);
-                        examples.push('');
+                        if(!required) {
+                            examples.push('');
+                        }
                         return examples;
                     }
                     else {
@@ -143,18 +148,21 @@ export class FormFillerComponent implements OnInit {
                 if (autocomplete !== undefined) {
                     return this.suggestions.getSuggestions(autocomplete).pipe(map(values => {
                         const examples = _.cloneDeep(values);
-                        examples.push('', this.generateRandomString());
+                        examples.push(this.generateRandomString());
+                        if(!required) {
+                            examples.push('');
+                        }
                         return examples;
                     }));
                 } else {
-                    return of(['', this.generateRandomString()]);
+                    return required ? of([this.generateRandomString()]) : of(['', this.generateRandomString()]);
                 }
 
             case FormElementType.chiplist:
                 const chipListOptions = element.options as ChipListOptions;
                 const res = this.suggestions.getSuggestions(chipListOptions.suggestions).pipe(map(values => {
                     const pickedValues = [];
-                    for (let i = 0; i <= values.length; i++) {
+                    for (let i = 1; i <= values.length; i++) {
                         pickedValues.push(_.sampleSize(values, i));
                     }
                     return pickedValues;

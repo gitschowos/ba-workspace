@@ -59,7 +59,7 @@ export class TableComponent implements OnInit {
     }
 
     addRow() {
-        this.fControl.value.push(this.inputRowFormGroup.value);
+        this.fControl.value.unshift(this.inputRowFormGroup.value);
         this.fControl.updateValueAndValidity();
 
         this.inputRowFormGroup.reset(_.cloneDeep(this.initialInputRowValue));

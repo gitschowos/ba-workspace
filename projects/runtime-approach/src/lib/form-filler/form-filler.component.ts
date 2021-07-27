@@ -39,10 +39,16 @@ export class FormFillerComponent implements OnInit {
         for (const element of this.elementsToFill) {
             if (this.useExamples.value && element.exampleValue !== undefined) {
                 element.control.setValue(element.exampleValue);
-            } else { //dont use the examples
+            } else if (Array.isArray(element.possibleValues)) { //dont use the examples
                 if (element.possibleValues.length > 0) {
                     const value = _.sample(element.possibleValues);
-                    element.control.setValue(value);
+                    if(typeof element.control.value[0] === 'object') {  //table
+                        element.control.value.unshift(value);   //add row without resetting the whole table
+                        element.control.updateValueAndValidity();
+                    }
+                    else {
+                        element.control.setValue(value);
+                    }
                 }
             }
         }
@@ -80,7 +86,7 @@ export class FormFillerComponent implements OnInit {
                             for (let j = 0; j < allArrays.length; j++) {
                                 row[columns[j].id] = _.sample(allArrays[j]);
                             }
-                            possibleValues.push([row]);
+                            possibleValues.push(row);
                             i++;
                         }
                         let elementToFill: ElementToFill = { control: control as FormControl, possibleValues: possibleValues };

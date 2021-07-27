@@ -36,7 +36,7 @@ export class FormFillerComponent implements OnInit {
             this.api.getSuggestions(url).subscribe(values => {
                 this.apiData.set(url, values);
                 let arrayCollection = [];
-                for (let i = 0; i <= values.length; i++) {
+                for (let i = 1; i <= values.length; i++) {
                     arrayCollection.push(_.sampleSize(values, i));
                 }
                 this.apiData.set(url + '[]', arrayCollection);  // keys with []-suffix are called by multiple selection

@@ -245,8 +245,10 @@ const generateRandomString = (): string => {
 
 function getPossibleAndExampleValues(element: FormElement) {
     let exampleString = 'undefined';
-    let possibleValues: string = "[]";
+    let possibleValueString: string = "[]";
     
+    const required = (element.options as FormElementOptions).required;
+
     let jsonExample = undefined;
     if ((element.options as FormElementOptions).exampleValue !== undefined) {
         jsonExample = (element.options as FormElementOptions).exampleValue;
@@ -254,7 +256,7 @@ function getPossibleAndExampleValues(element: FormElement) {
     let options: Suggestions;
     switch (element.type) {
         case FormElementType.checkbox:
-            possibleValues = '[true, false]';
+            possibleValueString = required ? '[true]' : '[true, false]';
             if (jsonExample !== undefined) {
                 exampleString = jsonExample;
             }
@@ -264,11 +266,13 @@ function getPossibleAndExampleValues(element: FormElement) {
             options = (element.options as RadioOptions).pickingOptions;
             if (options.isHardcoded()) {
                 const exampleValues = _.cloneDeep(options.content as string[]);
-                exampleValues.push('');
-                possibleValues = getValueString(exampleValues);
+                if(!required) {
+                    exampleValues.push('');
+                }
+                possibleValueString = getValueString(exampleValues);
             }
             else {
-                possibleValues = `'${options.content}'`;
+                possibleValueString = `'${options.content}'`;
             }
             if (jsonExample !== undefined) {
                 exampleString = `'${jsonExample}'`;
@@ -278,23 +282,24 @@ function getPossibleAndExampleValues(element: FormElement) {
         case FormElementType.dropdown:
             options = (element.options as DropdownOptions).values;
             if (options.isHardcoded()) {
-                possibleValues = "[";
+                possibleValueString = "[";
                 for (let i = 0; i < options.content.length; i++) {
                     if (!(element.options as DropdownOptions).multiple) {
-                        possibleValues += `'${options.content[i]}',`;
+                        possibleValueString += `'${options.content[i]}',`;
                     } else {
-                        const example = _.sampleSize(options.content, i);
-                        possibleValues += getValueString(example) + ',';
+                        const n = required ? i+1 : i;
+                        const example = _.sampleSize(options.content, n);
+                        possibleValueString += getValueString(example) + ',';
                     }
                 }
-                possibleValues += ']';
+                possibleValueString += ']';
             }
             else {
                 let resString = options.content;
                 if ((element.options as DropdownOptions).multiple) {
                     resString += '[]';
                 }
-                possibleValues = `'${resString}'`;
+                possibleValueString = `'${resString}'`;
             }
             if (jsonExample !== undefined) {
                 exampleString = `'${jsonExample}'`;
@@ -304,17 +309,23 @@ function getPossibleAndExampleValues(element: FormElement) {
         case FormElementType.input:
             const autocomplete = (element.options as InputFieldOptions).autocomplete;
             if (autocomplete === undefined) {
-                possibleValues = "['','" + generateRandomString() + "']";
+                const possibleValues = [generateRandomString()];
+                if(!required) {
+                    possibleValues.push('');
+                }
+                possibleValueString = getValueString(possibleValues);
             }
             else {
                 options = autocomplete;
                 if (options.isHardcoded()) {
                     const exampleValues = _.cloneDeep(options.content as string[]);
-                    exampleValues.push('');
-                    possibleValues = getValueString(exampleValues);
+                    if (!required) {
+                        exampleValues.push('');
+                    }
+                    possibleValueString = getValueString(exampleValues);
                 }
                 else {
-                    possibleValues = `'${options.content}'`;
+                    possibleValueString = `'${options.content}'`;
                 }
             }
             if (jsonExample !== undefined) {
@@ -325,16 +336,16 @@ function getPossibleAndExampleValues(element: FormElement) {
         case FormElementType.chiplist:
             options = (element.options as ChipListOptions).suggestions;
             if (options.isHardcoded()) {
-                possibleValues = "[";
-                for (let i = 0; i < options.content.length; i++) {
+                possibleValueString = "[";
+                for (let i = required ? 1 : 0; i < options.content.length; i++) {
                     const example = _.sampleSize(options.content, i);
-                    possibleValues += getValueString(example) + ',';
+                    possibleValueString += getValueString(example) + ',';
                 }
-                possibleValues += ']';
+                possibleValueString += ']';
             }
             else {
                 let resString = options.content + '[]';
-                possibleValues = `'${resString}'`;
+                possibleValueString = `'${resString}'`;
             }
             if (jsonExample !== undefined) {
                 exampleString = getValueString(jsonExample);
@@ -344,5 +355,5 @@ function getPossibleAndExampleValues(element: FormElement) {
         default:
             break;
     }
-    return { possibleValues, exampleString };
+    return { possibleValues: possibleValueString, exampleString };
 }

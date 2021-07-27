@@ -328,28 +328,67 @@
                     {
                         "type":"table",
                         "id":"regular-table",
-                        "label":"Regular Table",
+                        "label":"Regular Table (required)",
                         "value":[
-                            {"table-input":["Bamberg"], "table-checkbox":true},
-                            {"table-input":["Hallo", "Welt"], "table-checkbox":false}
+                            {"table1-input":["Bamberg"], "table1-checkbox":true},
+                            {"table1-input":["Hallo", "Welt"], "table1-checkbox":false}
                         ],
                         "options":{
                             "required": true,
                             "deletable": true,
+                            "exampleValue":[
+                                {"table1-input":["Ursulapoppenricht"], "table1-checkbox":false},
+                                {"table1-input":["Hamburg", "Berlin"], "table1-checkbox":false}
+                            ],
                             "columns":[
                                 {
                                     "type":"chiplist",
-                                    "id":"table-input",
+                                    "id":"table1-input",
                                     "label":"Stadt",
                                     "options":{
                                         "suggestions":"api/cities",
                                         "required":true,
-                                        "activateCond":"table-checkbox"
+                                        "activateCond":"table1-checkbox"
                                     }
                                 },
                                 {
                                     "type":"checkbox",
-                                    "id":"table-checkbox",
+                                    "id":"table1-checkbox",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"table",
+                        "id":"second-table",
+                        "label":"Second Table",
+                        "value":[
+                            {"table2-input":["Bamberg"], "table2-checkbox":true},
+                            {"table2-input":["Hallo", "Welt"], "table2-checkbox":false}
+                        ],
+                        "options":{
+                            "required": false,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table2-input",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table2-checkbox",
+                                        "exampleValue":["Beispielbeere", "Beispielstadt"]
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table2-checkbox",
                                     "label":"Checked",
                                     "options":{
                                         "showAsSwitch": true,

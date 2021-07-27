@@ -6,7 +6,7 @@ import _ from 'lodash'
 
 interface ElementToFill {
     control: FormControl,
-    possibleValues: any[] | string,
+    possibleValues: any[] | string | any,
     exampleValue?: any
 }
 
@@ -39,7 +39,7 @@ export class FormFillerComponent implements OnInit {
                 for (let i = 0; i <= values.length; i++) {
                     arrayCollection.push(_.sampleSize(values, i));
                 }
-                this.apiData.set(url + '[]', arrayCollection);
+                this.apiData.set(url + '[]', arrayCollection);  // keys with []-suffix are called by multiple selection
             });
         }
 
@@ -56,17 +56,42 @@ export class FormFillerComponent implements OnInit {
                     const value = _.sample(results);
                     element.control.setValue(value);
                 }
-                else {
+                else if (Array.isArray(element.possibleValues)) {
                     if (element.possibleValues.length > 0) {
                         const value = _.sample(element.possibleValues);
                         element.control.setValue(value);
                     }
                 }
+                else if (typeof element.possibleValues === 'object') {  // for tables
+                    let res: any = {};
+                    for (const key of Object.keys(element.possibleValues)) {
+                        res[key] = this.getExampleCellValue(element.possibleValues[key]);
+                    }
+                    element.control.value.unshift(res);
+                    element.control.updateValueAndValidity();
+                }
             }
         }
     }
 
-    getFormControl(id: string): FormControl {
+    private getExampleCellValue(possibleValuesWithExamples: { possibleValues: string | any[], exampleValue?: any}) {
+        if (this.useExamples.value && possibleValuesWithExamples.exampleValue !== undefined) {
+            return possibleValuesWithExamples.exampleValue;
+        }
+        if (typeof possibleValuesWithExamples.possibleValues === 'string') {
+            const results = this.apiData.get(possibleValuesWithExamples.possibleValues);
+            const value = _.sample(results);
+            return value;
+        }
+        else if (Array.isArray(possibleValuesWithExamples.possibleValues)) {
+            if (possibleValuesWithExamples.possibleValues.length > 0) {
+                const value = _.sample(possibleValuesWithExamples.possibleValues);
+                return value;
+            }
+        }
+    }
+
+    private getFormControl(id: string): FormControl {
         const control = this.fGroup.get(id) as FormControl;
         if (control === null || control === undefined) {
             throw new Error("No FormControl found for id " + id);

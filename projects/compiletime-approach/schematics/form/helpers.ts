@@ -1,6 +1,6 @@
 import { strings } from '@angular-devkit/core';
 import _ from 'lodash';
-import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions } from "./base-model";
+import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions, TableOptions } from "./base-model";
 
 export const createFormControlString = (element: FormElement, camelize: boolean = true): string => {
     const value = element.value === undefined ? getInitialValueString(element) : getValueString(element.value);
@@ -20,7 +20,7 @@ const getValueString = (value: any): string => {
         });
         res += ']';
     }
-    else if (typeof(value) === 'object') {
+    else if (typeof (value) === 'object') {
         res = '{';
         Object.keys(value).forEach((key) => {
             res += "'" + key + "': " + getValueString(value[key]) + ',';
@@ -74,119 +74,28 @@ export const createElementsToFill = (elements: FormElement[], prefix: string): s
             result += createElementsToFill((element.options as GroupOptions).childs, prefix + strings.camelize(element.id) + '.');
             continue;
         }
+        else if (element.type === FormElementType.table) {
+            const options = element.options as TableOptions;
 
-        let jsonExample = undefined;
-        if ((element.options as FormElementOptions).exampleValue !== undefined) {
-            jsonExample = (element.options as FormElementOptions).exampleValue;
+            let possibleValues = '{';
+            for (const column of options.columns) {
+                const possibleValuesAndExampleStrings = getPossibleAndExampleValues(column);
+                possibleValues += `'${column.id}':{possibleValues: ${possibleValuesAndExampleStrings.possibleValues},`;
+                possibleValues += `exampleValue: ${possibleValuesAndExampleStrings.exampleString}},`;
+            }
+            possibleValues += '}';
+
+            const jsonExample = (element.options as FormElementOptions).exampleValue;
+            const exampleString = jsonExample === undefined ? 'undefined' : getValueString(jsonExample);
+
+            const formControlString = prefix + strings.camelize(element.id);
+            result += `{ control: this.getFormControl('${formControlString}'), possibleValues: ${possibleValues}, exampleValue: ${exampleString}},\n\t\t\t`;
         }
-
-        let exampleString = 'undefined';
-        let possibleValues: string = "[]";
-        let options: Suggestions;
-        switch (element.type) {
-            case FormElementType.checkbox:
-                possibleValues = '[true, false]';
-                if (jsonExample !== undefined) {
-                    exampleString = jsonExample;
-                }
-                break;
-
-            case FormElementType.radio:
-                options = (element.options as RadioOptions).pickingOptions;
-                if (options.isHardcoded()) {
-                    possibleValues = "['',";
-                    for (const value of options.content) {
-                        possibleValues += `'${value}',`;
-                    }
-                    possibleValues += ']';
-                }
-                else {
-                    possibleValues = `'${options.content}'`;
-                }
-                if (jsonExample !== undefined) {
-                    exampleString = `'${jsonExample}'`;
-                }
-                break;
-
-            case FormElementType.dropdown:
-                options = (element.options as DropdownOptions).values;
-                if (options.isHardcoded()) {
-                    possibleValues = "[";
-                    for (let i = 0; i < options.content.length; i++) {
-                        if (!(element.options as DropdownOptions).multiple) {
-                            possibleValues += `'${options.content[i]}',`;
-                        } else {
-                            const example = _.sampleSize(options.content, i);
-                            possibleValues += '[';
-                            example.forEach(exampleValue => { possibleValues += `'${exampleValue}',`; });
-                            possibleValues += '],';
-                        }
-                    }
-                    possibleValues += ']';
-                }
-                else {
-                    let resString = options.content;
-                    if ((element.options as DropdownOptions).multiple) {
-                        resString += '[]';
-                    }
-                    possibleValues = `'${resString}'`;
-                }
-                if (jsonExample !== undefined) {
-                    exampleString = `'${jsonExample}'`;
-                }
-                break;
-
-            case FormElementType.input:
-                const autocomplete = (element.options as InputFieldOptions).autocomplete;
-                if (autocomplete === undefined) {
-                    possibleValues = "['','" + generateRandomString() + "']"
-                }
-                else {
-                    options = autocomplete;
-                    if (options.isHardcoded()) {
-                        possibleValues = "['',";
-                        for (const value of options.content) {
-                            possibleValues += `'${value}',`;
-                        }
-                        possibleValues += ']';
-                    }
-                    else {
-                        possibleValues = `'${options.content}'`;
-                    }
-                }
-                if (jsonExample !== undefined) {
-                    exampleString = `'${jsonExample}'`;
-                }
-                break;
-
-            case FormElementType.chiplist:
-                options = (element.options as ChipListOptions).suggestions;
-                if (options.isHardcoded()) {
-                    possibleValues = "[";
-                    for (let i = 0; i < options.content.length; i++) {
-                        const example = _.sampleSize(options.content, i);
-                        possibleValues += '[';
-                        example.forEach(exampleValue => { possibleValues += `'${exampleValue}',`; });
-                        possibleValues += '],';
-                    }
-                    possibleValues += ']';
-                }
-                else {
-                    let resString = options.content + '[]';
-                    possibleValues = `'${resString}'`;
-                }
-                if (jsonExample !== undefined) {
-                    exampleString = getValueString(jsonExample);
-                }
-                break;
-
-            default:
-                break;
+        else {
+            const resultStrings = getPossibleAndExampleValues(element);
+            const formControlString = prefix + strings.camelize(element.id);
+            result += `{ control: this.getFormControl('${formControlString}'), possibleValues: ${resultStrings.possibleValues}, exampleValue: ${resultStrings.exampleString}},\n\t\t\t`;
         }
-
-        const formControlString = prefix + strings.camelize(element.id);
-        result += `{ control: this.getFormControl('${formControlString}'), possibleValues: ${possibleValues}, exampleValue: ${exampleString}},\n\t\t\t`;
-
     }
     return result;
 }
@@ -332,4 +241,108 @@ export const autoCompleteSetup = (elements: FormElement[], prefix: string): stri
 
 const generateRandomString = (): string => {
     return Math.random().toString(36).substr(2);
+}
+
+function getPossibleAndExampleValues(element: FormElement) {
+    let exampleString = 'undefined';
+    let possibleValues: string = "[]";
+    
+    let jsonExample = undefined;
+    if ((element.options as FormElementOptions).exampleValue !== undefined) {
+        jsonExample = (element.options as FormElementOptions).exampleValue;
+    }
+    let options: Suggestions;
+    switch (element.type) {
+        case FormElementType.checkbox:
+            possibleValues = '[true, false]';
+            if (jsonExample !== undefined) {
+                exampleString = jsonExample;
+            }
+            break;
+
+        case FormElementType.radio:
+            options = (element.options as RadioOptions).pickingOptions;
+            if (options.isHardcoded()) {
+                const exampleValues = _.cloneDeep(options.content as string[]);
+                exampleValues.push('');
+                possibleValues = getValueString(exampleValues);
+            }
+            else {
+                possibleValues = `'${options.content}'`;
+            }
+            if (jsonExample !== undefined) {
+                exampleString = `'${jsonExample}'`;
+            }
+            break;
+
+        case FormElementType.dropdown:
+            options = (element.options as DropdownOptions).values;
+            if (options.isHardcoded()) {
+                possibleValues = "[";
+                for (let i = 0; i < options.content.length; i++) {
+                    if (!(element.options as DropdownOptions).multiple) {
+                        possibleValues += `'${options.content[i]}',`;
+                    } else {
+                        const example = _.sampleSize(options.content, i);
+                        possibleValues += getValueString(example) + ',';
+                    }
+                }
+                possibleValues += ']';
+            }
+            else {
+                let resString = options.content;
+                if ((element.options as DropdownOptions).multiple) {
+                    resString += '[]';
+                }
+                possibleValues = `'${resString}'`;
+            }
+            if (jsonExample !== undefined) {
+                exampleString = `'${jsonExample}'`;
+            }
+            break;
+
+        case FormElementType.input:
+            const autocomplete = (element.options as InputFieldOptions).autocomplete;
+            if (autocomplete === undefined) {
+                possibleValues = "['','" + generateRandomString() + "']";
+            }
+            else {
+                options = autocomplete;
+                if (options.isHardcoded()) {
+                    const exampleValues = _.cloneDeep(options.content as string[]);
+                    exampleValues.push('');
+                    possibleValues = getValueString(exampleValues);
+                }
+                else {
+                    possibleValues = `'${options.content}'`;
+                }
+            }
+            if (jsonExample !== undefined) {
+                exampleString = `'${jsonExample}'`;
+            }
+            break;
+
+        case FormElementType.chiplist:
+            options = (element.options as ChipListOptions).suggestions;
+            if (options.isHardcoded()) {
+                possibleValues = "[";
+                for (let i = 0; i < options.content.length; i++) {
+                    const example = _.sampleSize(options.content, i);
+                    possibleValues += getValueString(example) + ',';
+                }
+                possibleValues += ']';
+            }
+            else {
+                let resString = options.content + '[]';
+                possibleValues = `'${resString}'`;
+            }
+            if (jsonExample !== undefined) {
+                exampleString = getValueString(jsonExample);
+            }
+            break;
+
+        default:
+            break;
+    }
+    return { possibleValues, exampleString };
 }

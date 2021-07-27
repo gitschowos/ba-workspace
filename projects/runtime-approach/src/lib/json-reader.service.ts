@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Specification } from './model/base-model';
+import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+
 import data from '../../../../json/test-all.json';
 
 @Injectable({
@@ -7,12 +12,22 @@ import data from '../../../../json/test-all.json';
 })
 export class JsonReaderService {
 
-    constructor() { }
+    constructor(
+        private http: HttpClient
+    ) { }
 
-    getModelFromJson(): Specification {
-        let json = data as unknown;
+    getModelFromJson(): Observable<Specification> {
+        // let json = data as unknown;
+        // return of(this.parseSpecification(json));
+        
+        return this.http.get('api/testAll').pipe(map(res => this.parseSpecification(res)));  //fetch
+    }
 
-        return this.parseSpecification(json);
+    getLoadingDummy(): Specification {
+        return new Specification({
+            title: "laden...",
+            content: []
+        });
     }
 
     private parseSpecification(source: unknown): Specification {

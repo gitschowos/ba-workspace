@@ -18,8 +18,8 @@ export class RuntimeApproachComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.spec = this.reader.getModelFromJson();
-        //console.log(this.spec);
+        this.spec = this.reader.getLoadingDummy();  //show loading... while specification is fetched
+        this.reader.getModelFromJson().subscribe(spec => this.spec = spec);
     }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, TableOptions, Specification } from '../model/base-model';
 import { SuggestionsService } from '../suggestions.service';
@@ -18,7 +18,7 @@ interface ElementToFill {
     templateUrl: './form-filler.component.html',
     styleUrls: ['./form-filler.component.css']
 })
-export class FormFillerComponent implements OnInit {
+export class FormFillerComponent implements OnChanges {
     @Input() fGroup!: FormGroup;
     @Input() specification!: Specification;
 
@@ -30,7 +30,7 @@ export class FormFillerComponent implements OnInit {
         private suggestions: SuggestionsService
     ) { }
 
-    ngOnInit(): void {
+    ngOnChanges(): void {
         this.useExamples = new FormControl(false);
         this.setupFillingElements(this.specification.content, this.fGroup);
     }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import _ from 'lodash';
 import { CreateFormControlService } from '../create-form-control.service';
@@ -9,7 +9,7 @@ import { Specification } from '../model/base-model';
     templateUrl: './dynamic-form.component.html',
     styleUrls: ['./dynamic-form.component.css']
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnChanges {
     @Input() formSpecification!: Specification;
 
     fGroup!: FormGroup;
@@ -21,9 +21,8 @@ export class DynamicFormComponent implements OnInit {
         private createFormControl: CreateFormControlService
     ) { }
 
-    ngOnInit(): void {
+    ngOnChanges(): void {
         this.fGroup = this.createFormControl.createFormControls(this.formSpecification);
-        //console.log(this.fGroup.value);
         this.formValue = "";
         this.initialValue = _.cloneDeep(this.fGroup.getRawValue());
     }

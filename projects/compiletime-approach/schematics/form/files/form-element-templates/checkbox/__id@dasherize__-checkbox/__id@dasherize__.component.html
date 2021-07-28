@@ -16,3 +16,8 @@
     <%= element.label %>
 </mat-slide-toggle>
 <% } %>
+<% if(element.options.required) { %> 
+<mat-error *ngIf="requiredError()">
+    <%= element.options.requiredErrorMessage %>
+</mat-error>
+<% } %>

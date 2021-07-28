@@ -5,6 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 import { COMMA, ENTER, TAB } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+<% if(element.options.required) { %> import { DefaultErrorStateMatcher } from '<%= pathToRoot %>error-state-matcher'; <% } %>
 <% if(!element.options.suggestions.isHardcoded()) { %> 
 import { ApiService } from '<%= pathToRoot %>api.service';
 <% } %>
@@ -21,12 +22,14 @@ export class <%= classify(element.id) %>Component implements OnInit {
     @Input() fControl!: FormControl;
     
     textControl = new FormControl('');
+    seperatorKeysCodes: number[] = [ENTER, COMMA, TAB];
+    
     allSuggestions: string[] = [];
     filteredSuggestions!: Observable<string[]>;
 
-    seperatorKeysCodes: number[] = [ENTER, COMMA, TAB];
-
     @ViewChild('chipInput') chipInput!: ElementRef<HTMLInputElement>;
+
+    <% if(element.options.required) { %> matcher!: DefaultErrorStateMatcher; <% } %>
 
     constructor(
         <% if(!element.options.suggestions.isHardcoded()) { %> private api: ApiService <% } %>
@@ -53,6 +56,8 @@ export class <%= classify(element.id) %>Component implements OnInit {
                 this.fControl.setValue([]);
             }
         });
+
+        <% if(element.options.required) { %> this.matcher = new DefaultErrorStateMatcher(); <% } %>
     }
 
     add(event: MatChipInputEvent): void {

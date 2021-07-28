@@ -21,12 +21,14 @@ export abstract class BaseOptions {
 export abstract class FormElementOptions extends BaseOptions {
     styling: string;
     required: boolean;
+    requiredErrorMessage: string;
     exampleValue?: any;
 
     constructor(source: any) {
         super(source);
-        this.required = parseAttribute(source, 'required', false, false);
         this.styling = parseAttribute(source, 'styling', false, '');
+        this.required = parseAttribute(source, 'required', false, false);
+        this.requiredErrorMessage = parseAttribute(source, 'requiredErrorMessage', false, this.required ? 'Bitte ausfüllen' : '');
         this.exampleValue = parseAttribute(source, 'exampleValue', false, undefined);
     }
 }

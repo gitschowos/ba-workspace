@@ -5,7 +5,8 @@
         type="<%= element.options.inputType %>"
         placeholder="<%= element.options.placeholder %>"
         style="<%= element.options.styling %>"
-        <% if(element.options.required) { %> [required]="true" <% } %>
+        <% if(element.options.required) { %> [required]="true" 
+        [errorStateMatcher]="matcher" <% } %>
         <% if(element.options.autocomplete !== undefined) { %> [matAutocomplete]="auto" <% } %>
     >
     <% if(element.options.autocomplete !== undefined) { %> 
@@ -15,4 +16,8 @@
             </mat-option>
         </mat-autocomplete>
     <% } %>
+    <% if(element.options.required) { %> 
+        <mat-error *ngIf="fControl.hasError('required')">
+            <%= element.options.requiredErrorMessage %>
+        </mat-error> <% } %>
 </mat-form-field>

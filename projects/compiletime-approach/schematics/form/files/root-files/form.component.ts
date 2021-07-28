@@ -32,7 +32,13 @@ export class FormComponent implements OnInit {
 
 
     onSubmit(): void {
-        this.formValue = this.fGroup.value;
+        if(this.fGroup.valid) {
+            this.formValue = this.fGroup.value;
+        }
+        if((this.fGroup as any).submitted === undefined) {
+            (this.fGroup as any).submitted = true;
+            this.setSubmitted(this.fGroup);
+        }
     }
 
     onReset(): void {
@@ -78,5 +84,14 @@ export class FormComponent implements OnInit {
             throw new Error("No AbstractControl found for id " + id);
         }
         return control;
+    }
+
+    private setSubmitted(group: FormGroup) {
+        for (const control of Object.values(group.controls)) {
+            (control as any).submitted = true;
+            if(control instanceof FormGroup) {
+                this.setSubmitted(control);
+            }
+        }
     }
 }

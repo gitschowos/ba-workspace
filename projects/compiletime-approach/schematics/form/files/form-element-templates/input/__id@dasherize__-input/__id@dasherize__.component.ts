@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { element } from 'protractor';
+<% if(element.options.required) { %> import { DefaultErrorStateMatcher } from '<%= pathToRoot %>error-state-matcher'; <% } %>
 <% if(element.options.autocomplete !== undefined && !element.options.autocomplete.isHardcoded()) { %> 
 import { ApiService } from '<%= pathToRoot %>api.service';
 <% } if(element.options.autocomplete !== undefined) { %> 
@@ -16,6 +17,8 @@ import { map, startWith } from 'rxjs/operators';
 export class <%= classify(element.id) %>Component implements OnInit {
     @Input() fControl!: FormControl;
     
+    <% if(element.options.required) { %> matcher!: DefaultErrorStateMatcher; <% } %>
+
     constructor(
         <% if(element.options.autocomplete !== undefined && !element.options.autocomplete.isHardcoded()) { %> private api: ApiService <% } %>
     ) { }
@@ -36,6 +39,8 @@ export class <%= classify(element.id) %>Component implements OnInit {
             map(value => this._filter(value))
         );
     <% } %>
+    <% if(element.options.required) { %> 
+        this.matcher = new DefaultErrorStateMatcher(); <% } %>
     }
 
     <% if(element.options.autocomplete !== undefined) { %> 

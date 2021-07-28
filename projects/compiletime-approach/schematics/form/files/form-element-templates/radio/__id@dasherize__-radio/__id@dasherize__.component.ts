@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+<% if(element.options.required) { %> import { DefaultErrorStateMatcher } from '<%= pathToRoot %>error-state-matcher'; <% } %>
 <% if(!element.options.pickingOptions.isHardcoded()) { %> 
 import { ApiService } from '<%= pathToRoot %>api.service';
 <% } %>
@@ -24,6 +25,8 @@ export class <%= classify(element.id) %>Component implements OnInit {
     
     values: string[] = [];
 
+    <% if(element.options.required) { %> matcher!: DefaultErrorStateMatcher; <% } %>
+
     constructor(
         <% if(!element.options.pickingOptions.isHardcoded()) { %> private api: ApiService <% } %>
     ) { }
@@ -37,5 +40,12 @@ export class <%= classify(element.id) %>Component implements OnInit {
                 this.values = suggestions;
             });
         <% } %>
+        <% if(element.options.required) { %> this.matcher = new DefaultErrorStateMatcher(); <% } %>
     }
+
+    <% if(element.options.required) { %> 
+    requiredError(): boolean {
+        return this.matcher.isErrorState(this.fControl, null) && this.fControl.hasError('required');
+    }
+    <% } %>
 }

@@ -245,7 +245,8 @@
                         "id":"required-input",
                         "label":"Required",
                         "options":{
-                            "required":true
+                            "required":true,
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
                         }
                     }
                 ]

@@ -5,7 +5,7 @@ import { Specification } from './model/base-model';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
-import data from '../../../../json/test-all.json';
+//import data from '../../../../json/test-all.json';
 
 @Injectable({
     providedIn: 'root'

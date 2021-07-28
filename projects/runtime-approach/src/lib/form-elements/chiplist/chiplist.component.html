@@ -1,6 +1,6 @@
 <mat-form-field class="chip-list" appearance="standard">
     <mat-label>{{element.label}}</mat-label>
-    <mat-chip-list #chipList [formControl]="fControl" [required]="options.required">
+    <mat-chip-list #chipList [formControl]="fControl" [required]="options.required" [errorStateMatcher]="matcher">
         <mat-chip
             *ngFor="let chip of fControl.value"
             [removable]="options.removable"
@@ -24,4 +24,7 @@
             {{suggestion}}
         </mat-option>
     </mat-autocomplete>
+    <mat-error *ngIf="fControl.hasError('required')">
+        {{options.requiredErrorMessage}}
+    </mat-error>
 </mat-form-field>

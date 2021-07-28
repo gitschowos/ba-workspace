@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { SuggestionsService } from '../../suggestions.service';
 import { FormElement, InputFieldOptions } from '../../model/base-model';
+import { DefaultErrorStateMatcher } from '../../error-state-matcher';
 
 @Component({
     selector: 'lib-input-field',
@@ -20,12 +21,15 @@ export class InputFieldComponent implements OnInit {
     autoCompleteOptions: string[] = [];
     filteredOptions!: Observable<string[]>;
 
+    matcher!: DefaultErrorStateMatcher;
+
     constructor(
         private suggestions: SuggestionsService
     ) { }
 
     ngOnInit(): void {
         this.options = this.element.options as InputFieldOptions;
+
         const autocomplete = this.options.autocomplete;
         if (autocomplete !== undefined) {
             this.hasAutoComplete = true;
@@ -40,6 +44,8 @@ export class InputFieldComponent implements OnInit {
                 map(value => this._filter(value))
             );
         }
+
+        this.matcher = new DefaultErrorStateMatcher();
     }
 
     private _filter(value: string): string[] {

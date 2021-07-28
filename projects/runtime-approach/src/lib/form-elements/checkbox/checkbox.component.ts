@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DefaultErrorStateMatcher } from '../../error-state-matcher';
 import { CheckboxOptions, FormElement } from '../../model/base-model';
 
 @Component({
@@ -13,9 +14,17 @@ export class CheckboxComponent implements OnInit {
     
     options!: CheckboxOptions;
 
+    matcher!: DefaultErrorStateMatcher;
+
     constructor() { }
 
     ngOnInit(): void {
         this.options = this.element.options as CheckboxOptions;
+
+        this.matcher = new DefaultErrorStateMatcher();
+    }
+
+    requiredError(): boolean {
+        return this.matcher.isErrorState(this.fControl, null) && this.fControl.hasError('required');
     }
 }

@@ -1,4 +1,7 @@
 <label id="radio-label"> {{element.label}}: </label>
+<mat-error *ngIf="requiredError()">
+    {{options.requiredErrorMessage}}
+</mat-error>
 <mat-radio-group
     [formControl]="fControl"
     aria-labelledby="radio-label"

@@ -7,6 +7,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ChipListOptions, FormElement } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
+import { DefaultErrorStateMatcher } from '../../error-state-matcher';
 
 @Component({
     selector: 'lib-chiplist',
@@ -20,12 +21,14 @@ export class ChiplistComponent implements OnInit {
     options!: ChipListOptions;
 
     textControl = new FormControl('');
+    seperatorKeysCodes: number[] = [ENTER, COMMA, TAB];
+    
     allSuggestions: string[] = [];
     filteredSuggestions!: Observable<string[]>;
 
-    seperatorKeysCodes: number[] = [ENTER, COMMA, TAB];
-
     @ViewChild('chipInput') chipInput!: ElementRef<HTMLInputElement>;
+
+    matcher!: DefaultErrorStateMatcher;
 
     constructor(
         private suggestions: SuggestionsService
@@ -49,6 +52,8 @@ export class ChiplistComponent implements OnInit {
                 this.fControl.setValue([]);
             }
         });
+
+        this.matcher = new DefaultErrorStateMatcher();
     }
 
     add(event: MatChipInputEvent): void {

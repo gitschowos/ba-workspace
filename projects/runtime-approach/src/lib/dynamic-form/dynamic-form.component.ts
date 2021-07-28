@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import _ from 'lodash';
 import { CreateFormControlService } from '../create-form-control.service';
 import { Specification } from '../model/base-model';
@@ -18,7 +19,8 @@ export class DynamicFormComponent implements OnChanges {
     initialValue: any;
 
     constructor(
-        private createFormControl: CreateFormControlService
+        private createFormControl: CreateFormControlService,
+        private snackBar: MatSnackBar
     ) { }
 
     ngOnChanges(): void {
@@ -28,7 +30,13 @@ export class DynamicFormComponent implements OnChanges {
     }
 
     onSubmit(): void {
-        this.formValue = this.fGroup.value;
+        if(this.fGroup.valid) {
+            this.formValue = this.fGroup.value;
+        }
+        if((this.fGroup as any).submitted === undefined) {
+            (this.fGroup as any).submitted = true;
+            this.setSubmitted(this.fGroup);
+        }
     }
 
     onReset(): void {
@@ -38,5 +46,14 @@ export class DynamicFormComponent implements OnChanges {
     //for the activateControl param of the root renderer
     getDummyControl(): AbstractControl {
         return new FormControl();
+    }
+
+    private setSubmitted(group: FormGroup) {
+        for (const control of Object.values(group.controls)) {
+            (control as any).submitted = true;
+            if(control instanceof FormGroup) {
+                this.setSubmitted(control);
+            }
+        }
     }
 }

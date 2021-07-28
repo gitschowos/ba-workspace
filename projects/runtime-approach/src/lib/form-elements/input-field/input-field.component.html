@@ -5,10 +5,14 @@
         [style]="options.styling"
         [placeholder]="options.placeholder" 
         [required]="options.required" 
-        [matAutocomplete]="auto">
+        [matAutocomplete]="auto"
+        [errorStateMatcher]="matcher">
     <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}
         </mat-option>
     </mat-autocomplete>
+    <mat-error *ngIf="fControl.hasError('required')">
+        {{options.requiredErrorMessage}}
+    </mat-error>
 </mat-form-field>

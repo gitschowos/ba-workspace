@@ -10,3 +10,6 @@
         {{element.label}}
     </mat-slide-toggle>
 </ng-template>
+<mat-error *ngIf="requiredError()">
+    {{options.requiredErrorMessage}}
+</mat-error>

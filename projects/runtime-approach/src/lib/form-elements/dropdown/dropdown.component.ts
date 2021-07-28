@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DefaultErrorStateMatcher } from '../../error-state-matcher';
 import { DropdownOptions, FormElement } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
 
@@ -16,6 +17,8 @@ export class DropdownComponent implements OnInit {
 
     values: string[] = [];
 
+    matcher!: DefaultErrorStateMatcher;
+
     constructor(
         private suggestions: SuggestionsService
     ) { }
@@ -25,6 +28,7 @@ export class DropdownComponent implements OnInit {
         this.suggestions.getSuggestions(this.options.values).subscribe(values => {
             this.values = values;
         });
+        this.matcher = new DefaultErrorStateMatcher();
     }
 
 }

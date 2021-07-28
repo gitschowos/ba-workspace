@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DefaultErrorStateMatcher } from '../../error-state-matcher';
 import { FormElement, RadioOptions } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
 
@@ -16,6 +17,8 @@ export class RadioComponent implements OnInit {
 
     values: string[] = [];
 
+    matcher!: DefaultErrorStateMatcher;
+
     constructor(
         private suggestions: SuggestionsService
     ) { }
@@ -30,5 +33,11 @@ export class RadioComponent implements OnInit {
                 this.fControl.markAsTouched();
             }
         });
+
+        this.matcher = new DefaultErrorStateMatcher();
+    }
+
+    requiredError(): boolean {
+        return this.matcher.isErrorState(this.fControl, null) && this.fControl.hasError('required');
     }
 }

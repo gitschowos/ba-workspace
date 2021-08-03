@@ -4,10 +4,17 @@ import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, Form
 
 export const createFormControlString = (element: FormElement, camelize: boolean = true): string => {
     const value = element.value === undefined ? getInitialValueString(element) : getValueString(element.value);
-    let validator = '';
+    let validator = ', [';
     if ((element.options as FormElementOptions).required) {
-        validator = ', Validators.required';
+        validator += 'Validators.required, ';
     }
+    if (element.type === FormElementType.input) {
+        const regex = (element.options as InputFieldOptions).validatorRegex;
+        if (regex !== undefined) {
+            validator += String.raw`Validators.pattern(${JSON.stringify(regex)})`; //JSON.stringify to keep the backslashs instead of escaping
+        }
+    }
+    validator += ']';
     return `'${camelize ? strings.camelize(element.id) : element.id}': [${value}${validator}],`
 };
 

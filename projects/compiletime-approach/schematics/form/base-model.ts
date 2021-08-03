@@ -53,6 +53,9 @@ export class InputFieldOptions extends FormElementOptions {
     inputType: string;
     placeholder: string;
     autocomplete?: Suggestions;
+    validatorRegex?: string;
+    validatorErrorMessage: string;
+
     constructor(source: any) {
         super(source);
         this.inputType = parseAttribute(source, 'inputType', false, 'text');
@@ -61,6 +64,8 @@ export class InputFieldOptions extends FormElementOptions {
         if (autocomplete !== '') {
             this.autocomplete = new Suggestions(autocomplete);
         }
+        this.validatorRegex = parseAttribute(source, 'validatorRegex', false, undefined);
+        this.validatorErrorMessage = parseAttribute(source, 'validatorErrorMessage', false, 'ungültig');
     }
 }
 

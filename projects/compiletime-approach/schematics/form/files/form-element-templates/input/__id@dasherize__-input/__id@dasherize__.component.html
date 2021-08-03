@@ -5,8 +5,8 @@
         type="<%= element.options.inputType %>"
         placeholder="<%= element.options.placeholder %>"
         style="<%= element.options.styling %>"
-        <% if(element.options.required) { %> [required]="true" 
-        [errorStateMatcher]="matcher" <% } %>
+        <% if(element.options.required) { %> [required]="true" <% } %>
+        <% if(element.options.required || element.options.validatorRegex !== undefined) { %> [errorStateMatcher]="matcher" <% } %>
         <% if(element.options.autocomplete !== undefined) { %> [matAutocomplete]="auto" <% } %>
     >
     <% if(element.options.autocomplete !== undefined) { %> 
@@ -19,5 +19,9 @@
     <% if(element.options.required) { %> 
         <mat-error *ngIf="fControl.hasError('required')">
             <%= element.options.requiredErrorMessage %>
+        </mat-error> <% } %>
+    <% if(element.options.validatorRegex !== undefined) { %> 
+        <mat-error *ngIf="!fControl.hasError('required') && fControl.hasError('pattern')">
+            <%= element.options.validatorErrorMessage %>
         </mat-error> <% } %>
 </mat-form-field>

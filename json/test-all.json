@@ -246,8 +246,7 @@
                         "label":"Required",
                         "options":{
                             "required":true,
-                            "requiredErrorMessage":"Bitte einen Text eingeben...",
-                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+"
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
                         }
                     },
                     {

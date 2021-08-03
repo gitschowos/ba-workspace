@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, Specification } from './model/base-model';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, Specification } from './model/base-model';
 
 @Injectable({
     providedIn: 'root'
@@ -19,18 +19,14 @@ export class CreateFormControlService {
         return formGroup;
     }
 
+    // assuming element is no group
     getFormControl(element: FormElement): FormControl {
         let value = element.value;
         if (element.value === undefined) {
             value = this.getInitialValue(element);
         }
 
-        if ((element.options as FormElementOptions).required) {
-            return new FormControl(value, Validators.required);
-        }
-        else {
-            return new FormControl(value);
-        }
+        return new FormControl(value, this.getValidators(element));
     }
 
     private buildFormControlsR(elements: FormElement[], group: any): any {
@@ -130,5 +126,22 @@ export class CreateFormControlService {
             default:
                 return '';
         }
+    }
+
+    //assuming element is no group
+    private getValidators(element: FormElement): ValidatorFn[] {
+        const validators = [];
+
+        if((element.options as FormElementOptions).required) {
+            validators.push(Validators.required);
+        }
+        if(element.type === FormElementType.input) {
+            const regex = (element.options as InputFieldOptions).validatorRegex;
+            if (regex !== undefined) {
+                validators.push(Validators.pattern(regex));
+            }
+        }
+
+        return validators;
     }
 }

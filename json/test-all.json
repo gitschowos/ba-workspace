@@ -246,7 +246,18 @@
                         "label":"Required",
                         "options":{
                             "required":true,
-                            "requiredErrorMessage":"Bitte einen Text eingeben..."
+                            "requiredErrorMessage":"Bitte einen Text eingeben...",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"regex-input",
+                        "label":"Regex Validator",
+                        "options":{
+                            "placeholder":"example@mail.com",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+",
+                            "validatorErrorMessage":"Bitte gültige Email-Addresse eingeben"
                         }
                     }
                 ]

@@ -15,4 +15,7 @@
     <mat-error *ngIf="fControl.hasError('required')">
         {{options.requiredErrorMessage}}
     </mat-error>
+    <mat-error *ngIf="!fControl.hasError('required') && fControl.hasError('pattern')">
+        {{options.validatorErrorMessage}}
+    </mat-error>
 </mat-form-field>

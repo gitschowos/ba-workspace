@@ -53,7 +53,7 @@ export class InputFieldOptions extends FormElementOptions {
     inputType: string;
     placeholder: string;
     autocomplete?: Suggestions;
-    validatorRegex?: RegExp;
+    validatorRegex?: string;
     validatorErrorMessage: string;
 
     constructor(source: any) {
@@ -64,10 +64,7 @@ export class InputFieldOptions extends FormElementOptions {
         if (autocomplete !== '') {
             this.autocomplete = new Suggestions(autocomplete);
         }
-        const validator = parseAttribute(source, 'validatorRegex', false, undefined);
-        if (validator !== undefined) {
-            this.validatorRegex = new RegExp(validator);
-        }
+        this.validatorRegex = parseAttribute(source, 'validatorRegex', false, undefined);
         this.validatorErrorMessage = parseAttribute(source, 'validatorErrorMessage', false, 'ungültig');
     }
 }

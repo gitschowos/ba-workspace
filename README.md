@@ -8,13 +8,9 @@ The form is predefined in a JSON file. A UML-Diagram of the structure for the JS
 
 The following projects are parts of the workspace:
 
-## runtime-approach
+## ngx-model-driven-form
 
-Angular Library, which has a component that generates a form during runtime from a predefined JSON model.
-
-## compiletime-approach
-
-Angular Library, which holds an angular-cli schematics command, that generates angular components describing a form from a predefined JSON model.
+Angular Library, which has a component that generates a form during runtime (initial page loading) from a predefined JSON model as well as a anglular-cli schematics command that generates Angular components describing a form from the predefined JSON model
 
 ## test-app
 

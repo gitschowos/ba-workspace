@@ -1,6 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiletime generated form-files
+# from schematics generated form-files
 /projects/test-app/src/app/ct-form
 
 # compiled output

@@ -1,7 +1,7 @@
 {
     "$schema":"http://json-schema.org/schema",
     "$id": "SchematicsGenerateForm",
-    "title": "Compiletime form generator",
+    "title": "Angular form code generator",
     "type": "object",
     "properties": {
         "jsonFile": {

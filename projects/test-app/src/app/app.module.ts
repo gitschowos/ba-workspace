@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ModelDrivenFormModule } from 'ngx-model-driven-form';
-import { RuntimeApproachModule } from 'runtime-approach';
 
 import { AppComponent } from './app.component';
 import { CtFormModule } from './ct-form/form.module';
@@ -20,7 +19,6 @@ import { PrebuildFormModule } from './prebuild-form/prebuild-form.module';
         ),
 
         PrebuildFormModule,
-        RuntimeApproachModule,
         CtFormModule,
         ModelDrivenFormModule
     ],

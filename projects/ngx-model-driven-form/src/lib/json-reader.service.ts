@@ -30,7 +30,7 @@ export class JsonReaderService {
         });
     }
 
-    private parseSpecification(source: unknown): Specification {
+    parseSpecification(source: unknown): Specification {
         try {
             return new Specification(source);
         } catch (error) {

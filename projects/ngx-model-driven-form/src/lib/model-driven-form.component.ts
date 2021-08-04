@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { JsonReaderService } from './json-reader.service';
 import { Specification } from './model/base-model';
 
@@ -11,6 +12,7 @@ import { Specification } from './model/base-model';
   ]
 })
 export class ModelDrivenFormComponent implements OnInit {
+    @Input() inputSpec$!: Observable<any>;
     spec!: Specification;
 
     constructor(
@@ -19,6 +21,7 @@ export class ModelDrivenFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.spec = this.reader.getLoadingDummy();  //show loading... while specification is fetched
-        this.reader.getModelFromJson().subscribe(spec => this.spec = spec);
+        //this.reader.getModelFromJson().subscribe(spec => this.spec = spec);
+        this.inputSpec$.subscribe(input => this.spec = this.reader.parseSpecification(input));
     }
 }

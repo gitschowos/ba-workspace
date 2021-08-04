@@ -1,0 +1,22 @@
+<div [ngSwitch]="element.type.toString()">
+    <div *ngSwitchCase="'input'">
+        <lib-input-field [fControl]="control" [element]="element">
+        </lib-input-field>
+    </div>
+    <div *ngSwitchCase="'checkbox'">
+        <lib-checkbox [fControl]="control" [element]="element">
+        </lib-checkbox>
+    </div>
+    <div *ngSwitchCase="'radio'">
+        <lib-radio [fControl]="control" [element]="element">
+        </lib-radio>
+    </div>
+    <div *ngSwitchCase="'dropdown'">
+        <lib-dropdown [fControl]="control" [element]="element">
+        </lib-dropdown>
+    </div>
+    <div *ngSwitchCase="'chiplist'">
+        <lib-chiplist [fControl]="control" [element]="element">
+        </lib-chiplist>
+    </div>
+</div>

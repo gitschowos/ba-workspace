@@ -191,6 +191,37 @@
           }
         }
       }
+    },
+    "ngx-model-driven-form": {
+      "projectType": "library",
+      "root": "projects/ngx-model-driven-form",
+      "sourceRoot": "projects/ngx-model-driven-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-model-driven-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-model-driven-form/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-model-driven-form/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-model-driven-form/src/test.ts",
+            "tsConfig": "projects/ngx-model-driven-form/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-model-driven-form/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "test-app"

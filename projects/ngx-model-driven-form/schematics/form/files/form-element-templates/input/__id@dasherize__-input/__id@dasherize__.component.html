@@ -1,0 +1,27 @@
+<mat-form-field appearance="standard">
+    <mat-label><%= element.label %></mat-label>
+    <input matInput
+        [formControl]="fControl"
+        type="<%= element.options.inputType %>"
+        placeholder="<%= element.options.placeholder %>"
+        style="<%= element.options.styling %>"
+        <% if(element.options.required) { %> [required]="true" <% } %>
+        <% if(element.options.required || element.options.validatorRegex !== undefined) { %> [errorStateMatcher]="matcher" <% } %>
+        <% if(element.options.autocomplete !== undefined) { %> [matAutocomplete]="auto" <% } %>
+    >
+    <% if(element.options.autocomplete !== undefined) { %> 
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    <% } %>
+    <% if(element.options.required) { %> 
+        <mat-error *ngIf="fControl.hasError('required')">
+            <%= element.options.requiredErrorMessage %>
+        </mat-error> <% } %>
+    <% if(element.options.validatorRegex !== undefined) { %> 
+        <mat-error *ngIf="!fControl.hasError('required') && fControl.hasError('pattern')">
+            <%= element.options.validatorErrorMessage %>
+        </mat-error> <% } %>
+</mat-form-field>

@@ -1,0 +1,11 @@
+<mat-form-field appearance="standard">
+    <mat-label> {{element.label}}  </mat-label>
+    <mat-select [formControl]="fControl" [required]="options.required" [multiple]="options.multiple" [errorStateMatcher]="matcher">
+        <mat-option *ngFor="let option of values" [value]="option">
+            {{option}}
+        </mat-option> 
+    </mat-select>
+    <mat-error *ngIf="fControl.hasError('required')">
+        {{options.requiredErrorMessage}}
+    </mat-error>
+</mat-form-field>

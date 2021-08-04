@@ -1,0 +1,21 @@
+<mat-form-field appearance="standard">
+    <mat-label>{{element.label}}</mat-label>
+    <input matInput [formControl]="fControl" 
+        [type]="options.inputType" 
+        [style]="options.styling"
+        [placeholder]="options.placeholder" 
+        [required]="options.required" 
+        [matAutocomplete]="auto"
+        [errorStateMatcher]="matcher">
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="fControl.hasError('required')">
+        {{options.requiredErrorMessage}}
+    </mat-error>
+    <mat-error *ngIf="!fControl.hasError('required') && fControl.hasError('pattern')">
+        {{options.validatorErrorMessage}}
+    </mat-error>
+</mat-form-field>

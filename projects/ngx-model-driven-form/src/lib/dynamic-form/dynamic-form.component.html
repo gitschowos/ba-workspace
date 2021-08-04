@@ -1,0 +1,24 @@
+<h1>
+    {{formSpecification.title}}
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+
+        <lib-form-renderer [elements]="formSpecification.content" [fGroup]="fGroup">
+        </lib-form-renderer>
+
+        <button mat-button color="primary" *ngIf="formSpecification.showResetButton" type="button"
+            (click)="onReset()">Zurücksetzen</button>
+        <button mat-button color="primary" *ngIf="formSpecification.showClearButton" type="reset">Löschen</button>
+
+        <button mat-raised-button color="primary" type="submit">Absenden</button>
+    </form>
+</div>
+<p></p>
+<mat-divider></mat-divider>
+<div>
+    <lib-form-filler [fGroup]="fGroup" [specification]="formSpecification"></lib-form-filler>
+</div>
+<p>
+    {{formValue | json}}
+</p>

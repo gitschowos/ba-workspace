@@ -1,0 +1,14 @@
+{
+    "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "ng-add": {
+            "description": "Add my library to the project.",
+            "factory": "./ng-add/index#ngAdd"
+        },
+        "form": {
+            "description": "Create formular files generated while this command runs",
+            "factory": "./form/index#form",
+            "schema": "./form/schema.json"
+        }
+    }
+}

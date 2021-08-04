@@ -1,0 +1,30 @@
+<h1>
+    <%=specification.title %>
+</h1>
+<div>
+    <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+        <% for (let element of specification.content) { %>
+            <% if (element.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= camelize(element.options.displayCond) %>')"> <% } %>
+            <% if (element.type === 'group') { %>
+                <ct-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+            <% } else { %>
+                <div>
+                <ct-<%= dasherize(element.id) %> [fControl]="getFormControl('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+                </div>
+            <% } %>
+            <% if (element.options.displayCond !== '') { %> </div> <% } %>
+        <% } %>
+
+        <% if (specification.showResetButton) { %> <button mat-button color="primary" type="button" (click)="onReset()">Zurücksetzen</button> <% } %>
+        <% if (specification.showClearButton) { %> <button mat-button color="primary" type="reset">Löschen</button> <% } %>
+        <button mat-raised-button color="primary" type="submit">Absenden</button>
+    </form>
+</div>
+<p></p>
+<mat-divider></mat-divider>
+<div>
+    <ct-form-filler [fGroup]="fGroup"></ct-form-filler>
+</div>
+<p>
+    {{formValue | json}}
+</p>

@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="column">
+        <lib-model-driven-form [inputSpec$]="data"></lib-model-driven-form>
+    </div>
+    <div class="column">
+        <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field appearance="outline" class="form-field">
+                    <textarea matInput 
+                        formControlName="fControl" 
+                        class="editor-textarea" 
+                        [mat-autosize]="true" 
+                        [matAutosizeMinRows]=10
+                        [matAutosizeMaxRows]=20> 
+                    </textarea>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" type="submit">Erzeugen</button>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,3 @@
-.row {
-    display: flex;
-}
-  
-.column {
-    flex: 50%;
+.example-spacer {
+    flex: 1 1 auto;
 }

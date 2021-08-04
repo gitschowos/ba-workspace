@@ -3,19 +3,15 @@
         <lib-model-driven-form [inputSpec$]="data"></lib-model-driven-form>
     </div>
     <div class="column">
-        <form [formGroup]="fGroup" (ngSubmit)="onSubmit()">
-            <div>
-                <mat-form-field appearance="outline" class="form-field">
-                    <textarea matInput 
-                        formControlName="fControl" 
-                        class="editor-textarea" 
-                        [mat-autosize]="true" 
-                        [matAutosizeMinRows]=10
-                        [matAutosizeMaxRows]=20> 
-                    </textarea>
-                </mat-form-field>
+        <div class="left-container">
+            <div class="editor-container">
+                <ngs-code-editor [theme]="theme" [codeModel]="model" [options]="options"
+                    (valueChanged)="onCodeChanged($event)">
+                </ngs-code-editor>
             </div>
-            <button mat-raised-button color="primary" type="submit">Erzeugen</button>
-        </form>
+            <div>
+                <button mat-raised-button color="primary" (click)="onCreate()">Erzeugen</button>
+            </div>
+        </div>
     </div>
 </div>

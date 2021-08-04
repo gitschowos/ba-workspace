@@ -16,6 +16,8 @@ import { LiveEditorComponent } from './views/live-editor/live-editor.component';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { CodeEditorModule } from '@ngstack/code-editor';
+
 
 @NgModule({
     declarations: [
@@ -36,7 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
         MatToolbarModule,
         MatButtonModule,
-        MatInputModule
+        MatInputModule,
+
+        CodeEditorModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

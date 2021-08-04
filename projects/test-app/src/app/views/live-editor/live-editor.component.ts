@@ -14,20 +14,30 @@ export class LiveEditorComponent implements OnInit {
     data!: Subject<any>;
 
     constructor(
-        private fb: FormBuilder
     ) { }
 
     ngOnInit(): void {
-        this.fControl = new FormControl('{ "title":"Formular erstellen", "content":[] }');
-        this.fGroup = new FormGroup( { fControl: this.fControl });
-
         this.data = new Subject();
     }
 
-    onSubmit(): void {
-        console.log(this.fControl.value);
-        const data = JSON.parse(this.fControl.value);
-        console.log(data);
-        this.data.next(data);
+    onCodeChanged(value: string) {
+        this.code = value;
     }
+
+    onCreate(): void {
+        this.data.next(JSON.parse(this.code));
+    }
+    
+    theme = "vs-dark";
+    model = {
+        language: "json",
+        uri: "main.json",
+        value: '{ "title":"Formular erstellen", "content":[] }'
+    };
+
+    options = {
+        contextmenu: true
+    };
+
+    code: string = '{ "title":"Formular erstellen", "content":[] }';
 }

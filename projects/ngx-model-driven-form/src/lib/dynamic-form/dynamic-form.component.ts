@@ -38,6 +38,10 @@ export class DynamicFormComponent implements OnChanges {
         }
     }
 
+    isSubmitted(): boolean {
+        return (this.fGroup as any).submitted !== undefined;
+    }
+
     onReset(): void {
         this.fGroup.setValue(_.cloneDeep(this.initialValue));
     }

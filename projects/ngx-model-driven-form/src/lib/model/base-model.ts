@@ -211,12 +211,14 @@ export class Specification {
     content: FormElement[];
     showClearButton: boolean;
     showResetButton: boolean;
+    showExampleFiller: boolean;
 
     constructor(source: any) {
         this.title = parseAttribute(source, 'title', false, '');
 
         this.showClearButton = parseAttribute(source, 'showClearButton', false, false);
         this.showResetButton = parseAttribute(source, 'showResetButton', false, false);
+        this.showExampleFiller = parseAttribute(source, 'showExampleFiller', false, false);
 
         const content = parseAttribute(source, 'content', true);
         let elements: FormElement[] = [];

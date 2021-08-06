@@ -15,10 +15,10 @@
     </form>
 </div>
 <p></p>
-<mat-divider></mat-divider>
-<div>
+<div *ngIf="formSpecification.showExampleFiller">
+    <mat-divider></mat-divider>
     <lib-form-filler [fGroup]="fGroup" [specification]="formSpecification"></lib-form-filler>
 </div>
-<p>
+<p *ngIf="isSubmitted()">
     {{formValue | json}}
 </p>

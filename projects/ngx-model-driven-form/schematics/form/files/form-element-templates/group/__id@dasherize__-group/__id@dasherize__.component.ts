@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-    selector: 'ct-<%= dasherize(element.id) %>',
+    selector: '<%=prefix%>-<%= dasherize(element.id) %>',
     templateUrl: './<%= dasherize(element.id) %>.component.html',
     styles: [".group-title { font-weight: bold; }"]
 })

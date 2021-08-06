@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FormComponent } from './form.component';
+import { <%=classify(prefix)%>FormComponent } from './form.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -24,7 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [ 
-        FormComponent,
+        <%=classify(prefix)%>FormComponent,
         <% for (const i of componentNames) { %>
         <%= i %>,  <% } %> 
     ],
@@ -47,6 +47,6 @@ import { MatTableModule } from '@angular/material/table';
         MatIconModule,
         MatTableModule
     ],
-    exports: [ FormComponent ]
+    exports: [ <%=classify(prefix)%>FormComponent ]
 })
-export class CtFormModule { }
+export class <%=classify(prefix)%>FormModule { }

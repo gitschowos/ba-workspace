@@ -4,7 +4,7 @@ import { MatTable } from '@angular/material/table';
 import _ from 'lodash';
 
 @Component({
-    selector: 'ct-<%= dasherize(element.id) %>',
+    selector: '<%=prefix%>-<%= dasherize(element.id) %>',
     templateUrl: './<%= dasherize(element.id) %>.component.html',
     styles: [`
     table {

@@ -27,7 +27,7 @@ function createHost(tree: Tree): workspaces.WorkspaceHost {
 }
 
 function createFormElementComponents(elements: FormElement[], myChain: Rule[], componentNames: string[], componentImports: string[],
-    basePath: string, currPath: string, pathToRoot: string) {
+    basePath: string, currPath: string, pathToRoot: string, prefix: string) {
     const templatePath = './files/form-element-templates/';
     for (const element of elements) {
         const templateSource = apply(url(templatePath + element.type), [
@@ -38,7 +38,8 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
                 helpers,
                 element,
                 id: element.id,  //for filenames
-                pathToRoot
+                pathToRoot,
+                prefix
             }),
             move(normalize(basePath + currPath))
         ]);
@@ -52,11 +53,11 @@ function createFormElementComponents(elements: FormElement[], myChain: Rule[], c
 
         if (element.type === FormElementType.group) {
             createFormElementComponents((element.options as GroupOptions).childs, myChain, componentNames, componentImports,
-                basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../');
+                basePath, currPath + `/${strings.dasherize(element.id)}-group`, pathToRoot + '../', prefix);
         }
         else if (element.type === FormElementType.table) {
             createFormElementComponents((element.options as TableOptions).columns, myChain, componentNames, componentImports,
-                basePath, currPath + `/${strings.dasherize(element.id)}-table`, pathToRoot + '../');
+                basePath, currPath + `/${strings.dasherize(element.id)}-table`, pathToRoot + '../', prefix);
         }
     }
 }
@@ -134,7 +135,7 @@ export function form(options: Schema): Rule {
         let componentNames: string[] = [];
         let componentImports: string[] = [];
 
-        createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '', '../');
+        createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + `/${options.prefix}-form`, '', '../', options.prefix);
 
 
         if (specification.showExampleFiller) {
@@ -148,9 +149,10 @@ export function form(options: Schema): Rule {
                     camelize: strings.camelize,
                     specification,
                     helpers,
-                    apiUrls
+                    apiUrls,
+                    prefix: options.prefix
                 }),
-                move(normalize((options.destinationPath as string) + '/ct-form'))
+                move(normalize((options.destinationPath as string) + `/${options.prefix}-form`))
             ]);
             myChain.push(mergeWith(templateSource, MergeStrategy.Overwrite));
 
@@ -168,8 +170,9 @@ export function form(options: Schema): Rule {
                 helpers,
                 componentNames,
                 componentImports,
+                prefix: options.prefix
             }),
-            move(normalize((options.destinationPath as string) + '/ct-form'))
+            move(normalize((options.destinationPath as string) + `/${options.prefix}-form`))
         ]);
         myChain.push(mergeWith(templateSource, MergeStrategy.Overwrite));
 

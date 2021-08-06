@@ -26,6 +26,11 @@
         "project": {
             "description": "Name of the angular project",
             "type": "string"
+        },
+        "prefix": {
+            "description": "Prefix of the form components root folder and of all the components selectors",
+            "type": "string",
+            "default": "gen"
         }
     },
     "required": ["jsonFile"]

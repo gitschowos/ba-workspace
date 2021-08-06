@@ -9,4 +9,7 @@ export interface Schema {
 
     //the name of the angular project
     project?: string;
+
+    //Prefix of the form components root folder and of all the components selectors
+    prefix: string;
 }

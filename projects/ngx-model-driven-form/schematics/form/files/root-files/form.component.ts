@@ -4,10 +4,10 @@ import _ from 'lodash';
 import { ApiService } from './api.service';
 
 @Component({
-    selector: 'ct-form',
+    selector: '<%=prefix%>-form',
     templateUrl: 'form.component.html'
 })
-export class FormComponent implements OnInit {
+export class <%=classify(prefix)%>FormComponent implements OnInit {
     fGroup = this.fb.group({
         <%= helpers.createFormGroupString(specification.content) %>
     });

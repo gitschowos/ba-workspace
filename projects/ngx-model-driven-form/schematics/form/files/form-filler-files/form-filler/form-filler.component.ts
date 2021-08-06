@@ -11,7 +11,7 @@ interface ElementToFill {
 }
 
 @Component({
-    selector: 'ct-form-filler',
+    selector: '<%=prefix%>-form-filler',
     templateUrl: './form-filler.component.html'
 })
 export class FormFillerComponent implements OnInit {

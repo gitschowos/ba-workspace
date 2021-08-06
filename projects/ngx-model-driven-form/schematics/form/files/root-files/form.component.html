@@ -6,10 +6,10 @@
         <% for (let element of specification.content) { %>
             <% if (element.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= camelize(element.options.displayCond) %>')"> <% } %>
             <% if (element.type === 'group') { %>
-                <ct-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+                <<%=prefix%>-<%= dasherize(element.id) %> [fGroup]="getFormGroup('<%= camelize(element.id) %>')" ></<%=prefix%>-<%= dasherize(element.id) %>>
             <% } else { %>
                 <div>
-                <ct-<%= dasherize(element.id) %> [fControl]="getFormControl('<%= camelize(element.id) %>')" ></ct-<%= dasherize(element.id) %>>
+                <<%=prefix%>-<%= dasherize(element.id) %> [fControl]="getFormControl('<%= camelize(element.id) %>')" ></<%=prefix%>-<%= dasherize(element.id) %>>
                 </div>
             <% } %>
             <% if (element.options.displayCond !== '') { %> </div> <% } %>
@@ -24,7 +24,7 @@
 <% if (specification.showExampleFiller) { %>
 <div>
     <mat-divider></mat-divider>
-    <ct-form-filler [fGroup]="fGroup"></ct-form-filler>
+    <<%=prefix%>-form-filler [fGroup]="fGroup"></<%=prefix%>-form-filler>
 </div>
 <% } %>
 <p>

@@ -11,7 +11,7 @@ import { ApiService } from '<%= pathToRoot %>api.service';
 <% } %>
 
 @Component({
-    selector: 'ct-<%= dasherize(element.id) %>',
+    selector: '<%=prefix%>-<%= dasherize(element.id) %>',
     templateUrl: './<%= dasherize(element.id) %>.component.html',
     styles: [`
     .chip-list {

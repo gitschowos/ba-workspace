@@ -2,6 +2,7 @@
 
 # from schematics generated form-files
 /projects/test-app/src/app/ct-form
+/projects/test-app/src/app/gen-form
 
 # compiled output
 /dist

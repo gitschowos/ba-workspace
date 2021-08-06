@@ -8,10 +8,10 @@
             <% for (let child of element.options.childs) { %>
                 <% if (child.options.displayCond !== '') { %> <div *ngIf="hasLegalValue('<%= camelize(child.options.displayCond) %>')"> <% } %>
                 <% if (child.type === 'group') { %>
-                    <ct-<%= dasherize(child.id) %> [fGroup]="getFormGroup('<%= camelize(child.id) %>')" ></ct-<%= dasherize(child.id) %>>
+                    <<%=prefix%>-<%= dasherize(child.id) %> [fGroup]="getFormGroup('<%= camelize(child.id) %>')" ></<%=prefix%>-<%= dasherize(child.id) %>>
                 <% } else { %>
                     <div>
-                    <ct-<%= dasherize(child.id) %> [fControl]="getFormControl('<%= camelize(child.id) %>')" ></ct-<%= dasherize(child.id) %>>
+                    <<%=prefix%>-<%= dasherize(child.id) %> [fControl]="getFormControl('<%= camelize(child.id) %>')" ></<%=prefix%>-<%= dasherize(child.id) %>>
                     </div>
                 <% } %>
                 <% if (child.options.displayCond !== '') { %> </div> <% } %>

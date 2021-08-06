@@ -4,7 +4,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ModelDrivenFormModule } from 'ngx-model-driven-form';
 
 import { AppComponent } from './app.component';
-import { CtFormModule } from './ct-form/form.module';
+import { GenFormModule } from './gen-form/form.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BothComponent } from './views/both/both.component';
@@ -32,7 +32,7 @@ import { CodeEditorModule } from '@ngstack/code-editor';
             InMemoryDataService, { dataEncapsulation: false }
         ),
         ReactiveFormsModule,
-        CtFormModule,
+        GenFormModule,
         ModelDrivenFormModule,
         AppRoutingModule,
 

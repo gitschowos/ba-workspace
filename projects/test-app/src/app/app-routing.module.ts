@@ -6,11 +6,11 @@ import { BothComponent } from './views/both/both.component';
 import { LiveEditorComponent } from './views/live-editor/live-editor.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/both' },
     { path: 'runtime', component: RuntimeFormComponent },
     { path: 'generated', component: FormComponent },
     { path: 'both', component: BothComponent },
-    { path: 'editor', component: LiveEditorComponent }
+    { path: 'editor', component: LiveEditorComponent },
+    { path: '', redirectTo: '/both' },
 ];
 
 @NgModule({

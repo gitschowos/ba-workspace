@@ -414,5 +414,6 @@
         }
     ],
     "showClearButton": true,
-    "showResetButton": true
+    "showResetButton": true,
+    "showExampleFiller": true
 }

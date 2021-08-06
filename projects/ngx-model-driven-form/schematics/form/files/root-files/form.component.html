@@ -21,10 +21,12 @@
     </form>
 </div>
 <p></p>
-<mat-divider></mat-divider>
+<% if (specification.showExampleFiller) { %>
 <div>
+    <mat-divider></mat-divider>
     <ct-form-filler [fGroup]="fGroup"></ct-form-filler>
 </div>
+<% } %>
 <p>
     {{formValue | json}}
 </p>

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormComponent } from './form.component';
-import { FormFillerComponent } from './form-filler/form-filler.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -26,7 +25,6 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
     declarations: [ 
         FormComponent,
-        FormFillerComponent,
         <% for (const i of componentNames) { %>
         <%= i %>,  <% } %> 
     ],

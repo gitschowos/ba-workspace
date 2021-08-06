@@ -70,7 +70,7 @@ function collectApiUrls(elements: FormElement[], apiUrls: string[]) {
                 continue;
             case FormElementType.input:
                 const autocomplete = (element.options as InputFieldOptions).autocomplete;
-                if(autocomplete === undefined) {
+                if (autocomplete === undefined) {
                     continue;
                 } else {
                     values = autocomplete;
@@ -87,10 +87,10 @@ function collectApiUrls(elements: FormElement[], apiUrls: string[]) {
         }
         if (!values.isHardcoded()) {
             const url = values.content as string;
-            if(!apiUrls.includes(url)) {
+            if (!apiUrls.includes(url)) {
                 apiUrls.push(url);
             }
-        }        
+        }
     }
 }
 
@@ -137,8 +137,27 @@ export function form(options: Schema): Rule {
         createFormElementComponents(specification.content, myChain, componentNames, componentImports, (options.destinationPath as string) + '/ct-form', '', '../');
 
 
-        let apiUrls: string[] = [];
-        collectApiUrls(specification.content, apiUrls); // for example generator
+        if (specification.showExampleFiller) {
+            let apiUrls: string[] = [];
+            collectApiUrls(specification.content, apiUrls); // for example generator
+
+            const templateSource = apply(url('./files/form-filler-files'), [
+                template({
+                    classify: strings.classify,
+                    dasherize: strings.dasherize,
+                    camelize: strings.camelize,
+                    specification,
+                    helpers,
+                    apiUrls
+                }),
+                move(normalize((options.destinationPath as string) + '/ct-form'))
+            ]);
+            myChain.push(mergeWith(templateSource, MergeStrategy.Overwrite));
+
+            componentNames.push('FormFillerComponent');
+            componentImports.push("import { FormFillerComponent } from './form-filler/form-filler.component';");
+        }
+
 
         const templateSource = apply(url('./files/root-files'), [
             template({
@@ -149,7 +168,6 @@ export function form(options: Schema): Rule {
                 helpers,
                 componentNames,
                 componentImports,
-                apiUrls
             }),
             move(normalize((options.destinationPath as string) + '/ct-form'))
         ]);

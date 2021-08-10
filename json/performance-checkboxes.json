@@ -1,0 +1,608 @@
+{
+    "title":"Performance test with checkboxes",
+    "content": [
+        {
+            "type": "checkbox",
+            "id": "1",
+            "label": "Check 1",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "2",
+            "label": "Check 2",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "3",
+            "label": "Check 3",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "4",
+            "label": "Check 4",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "5",
+            "label": "Check 5",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "6",
+            "label": "Check 6",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "7",
+            "label": "Check 7",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "8",
+            "label": "Check 8",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "9",
+            "label": "Check 9",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "10",
+            "label": "Check 10",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "11",
+            "label": "Check 11",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "12",
+            "label": "Check 12",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "13",
+            "label": "Check 13",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "14",
+            "label": "Check 14",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "15",
+            "label": "Check 15",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "16",
+            "label": "Check 16",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "17",
+            "label": "Check 17",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "18",
+            "label": "Check 18",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "19",
+            "label": "Check 19",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "20",
+            "label": "Check 20",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "21",
+            "label": "Check 21",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "22",
+            "label": "Check 22",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "23",
+            "label": "Check 23",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "24",
+            "label": "Check 24",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "25",
+            "label": "Check 25",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "26",
+            "label": "Check 26",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "27",
+            "label": "Check 27",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "28",
+            "label": "Check 28",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "29",
+            "label": "Check 29",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "30",
+            "label": "Check 30",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "31",
+            "label": "Check 31",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "32",
+            "label": "Check 32",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "33",
+            "label": "Check 33",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "34",
+            "label": "Check 34",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "35",
+            "label": "Check 35",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "36",
+            "label": "Check 36",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "37",
+            "label": "Check 37",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "38",
+            "label": "Check 38",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "39",
+            "label": "Check 39",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "40",
+            "label": "Check 40",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "41",
+            "label": "Check 41",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "42",
+            "label": "Check 42",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "43",
+            "label": "Check 43",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "44",
+            "label": "Check 44",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "45",
+            "label": "Check 45",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "46",
+            "label": "Check 46",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "47",
+            "label": "Check 47",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "48",
+            "label": "Check 48",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "49",
+            "label": "Check 49",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "50",
+            "label": "Check 50",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "51",
+            "label": "Check 51",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "52",
+            "label": "Check 52",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "53",
+            "label": "Check 53",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "54",
+            "label": "Check 54",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "55",
+            "label": "Check 55",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "56",
+            "label": "Check 56",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "57",
+            "label": "Check 57",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "58",
+            "label": "Check 58",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "59",
+            "label": "Check 59",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "60",
+            "label": "Check 60",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "61",
+            "label": "Check 61",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "62",
+            "label": "Check 62",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "63",
+            "label": "Check 63",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "64",
+            "label": "Check 64",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "65",
+            "label": "Check 65",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "66",
+            "label": "Check 66",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "67",
+            "label": "Check 67",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "68",
+            "label": "Check 68",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "69",
+            "label": "Check 69",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "70",
+            "label": "Check 70",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "71",
+            "label": "Check 71",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "72",
+            "label": "Check 72",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "73",
+            "label": "Check 73",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "74",
+            "label": "Check 74",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "75",
+            "label": "Check 75",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "76",
+            "label": "Check 76",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "77",
+            "label": "Check 77",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "78",
+            "label": "Check 78",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "79",
+            "label": "Check 79",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "80",
+            "label": "Check 80",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "81",
+            "label": "Check 81",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "82",
+            "label": "Check 82",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "83",
+            "label": "Check 83",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "84",
+            "label": "Check 84",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "85",
+            "label": "Check 85",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "86",
+            "label": "Check 86",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "87",
+            "label": "Check 87",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "88",
+            "label": "Check 88",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "89",
+            "label": "Check 89",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "90",
+            "label": "Check 90",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "91",
+            "label": "Check 91",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "92",
+            "label": "Check 92",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "93",
+            "label": "Check 93",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "94",
+            "label": "Check 94",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "95",
+            "label": "Check 95",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "96",
+            "label": "Check 96",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "97",
+            "label": "Check 97",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "98",
+            "label": "Check 98",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "99",
+            "label": "Check 99",
+            "options": {}
+        },
+        {
+            "type": "checkbox",
+            "id": "100",
+            "label": "Check 100",
+            "options": {}
+        }
+    ],
+    "showClearButton": true,
+    "showResetButton": true,
+    "showExampleFiller": true
+}

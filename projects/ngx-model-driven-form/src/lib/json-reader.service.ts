@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Specification } from './model/base-model';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 //import data from '../../../../json/test-all.json';
 
@@ -13,7 +14,8 @@ import { Observable, of } from 'rxjs';
 export class JsonReaderService {
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private snackBar: MatSnackBar
     ) { }
 
     getModelFromJson(): Observable<Specification> {
@@ -35,6 +37,7 @@ export class JsonReaderService {
             return new Specification(source);
         } catch (error) {
             console.error(error);
+            this.snackBar.open(error, 'OK');
             return new Specification({
                 title: "- Error in json specification -",
                 content: []

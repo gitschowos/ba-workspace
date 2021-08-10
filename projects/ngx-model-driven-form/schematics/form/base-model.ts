@@ -201,7 +201,7 @@ export class FormElement {
                 this.options = new TableOptions(options);
                 break;
             default:
-                throw new Error(typeString + " is not supported");
+                throw new Error("Element Type: " + typeString + " is not supported");
         }
     }
 }
@@ -238,7 +238,7 @@ export const parseAttribute = (source: any, attribute: string, critical: boolean
     }
     else {
         if (critical) {
-            throw new Error("Invalid json attribute: " + attribute);
+            throw new Error("Missing json attribute: " + attribute);
         } else {
             return defaultValue;
         }

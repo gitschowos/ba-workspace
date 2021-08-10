@@ -13,7 +13,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -48,7 +47,6 @@ import { FormElementRendererComponent } from './form-element-renderer/form-eleme
         MatIconModule,
         MatTableModule,
         MatButtonModule,
-        MatSnackBarModule,
     ],
     exports: [
         InputFieldComponent,

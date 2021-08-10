@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import _ from 'lodash';
 import { CreateFormControlService } from '../create-form-control.service';
 import { Specification } from '../model/base-model';
@@ -19,7 +18,6 @@ export class DynamicFormComponent implements OnChanges {
 
     constructor(
         private createFormControl: CreateFormControlService,
-        private snackBar: MatSnackBar
     ) { }
 
     ngOnChanges(): void {

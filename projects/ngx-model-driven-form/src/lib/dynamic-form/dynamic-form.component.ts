@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import _ from 'lodash';
 import { CreateFormControlService } from '../create-form-control.service';
@@ -10,10 +10,10 @@ import { Specification } from '../model/base-model';
 })
 export class DynamicFormComponent implements OnChanges {
     @Input() formSpecification!: Specification;
+    @Output() submission = new EventEmitter<any>();
 
     fGroup!: FormGroup;
 
-    formValue: any;
     initialValue: any;
 
     constructor(
@@ -22,13 +22,13 @@ export class DynamicFormComponent implements OnChanges {
 
     ngOnChanges(): void {
         this.fGroup = this.createFormControl.createFormControls(this.formSpecification);
-        this.formValue = "";
         this.initialValue = _.cloneDeep(this.fGroup.getRawValue());
     }
 
     onSubmit(): void {
         if(this.fGroup.valid) {
-            this.formValue = this.fGroup.value;
+            const value = _.cloneDeep(this.fGroup.value);
+            this.submission.emit(value);
         }
         if((this.fGroup as any).submitted === undefined) {
             (this.fGroup as any).submitted = true;

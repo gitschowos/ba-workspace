@@ -13,6 +13,8 @@ export class LiveEditorComponent implements OnInit {
 
     data!: Subject<any>;
 
+    submittedValue: any = null;
+
     constructor(
     ) { }
 
@@ -20,11 +22,16 @@ export class LiveEditorComponent implements OnInit {
         this.data = new Subject();
     }
 
+    showSubmission(submission: any) {
+        this.submittedValue = submission;
+    }
+
     onCodeChanged(value: string) {
         this.code = value;
     }
 
     onCreate(): void {
+        this.submittedValue = null;
         this.data.next(JSON.parse(this.code));
     }
     

@@ -9,11 +9,17 @@ import { Observable } from 'rxjs';
 export class RuntimeFormComponent implements OnInit {
     data!: Observable<any>;
 
+    submittedValue: any = null;
+
     constructor(
         private http: HttpClient
     ) {}
 
     ngOnInit(): void {
         this.data = this.http.get("api/testAll");
+    }
+
+    showSubmission(submittedValue: any) {
+        this.submittedValue = submittedValue;
     }
 }

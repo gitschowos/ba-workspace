@@ -1,1 +1,4 @@
-<lib-model-driven-form [inputSpec$]="data"></lib-model-driven-form>
+<lib-model-driven-form [inputSpec$]="data" (submission)="showSubmission($event)"></lib-model-driven-form>
+<div *ngIf="submittedValue !== null">
+    {{submittedValue | json}}
+</div>

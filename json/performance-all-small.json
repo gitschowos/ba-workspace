@@ -1,0 +1,1652 @@
+{
+    "title":"Performance Test with many elements with many several features",
+    "content":[
+        {
+            "type": "group",
+            "id": "checkboxes-1",
+            "label": "Checkboxes",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-1",
+                        "label": "Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "exampleValue": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-1",
+                        "label": "As Slider",
+                        "options": {
+                            "showAsSwitch": true,
+                            "exampleValue": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-activation-1",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "activateCond": "regular-checkbox-1"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-activation-1",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": true,
+                            "activateCond": "regular-checkbox-1"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-required-checkbox-1",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": false,
+                            "required": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-required-checkbox-1",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": true,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "radios-1",
+            "label": "Radios",
+            "options": {
+                "childs": [
+                    {
+                        "type": "radio",
+                        "id": "hardcoded-radio-1",
+                        "label": "Hardcoded Radio",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "api-radio-1",
+                        "label": "Radio from Api",
+                        "options": {
+                            "pickingOptions": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "disabled-radio-1",
+                        "label": "Activated by 'Hardcoded Radio'",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "activateCond": "hardcoded-radio-1"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "required-radio-1",
+                        "label": "Required",
+                        "options": {
+                            "pickingOptions": "api/engines",
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "dropdowns-1",
+            "label": "Dropdowns",
+            "options": {
+                "childs": [
+                    {
+                        "type": "dropdown",
+                        "id": "hardcoded-dropdown-1",
+                        "label": "Hardcoded Dropdown",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "api-dropdown-1",
+                        "label": "Dropdown from Api",
+                        "options": {
+                            "values": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "disabled-dropdown-1",
+                        "label": "Activated by Hardcoded Dropdown",
+                        "options": {
+                            "values": "api/cities",
+                            "activateCond": "hardcoded-dropdown-1"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-1",
+                        "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-api-1",
+                        "label": "Dropdown with multiple selection (from API)",
+                        "options": {
+                            "values": "api/cities",
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "required-dropdown-1",
+                        "label": "Required",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "inputs-1",
+            "label": "Inputs",
+            "options": {
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"regular-input-1",
+                        "label":"Regular Input",
+                        "options":{
+                            "exampleValue":"Beispieleingabe"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"with-placheholder-1",
+                        "label":"With Placeholder",
+                        "options":{
+                            "placeholder":"Some example text"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-hardcoded-1",
+                        "label":"Hardcoded Autocomplete",
+                        "options":{
+                            "autocomplete": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-api-1",
+                        "label":"Autocomplete from api",
+                        "options":{
+                            "autocomplete": "api/cities"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"disabled-input-1",
+                        "label":"Activated by Regular Input",
+                        "options":{
+                            "activateCond":"regular-input-1"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"required-input-1",
+                        "label":"Required",
+                        "options":{
+                            "required":true,
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"regex-input-1",
+                        "label":"Regex Validator",
+                        "options":{
+                            "placeholder":"example@mail.com",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+",
+                            "validatorErrorMessage":"Bitte gültige Email-Addresse eingeben"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"chip-lists-1",
+            "label":"Chips",
+            "options":{
+                "childs":[
+                    {
+                        "type":"chiplist",
+                        "id":"regular-chiplist-1",
+                        "label":"Regular chiplist",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "exampleValue":["Blaubeere", "Schwarzbeere", "Beispielbeere"]
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"api-chiplist-1",
+                        "label":"Chiplist with API-call",
+                        "options":{
+                            "suggestions":"api/cities",
+                            "placeholder":"Städte ausählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"not-removable-chiplist-1",
+                        "label":"Chiplist with non-removable chips",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "removable": false
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"only-suggestions-chiplist-1",
+                        "label":"Chiplist with only Suggestion-chips are valid and predefined",
+                        "value": ["Brombeere", "Apfel"],
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "onlySuggestions": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"required-chiplist-1",
+                        "label":"Required",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "required": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"disabled-chiplist-1",
+                        "label":"Activated by Regular Chiplist",
+                        "options":{
+                            "suggestions":"api/engines",
+                            "activateCond":"regular-chiplist-1"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"tables-1",
+            "label":"Tables",
+            "options":{
+                "childs":[
+                    {
+                        "type":"table",
+                        "id":"regular-table-1",
+                        "label":"Regular Table (required)",
+                        "value":[
+                            {"table1-input-1":["Bamberg"], "table1-checkbox-1":true},
+                            {"table1-input-1":["Hallo", "Welt"], "table1-checkbox-1":false}
+                        ],
+                        "options":{
+                            "required": true,
+                            "deletable": true,
+                            "exampleValue":[
+                                {"table1-input-1":["Ursulapoppenricht"], "table1-checkbox-1":false},
+                                {"table1-input-1":["Hamburg", "Berlin"], "table1-checkbox-1":false}
+                            ],
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table1-input-1",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table1-checkbox-1"
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table1-checkbox-1",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"table",
+                        "id":"second-table-1",
+                        "label":"Second Table",
+                        "value":[
+                            {"table2-input-1":["Bamberg"], "table2-checkbox-1":true},
+                            {"table2-input-1":["Hallo", "Welt"], "table2-checkbox-1":false}
+                        ],
+                        "options":{
+                            "required": false,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table2-input-1",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table2-checkbox-1",
+                                        "exampleValue":["Beispielbeere", "Beispielstadt"]
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table2-checkbox-1",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "checkboxes-2",
+            "label": "Checkboxes",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-2",
+                        "label": "Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "exampleValue": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-2",
+                        "label": "As Slider",
+                        "options": {
+                            "showAsSwitch": true,
+                            "exampleValue": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-activation-2",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "activateCond": "regular-checkbox-2"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-activation-2",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": true,
+                            "activateCond": "regular-checkbox-2"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-required-checkbox-2",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": false,
+                            "required": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-required-checkbox-2",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": true,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "radios-2",
+            "label": "Radios",
+            "options": {
+                "childs": [
+                    {
+                        "type": "radio",
+                        "id": "hardcoded-radio-2",
+                        "label": "Hardcoded Radio",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "api-radio-2",
+                        "label": "Radio from Api",
+                        "options": {
+                            "pickingOptions": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "disabled-radio-2",
+                        "label": "Activated by 'Hardcoded Radio'",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "activateCond": "hardcoded-radio-2"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "required-radio-2",
+                        "label": "Required",
+                        "options": {
+                            "pickingOptions": "api/engines",
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "dropdowns-2",
+            "label": "Dropdowns",
+            "options": {
+                "childs": [
+                    {
+                        "type": "dropdown",
+                        "id": "hardcoded-dropdown-2",
+                        "label": "Hardcoded Dropdown",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "api-dropdown-2",
+                        "label": "Dropdown from Api",
+                        "options": {
+                            "values": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "disabled-dropdown-2",
+                        "label": "Activated by Hardcoded Dropdown",
+                        "options": {
+                            "values": "api/cities",
+                            "activateCond": "hardcoded-dropdown-2"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-2",
+                        "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-api-2",
+                        "label": "Dropdown with multiple selection (from API)",
+                        "options": {
+                            "values": "api/cities",
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "required-dropdown-2",
+                        "label": "Required",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "inputs-2",
+            "label": "Inputs",
+            "options": {
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"regular-input-2",
+                        "label":"Regular Input",
+                        "options":{
+                            "exampleValue":"Beispieleingabe"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"with-placheholder-2",
+                        "label":"With Placeholder",
+                        "options":{
+                            "placeholder":"Some example text"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-hardcoded-2",
+                        "label":"Hardcoded Autocomplete",
+                        "options":{
+                            "autocomplete": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-api-2",
+                        "label":"Autocomplete from api",
+                        "options":{
+                            "autocomplete": "api/cities"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"disabled-input-2",
+                        "label":"Activated by Regular Input",
+                        "options":{
+                            "activateCond":"regular-input-2"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"required-input-2",
+                        "label":"Required",
+                        "options":{
+                            "required":true,
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"regex-input-2",
+                        "label":"Regex Validator",
+                        "options":{
+                            "placeholder":"example@mail.com",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+",
+                            "validatorErrorMessage":"Bitte gültige Email-Addresse eingeben"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"chip-lists-2",
+            "label":"Chips",
+            "options":{
+                "childs":[
+                    {
+                        "type":"chiplist",
+                        "id":"regular-chiplist-2",
+                        "label":"Regular chiplist",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "exampleValue":["Blaubeere", "Schwarzbeere", "Beispielbeere"]
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"api-chiplist-2",
+                        "label":"Chiplist with API-call",
+                        "options":{
+                            "suggestions":"api/cities",
+                            "placeholder":"Städte ausählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"not-removable-chiplist-2",
+                        "label":"Chiplist with non-removable chips",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "removable": false
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"only-suggestions-chiplist-2",
+                        "label":"Chiplist with only Suggestion-chips are valid and predefined",
+                        "value": ["Brombeere", "Apfel"],
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "onlySuggestions": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"required-chiplist-2",
+                        "label":"Required",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "required": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"disabled-chiplist-2",
+                        "label":"Activated by Regular Chiplist",
+                        "options":{
+                            "suggestions":"api/engines",
+                            "activateCond":"regular-chiplist-2"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"tables-2",
+            "label":"Tables",
+            "options":{
+                "childs":[
+                    {
+                        "type":"table",
+                        "id":"regular-table-2",
+                        "label":"Regular Table (required)",
+                        "value":[
+                            {"table1-input-2":["Bamberg"], "table1-checkbox-2":true},
+                            {"table1-input-2":["Hallo", "Welt"], "table1-checkbox-2":false}
+                        ],
+                        "options":{
+                            "required": true,
+                            "deletable": true,
+                            "exampleValue":[
+                                {"table1-input-2":["Ursulapoppenricht"], "table1-checkbox-2":false},
+                                {"table1-input-2":["Hamburg", "Berlin"], "table1-checkbox-2":false}
+                            ],
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table1-input-2",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table1-checkbox-2"
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table1-checkbox-2",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"table",
+                        "id":"second-table-2",
+                        "label":"Second Table",
+                        "value":[
+                            {"table2-input-2":["Bamberg"], "table2-checkbox-2":true},
+                            {"table2-input-2":["Hallo", "Welt"], "table2-checkbox-2":false}
+                        ],
+                        "options":{
+                            "required": false,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table2-input-2",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table2-checkbox-2",
+                                        "exampleValue":["Beispielbeere", "Beispielstadt"]
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table2-checkbox-2",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "checkboxes-3",
+            "label": "Checkboxes",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-3",
+                        "label": "Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "exampleValue": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-3",
+                        "label": "As Slider",
+                        "options": {
+                            "showAsSwitch": true,
+                            "exampleValue": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-activation-3",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "activateCond": "regular-checkbox-3"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-activation-3",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": true,
+                            "activateCond": "regular-checkbox-3"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-required-checkbox-3",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": false,
+                            "required": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-required-checkbox-3",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": true,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "radios-3",
+            "label": "Radios",
+            "options": {
+                "childs": [
+                    {
+                        "type": "radio",
+                        "id": "hardcoded-radio-3",
+                        "label": "Hardcoded Radio",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "api-radio-3",
+                        "label": "Radio from Api",
+                        "options": {
+                            "pickingOptions": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "disabled-radio-3",
+                        "label": "Activated by 'Hardcoded Radio'",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "activateCond": "hardcoded-radio-3"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "required-radio-3",
+                        "label": "Required",
+                        "options": {
+                            "pickingOptions": "api/engines",
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "dropdowns-3",
+            "label": "Dropdowns",
+            "options": {
+                "childs": [
+                    {
+                        "type": "dropdown",
+                        "id": "hardcoded-dropdown-3",
+                        "label": "Hardcoded Dropdown",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "api-dropdown-3",
+                        "label": "Dropdown from Api",
+                        "options": {
+                            "values": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "disabled-dropdown-3",
+                        "label": "Activated by Hardcoded Dropdown",
+                        "options": {
+                            "values": "api/cities",
+                            "activateCond": "hardcoded-dropdown-3"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-3",
+                        "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-api-3",
+                        "label": "Dropdown with multiple selection (from API)",
+                        "options": {
+                            "values": "api/cities",
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "required-dropdown-3",
+                        "label": "Required",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "inputs-3",
+            "label": "Inputs",
+            "options": {
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"regular-input-3",
+                        "label":"Regular Input",
+                        "options":{
+                            "exampleValue":"Beispieleingabe"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"with-placheholder-3",
+                        "label":"With Placeholder",
+                        "options":{
+                            "placeholder":"Some example text"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-hardcoded-3",
+                        "label":"Hardcoded Autocomplete",
+                        "options":{
+                            "autocomplete": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-api-3",
+                        "label":"Autocomplete from api",
+                        "options":{
+                            "autocomplete": "api/cities"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"disabled-input-3",
+                        "label":"Activated by Regular Input",
+                        "options":{
+                            "activateCond":"regular-input-3"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"required-input-3",
+                        "label":"Required",
+                        "options":{
+                            "required":true,
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"regex-input-3",
+                        "label":"Regex Validator",
+                        "options":{
+                            "placeholder":"example@mail.com",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+",
+                            "validatorErrorMessage":"Bitte gültige Email-Addresse eingeben"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"chip-lists-3",
+            "label":"Chips",
+            "options":{
+                "childs":[
+                    {
+                        "type":"chiplist",
+                        "id":"regular-chiplist-3",
+                        "label":"Regular chiplist",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "exampleValue":["Blaubeere", "Schwarzbeere", "Beispielbeere"]
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"api-chiplist-3",
+                        "label":"Chiplist with API-call",
+                        "options":{
+                            "suggestions":"api/cities",
+                            "placeholder":"Städte ausählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"not-removable-chiplist-3",
+                        "label":"Chiplist with non-removable chips",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "removable": false
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"only-suggestions-chiplist-3",
+                        "label":"Chiplist with only Suggestion-chips are valid and predefined",
+                        "value": ["Brombeere", "Apfel"],
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "onlySuggestions": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"required-chiplist-3",
+                        "label":"Required",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "required": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"disabled-chiplist-3",
+                        "label":"Activated by Regular Chiplist",
+                        "options":{
+                            "suggestions":"api/engines",
+                            "activateCond":"regular-chiplist-3"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"tables-3",
+            "label":"Tables",
+            "options":{
+                "childs":[
+                    {
+                        "type":"table",
+                        "id":"regular-table-3",
+                        "label":"Regular Table (required)",
+                        "value":[
+                            {"table1-input-3":["Bamberg"], "table1-checkbox-3":true},
+                            {"table1-input-3":["Hallo", "Welt"], "table1-checkbox-3":false}
+                        ],
+                        "options":{
+                            "required": true,
+                            "deletable": true,
+                            "exampleValue":[
+                                {"table1-input-3":["Ursulapoppenricht"], "table1-checkbox-3":false},
+                                {"table1-input-3":["Hamburg", "Berlin"], "table1-checkbox-3":false}
+                            ],
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table1-input-3",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table1-checkbox-3"
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table1-checkbox-3",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"table",
+                        "id":"second-table-3",
+                        "label":"Second Table",
+                        "value":[
+                            {"table2-input-3":["Bamberg"], "table2-checkbox-3":true},
+                            {"table2-input-3":["Hallo", "Welt"], "table2-checkbox-3":false}
+                        ],
+                        "options":{
+                            "required": false,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table2-input-3",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table2-checkbox-3",
+                                        "exampleValue":["Beispielbeere", "Beispielstadt"]
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table2-checkbox-3",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "checkboxes-4",
+            "label": "Checkboxes",
+            "options": {
+                "childs": [
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-4",
+                        "label": "Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "exampleValue": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-4",
+                        "label": "As Slider",
+                        "options": {
+                            "showAsSwitch": true,
+                            "exampleValue": false
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-checkbox-activation-4",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": false,
+                            "activateCond": "regular-checkbox-4"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-checkbox-activation-4",
+                        "label": "Activated by Regular",
+                        "options": {
+                            "showAsSwitch": true,
+                            "activateCond": "regular-checkbox-4"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "regular-required-checkbox-4",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": false,
+                            "required": true
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "slider-required-checkbox-4",
+                        "label": "Required",
+                        "options": {
+                            "showAsSwitch": true,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "radios-4",
+            "label": "Radios",
+            "options": {
+                "childs": [
+                    {
+                        "type": "radio",
+                        "id": "hardcoded-radio-4",
+                        "label": "Hardcoded Radio",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "api-radio-4",
+                        "label": "Radio from Api",
+                        "options": {
+                            "pickingOptions": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "disabled-radio-4",
+                        "label": "Activated by 'Hardcoded Radio'",
+                        "options": {
+                            "pickingOptions": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "activateCond": "hardcoded-radio-4"
+                        }
+                    },
+                    {
+                        "type": "radio",
+                        "id": "required-radio-4",
+                        "label": "Required",
+                        "options": {
+                            "pickingOptions": "api/engines",
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "dropdowns-4",
+            "label": "Dropdowns",
+            "options": {
+                "childs": [
+                    {
+                        "type": "dropdown",
+                        "id": "hardcoded-dropdown-4",
+                        "label": "Hardcoded Dropdown",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "exampleValue":"Hamburg"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "api-dropdown-4",
+                        "label": "Dropdown from Api",
+                        "options": {
+                            "values": "api/cities"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "disabled-dropdown-4",
+                        "label": "Activated by Hardcoded Dropdown",
+                        "options": {
+                            "values": "api/cities",
+                            "activateCond": "hardcoded-dropdown-4"
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-4",
+                        "label": "Dropdown with multiple selection",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "multiple-dropdown-api-4",
+                        "label": "Dropdown with multiple selection (from API)",
+                        "options": {
+                            "values": "api/cities",
+                            "multiple": true
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "required-dropdown-4",
+                        "label": "Required",
+                        "options": {
+                            "values": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "inputs-4",
+            "label": "Inputs",
+            "options": {
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"regular-input-4",
+                        "label":"Regular Input",
+                        "options":{
+                            "exampleValue":"Beispieleingabe"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"with-placheholder-4",
+                        "label":"With Placeholder",
+                        "options":{
+                            "placeholder":"Some example text"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-hardcoded-4",
+                        "label":"Hardcoded Autocomplete",
+                        "options":{
+                            "autocomplete": [
+                                "Berlin",
+                                "Hamburg",
+                                "Hannover"
+                            ]
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"autocomplete-api-4",
+                        "label":"Autocomplete from api",
+                        "options":{
+                            "autocomplete": "api/cities"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"disabled-input-4",
+                        "label":"Activated by Regular Input",
+                        "options":{
+                            "activateCond":"regular-input-4"
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"required-input-4",
+                        "label":"Required",
+                        "options":{
+                            "required":true,
+                            "requiredErrorMessage":"Bitte einen Text eingeben..."
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"regex-input-4",
+                        "label":"Regex Validator",
+                        "options":{
+                            "placeholder":"example@mail.com",
+                            "validatorRegex":"[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+",
+                            "validatorErrorMessage":"Bitte gültige Email-Addresse eingeben"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"chip-lists-4",
+            "label":"Chips",
+            "options":{
+                "childs":[
+                    {
+                        "type":"chiplist",
+                        "id":"regular-chiplist-4",
+                        "label":"Regular chiplist",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "exampleValue":["Blaubeere", "Schwarzbeere", "Beispielbeere"]
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"api-chiplist-4",
+                        "label":"Chiplist with API-call",
+                        "options":{
+                            "suggestions":"api/cities",
+                            "placeholder":"Städte ausählen..."
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"not-removable-chiplist-4",
+                        "label":"Chiplist with non-removable chips",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "removable": false
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"only-suggestions-chiplist-4",
+                        "label":"Chiplist with only Suggestion-chips are valid and predefined",
+                        "value": ["Brombeere", "Apfel"],
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "onlySuggestions": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"required-chiplist-4",
+                        "label":"Required",
+                        "options":{
+                            "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
+                            "placeholder":"Früchte auswählen...",
+                            "required": true
+                        }
+                    },
+                    {
+                        "type":"chiplist",
+                        "id":"disabled-chiplist-4",
+                        "label":"Activated by Regular Chiplist",
+                        "options":{
+                            "suggestions":"api/engines",
+                            "activateCond":"regular-chiplist-4"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type":"group",
+            "id":"tables-4",
+            "label":"Tables",
+            "options":{
+                "childs":[
+                    {
+                        "type":"table",
+                        "id":"regular-table-4",
+                        "label":"Regular Table (required)",
+                        "value":[
+                            {"table1-input-4":["Bamberg"], "table1-checkbox-4":true},
+                            {"table1-input-4":["Hallo", "Welt"], "table1-checkbox-4":false}
+                        ],
+                        "options":{
+                            "required": true,
+                            "deletable": true,
+                            "exampleValue":[
+                                {"table1-input-4":["Ursulapoppenricht"], "table1-checkbox-4":false},
+                                {"table1-input-4":["Hamburg", "Berlin"], "table1-checkbox-4":false}
+                            ],
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table1-input-4",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table1-checkbox-4"
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table1-checkbox-4",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"table",
+                        "id":"second-table-4",
+                        "label":"Second Table",
+                        "value":[
+                            {"table2-input-4":["Bamberg"], "table2-checkbox-4":true},
+                            {"table2-input-4":["Hallo", "Welt"], "table2-checkbox-4":false}
+                        ],
+                        "options":{
+                            "required": false,
+                            "deletable": true,
+                            "columns":[
+                                {
+                                    "type":"chiplist",
+                                    "id":"table2-input-4",
+                                    "label":"Stadt",
+                                    "options":{
+                                        "suggestions":"api/cities",
+                                        "required":true,
+                                        "activateCond":"table2-checkbox-4",
+                                        "exampleValue":["Beispielbeere", "Beispielstadt"]
+                                    }
+                                },
+                                {
+                                    "type":"checkbox",
+                                    "id":"table2-checkbox-4",
+                                    "label":"Checked",
+                                    "options":{
+                                        "showAsSwitch": true,
+                                        "required": true
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "showClearButton":true,
+    "showResetButton":true,
+    "showExampleFiller":true
+}

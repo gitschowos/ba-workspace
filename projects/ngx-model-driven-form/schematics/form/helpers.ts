@@ -253,7 +253,7 @@ const generateRandomString = (): string => {
 function getPossibleAndExampleValues(element: FormElement) {
     let exampleString = 'undefined';
     let possibleValueString: string = "[]";
-    
+
     const required = (element.options as FormElementOptions).required;
 
     let jsonExample = undefined;
@@ -273,7 +273,7 @@ function getPossibleAndExampleValues(element: FormElement) {
             options = (element.options as RadioOptions).pickingOptions;
             if (options.isHardcoded()) {
                 const exampleValues = _.cloneDeep(options.content as string[]);
-                if(!required) {
+                if (!required) {
                     exampleValues.push('');
                 }
                 possibleValueString = getValueString(exampleValues);
@@ -294,7 +294,7 @@ function getPossibleAndExampleValues(element: FormElement) {
                     if (!(element.options as DropdownOptions).multiple) {
                         possibleValueString += `'${options.content[i]}',`;
                     } else {
-                        const n = required ? i+1 : i;
+                        const n = required ? i + 1 : i;
                         const example = _.sampleSize(options.content, n);
                         possibleValueString += getValueString(example) + ',';
                     }
@@ -316,8 +316,11 @@ function getPossibleAndExampleValues(element: FormElement) {
         case FormElementType.input:
             const autocomplete = (element.options as InputFieldOptions).autocomplete;
             if (autocomplete === undefined) {
-                const possibleValues = [generateRandomString()];
-                if(!required) {
+                const possibleValues = [];
+                if ((element.options as InputFieldOptions).validatorRegex === undefined) {
+                    possibleValues.push(generateRandomString());
+                }
+                if (!required) {
                     possibleValues.push('');
                 }
                 possibleValueString = getValueString(possibleValues);

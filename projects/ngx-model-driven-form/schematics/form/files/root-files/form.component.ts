@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, AbstractControl, FormGroup, Validators, FormControl } from '@angular/forms';
 import _ from 'lodash';
 import { ApiService } from './api.service';
@@ -8,11 +8,12 @@ import { ApiService } from './api.service';
     templateUrl: 'form.component.html'
 })
 export class <%=classify(prefix)%>FormComponent implements OnInit {
+    @Output() submission = new EventEmitter<any>();
+
     fGroup = this.fb.group({
         <%= helpers.createFormGroupString(specification.content) %>
     });
 
-    formValue: any;
     initialValue: any;
 
     constructor(
@@ -33,7 +34,8 @@ export class <%=classify(prefix)%>FormComponent implements OnInit {
 
     onSubmit(): void {
         if(this.fGroup.valid) {
-            this.formValue = this.fGroup.value;
+            const value = _.cloneDeep(this.fGroup.value);
+            this.submission.emit(value);
         }
         if((this.fGroup as any).submitted === undefined) {
             (this.fGroup as any).submitted = true;

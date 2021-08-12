@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CodeEditorModule } from '@ngstack/code-editor';
+import { GeneratedFormComponent } from './generated-form.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CodeEditorModule } from '@ngstack/code-editor';
         AppComponent,
         BothComponent,
         RuntimeFormComponent,
-        LiveEditorComponent
+        LiveEditorComponent,
+        GeneratedFormComponent
     ],
     imports: [
         BrowserModule,

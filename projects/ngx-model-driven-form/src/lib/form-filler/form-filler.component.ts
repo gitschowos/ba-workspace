@@ -147,14 +147,23 @@ export class FormFillerComponent implements OnChanges {
                 if (autocomplete !== undefined) {
                     return this.suggestions.getSuggestions(autocomplete).pipe(map(values => {
                         const examples = _.cloneDeep(values);
-                        examples.push(this.generateRandomString());
+                        if((element.options as InputFieldOptions).validatorRegex === undefined) {
+                            examples.push(this.generateRandomString());
+                        }
                         if(!required) {
                             examples.push('');
                         }
                         return examples;
                     }));
                 } else {
-                    return required ? of([this.generateRandomString()]) : of(['', this.generateRandomString()]);
+                    const examples = [];
+                    if((element.options as InputFieldOptions).validatorRegex === undefined) {
+                        examples.push(this.generateRandomString());
+                    }
+                    if(!required) {
+                        examples.push('');
+                    }
+                    return of(examples);
                 }
 
             case FormElementType.chiplist:

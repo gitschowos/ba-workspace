@@ -1,0 +1,54 @@
+{
+    "title": "Flug24 - Das Flugportal",
+    "content": [
+        {
+            "type":"table",
+            "id":"table1",
+            "label":"Tickets bestellen",
+            "options":{
+                "columns":[
+                    {
+                        "type":"input",
+                        "id":"name",
+                        "label":"Nachname",
+                        "options":{
+                            "required":true
+                        }
+                    },
+                    {
+                        "type":"input",
+                        "id":"prename",
+                        "label":"Vorname",
+                        "options":{}
+                    },
+                    {
+                        "type":"radio",
+                        "id":"gender",
+                        "label":"Geschlecht",
+                        "options":{
+                            "pickingOptions":["weiblich", "männlich", "divers"]
+                        }
+                    },
+                    {
+                        "type":"dropdown",
+                        "id":"age",
+                        "label":"Alter",
+                        "options":{
+                            "required":true,
+                            "values":["< 6 J.", "6-13 J.", "14-17 J.", "18-21 J.", "> 21 J."]
+                        }
+                    },
+                    {
+                        "type":"dropdown",
+                        "id":"other",
+                        "label":"Sonstiges",
+                        "options":{
+                            "multiple":true,
+                            "values":["behindert", "Student/Azubi", "nur Handgepäck"]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

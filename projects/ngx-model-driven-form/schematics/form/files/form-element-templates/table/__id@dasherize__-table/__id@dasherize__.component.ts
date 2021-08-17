@@ -13,7 +13,13 @@ import _ from 'lodash';
     .table-container {
         max-height: 500px;
         overflow: auto;
-    }`]
+    }
+    .mat-header-cell {
+        padding-left: 15px;
+    }
+    .mat-cell {
+        padding-left: 15px;
+    }`] 
 })
 export class <%= classify(element.id) %>Component implements OnInit {
     @Input() fControl!: FormControl;

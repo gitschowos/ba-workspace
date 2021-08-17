@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -16,6 +17,7 @@ export class LiveEditorComponent implements OnInit {
     submittedValue: any = null;
 
     constructor(
+        private snackBar: MatSnackBar
     ) { }
 
     ngOnInit(): void {
@@ -31,10 +33,16 @@ export class LiveEditorComponent implements OnInit {
     }
 
     onCreate(): void {
-        this.submittedValue = null;
-        this.data.next(JSON.parse(this.code));
+        try {
+            const parsed = JSON.parse(this.code);
+            this.data.next(parsed);
+            this.submittedValue = null;
+        }
+        catch (error) {
+            this.snackBar.open(error, "OK");
+        }
     }
-    
+
     theme = "vs-dark";
     model = {
         language: "json",

@@ -1,0 +1,33 @@
+{
+    "title": "Formular erstellen",
+    "content": [
+        {
+            "type":"group",
+            "id":"group",
+            "label":"Gruppe",
+            "value":{
+                "eingabefeld":"Mein Test",
+                "auswahl":["Model 3", "Model Y"]
+            },
+            "options":{
+                "childs":[
+                    {
+                        "type":"input",
+                        "id":"eingabefeld",
+                        "label":"Eingabefeld",
+                        "options":{}
+                    },
+                    {
+                        "type":"dropdown",
+                        "id":"auswahl",
+                        "label":"Modell auswählen",
+                        "options":{
+                            "multiple":true,
+                            "values":["Model S", "Model 3", "Model X", "Model Y"]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

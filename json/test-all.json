@@ -301,8 +301,8 @@
                         "type":"chiplist",
                         "id":"only-suggestions-chiplist",
                         "label":"Chiplist with only Suggestion-chips are valid and predefined",
-                        "value": ["Brombeere", "Apfel"],
                         "options":{
+                            "value": ["Brombeere", "Apfel"],
                             "suggestions":["Apfel", "Birne", "Erdbeere", "Himbeere", "Brombeere", "Traube", "Ananas", "Mango"],
                             "placeholder":"Früchte auswählen...",
                             "onlySuggestions": true
@@ -340,11 +340,11 @@
                         "type":"table",
                         "id":"regular-table",
                         "label":"Regular Table (required)",
-                        "value":[
-                            {"table1-input":["Bamberg"], "table1-checkbox":true},
-                            {"table1-input":["Hallo", "Welt"], "table1-checkbox":false}
-                        ],
                         "options":{
+                            "value":[
+                                {"table1-input":["Bamberg"], "table1-checkbox":true},
+                                {"table1-input":["Hallo", "Welt"], "table1-checkbox":false}
+                            ],
                             "required": true,
                             "deletable": true,
                             "exampleValue":[
@@ -378,11 +378,11 @@
                         "type":"table",
                         "id":"second-table",
                         "label":"Second Table",
-                        "value":[
-                            {"table2-input":["Bamberg"], "table2-checkbox":true},
-                            {"table2-input":["Hallo", "Welt"], "table2-checkbox":false}
-                        ],
                         "options":{
+                            "value":[
+                                {"table2-input":["Bamberg"], "table2-checkbox":true},
+                                {"table2-input":["Hallo", "Welt"], "table2-checkbox":false}
+                            ],
                             "required": false,
                             "deletable": true,
                             "columns":[

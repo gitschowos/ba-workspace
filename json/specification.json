@@ -22,8 +22,8 @@
                         "type": "input",
                         "id": "text2",
                         "label": "E-Mail",
-                        "value": "your@email.com",
                         "options": {
+                            "value": "your@email.com",
                             "inputType": "email",
                             "required": false,
                             "activateCond": "text1"

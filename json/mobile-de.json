@@ -117,8 +117,9 @@
                         "type":"checkbox",
                         "id":"andere",
                         "label":"Andere",
-                        "value": true,
-                        "options":{}
+                        "options":{
+                            "value": true
+                        }
                     },
                     {
                         "type":"group",

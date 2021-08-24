@@ -19,6 +19,7 @@ export abstract class BaseOptions {
 }
 
 export abstract class FormElementOptions extends BaseOptions {
+    value: any;
     styling: string;
     required: boolean;
     requiredErrorMessage: string;
@@ -26,6 +27,7 @@ export abstract class FormElementOptions extends BaseOptions {
 
     constructor(source: any) {
         super(source);
+        this.value = parseAttribute(source, 'value', false, undefined);
         this.styling = parseAttribute(source, 'styling', false, '');
         this.required = parseAttribute(source, 'required', false, false);
         this.requiredErrorMessage = parseAttribute(source, 'requiredErrorMessage', false, this.required ? 'Bitte ausfüllen' : '');
@@ -165,7 +167,6 @@ export class FormElement {
     type: FormElementType;
     id: string;
     label: string;
-    value: any;
     options: BaseOptions;
 
     constructor(source: any) {
@@ -174,7 +175,6 @@ export class FormElement {
 
         this.id = parseAttribute(source, 'id', true);
         this.label = parseAttribute(source, 'label', false, this.id);
-        this.value = parseAttribute(source, 'value', false, undefined);
 
         const options = parseAttribute(source, 'options', true);
 

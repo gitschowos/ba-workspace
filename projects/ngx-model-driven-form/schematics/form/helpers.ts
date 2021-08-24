@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { ChipListOptions, DropdownOptions, FormElement, FormElementOptions, FormElementType, GroupOptions, InputFieldOptions, RadioOptions, Suggestions, TableOptions } from "./base-model";
 
 export const createFormControlString = (element: FormElement, camelize: boolean = true): string => {
-    const value = element.value === undefined ? getInitialValueString(element) : getValueString(element.value);
+    const value = (element.options as FormElementOptions).value === undefined ? getInitialValueString(element) : getValueString((element.options as FormElementOptions).value);
     let validator = ', [';
     if ((element.options as FormElementOptions).required) {
         validator += 'Validators.required, ';

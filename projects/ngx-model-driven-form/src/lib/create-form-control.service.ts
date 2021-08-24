@@ -21,8 +21,8 @@ export class CreateFormControlService {
 
     // assuming element is no group
     getFormControl(element: FormElement): FormControl {
-        let value = element.value;
-        if (element.value === undefined) {
+        let value = (element.options as FormElementOptions).value;
+        if (value === undefined) {
             value = this.getInitialValue(element);
         }
 

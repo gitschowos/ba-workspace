@@ -9,8 +9,8 @@ export enum FormElementType {
 }
 
 export abstract class BaseOptions {
-    displayCond: string;   // id of the FormElement to be valid for displaying
-    activateCond: string;  // id of the FormElement to be valid for activating
+    readonly displayCond: string;   // id of the FormElement to be valid for displaying
+    readonly activateCond: string;  // id of the FormElement to be valid for activating
 
     constructor(source: any) {
         this.displayCond = parseAttribute(source, 'displayCond', false, '');
@@ -19,11 +19,11 @@ export abstract class BaseOptions {
 }
 
 export abstract class FormElementOptions extends BaseOptions {
-    value: any;
-    styling: string;
-    required: boolean;
-    requiredErrorMessage: string;
-    exampleValue?: any;
+    readonly value: any;
+    readonly styling: string;
+    readonly required: boolean;
+    readonly requiredErrorMessage: string;
+    readonly exampleValue?: any;
 
     constructor(source: any) {
         super(source);
@@ -36,7 +36,7 @@ export abstract class FormElementOptions extends BaseOptions {
 }
 
 export class GroupOptions extends BaseOptions {
-    childs: FormElement[];
+    readonly childs: FormElement[];
 
     constructor(source: any) {
         super(source);
@@ -52,11 +52,11 @@ export class GroupOptions extends BaseOptions {
 }
 
 export class InputFieldOptions extends FormElementOptions {
-    inputType: string;
-    placeholder: string;
-    autocomplete?: Suggestions;
-    validatorRegex?: string;
-    validatorErrorMessage: string;
+    readonly inputType: string;
+    readonly placeholder: string;
+    readonly autocomplete?: Suggestions;
+    readonly validatorRegex?: string;
+    readonly validatorErrorMessage: string;
 
     constructor(source: any) {
         super(source);
@@ -72,8 +72,8 @@ export class InputFieldOptions extends FormElementOptions {
 }
 
 export class DropdownOptions extends FormElementOptions {
-    values: Suggestions;
-    multiple: boolean
+    readonly values: Suggestions;
+    readonly multiple: boolean
 
     constructor(source: any) {
         super(source);
@@ -84,7 +84,7 @@ export class DropdownOptions extends FormElementOptions {
 }
 
 export class RadioOptions extends FormElementOptions {
-    pickingOptions: Suggestions;
+    readonly pickingOptions: Suggestions;
 
     constructor(source: any) {
         super(source);
@@ -94,7 +94,7 @@ export class RadioOptions extends FormElementOptions {
 }
 
 export class CheckboxOptions extends FormElementOptions {
-    showAsSwitch: boolean;
+    readonly showAsSwitch: boolean;
 
     constructor(source: any) {
         super(source);
@@ -103,10 +103,10 @@ export class CheckboxOptions extends FormElementOptions {
 }
 
 export class ChipListOptions extends FormElementOptions {
-    suggestions: Suggestions;
-    placeholder: string;
-    removable: boolean;
-    onlySuggestions: boolean;
+    readonly suggestions: Suggestions;
+    readonly placeholder: string;
+    readonly removable: boolean;
+    readonly onlySuggestions: boolean;
 
     constructor(source: any) {
         super(source);
@@ -119,8 +119,8 @@ export class ChipListOptions extends FormElementOptions {
 }
 
 export class TableOptions extends FormElementOptions {
-    columns: FormElement[];
-    deletable: boolean;
+    readonly columns: FormElement[];
+    readonly deletable: boolean;
 
     constructor(source: any) {
         super(source);
@@ -141,7 +141,7 @@ export class TableOptions extends FormElementOptions {
 }
 
 export class Suggestions {
-    content: string[] | string;     //hardcoded array or string with api url
+    readonly content: string[] | string;     //hardcoded array or string with api url
 
     constructor(source: any) {
         this.content = [];
@@ -164,10 +164,10 @@ export class Suggestions {
 }
 
 export class FormElement {
-    type: FormElementType;
-    id: string;
-    label: string;
-    options: BaseOptions;
+    readonly type: FormElementType;
+    readonly id: string;
+    readonly label: string;
+    readonly options: BaseOptions;
 
     constructor(source: any) {
         const typeString = parseAttribute(source, 'type', true) as string;
@@ -207,11 +207,11 @@ export class FormElement {
 }
 
 export class Specification {
-    title: string;
-    content: FormElement[];
-    showClearButton: boolean;
-    showResetButton: boolean;
-    showExampleFiller: boolean;
+    readonly title: string;
+    readonly content: FormElement[];
+    readonly showClearButton: boolean;
+    readonly showResetButton: boolean;
+    readonly showExampleFiller: boolean;
 
     constructor(source: any) {
         this.title = parseAttribute(source, 'title', false, '');

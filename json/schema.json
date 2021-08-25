@@ -1,0 +1,343 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Web form specification",
+    "description": "A specification to describe a web form with all its technical details.",
+    "type": "object",
+    "required": [
+        "content"
+    ],
+    "properties": {
+        "title": {
+            "description": "Overall title of the form",
+            "type": "string"
+        },
+        "content": {
+            "description": "Elements the form contains",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/formElement"
+            }
+        },
+        "showClearButton": {
+            "type": "boolean"
+        },
+        "showResetButton": {
+            "type": "boolean"
+        },
+        "showExampleFiller": {
+            "type": "boolean"
+        }
+    },
+    "definitions": {
+        "formElement": {
+            "description": "Form elements",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Type of the FormElement",
+                    "enum": [
+                        "group",
+                        "input",
+                        "checkbox",
+                        "dropdown",
+                        "radio",
+                        "chiplist",
+                        "table"
+                    ]
+                },
+                "id": {
+                    "description": "Unique identifier for this element",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Label displayed in the browser",
+                    "type": "string"
+                },
+                "options": {
+                    "description": "Additional options and parameters for this element",
+                    "type": "object",
+                    "properties": {
+                        "activateCond": {
+                            "description": "For conditional activating based on another element, specified by id",
+                            "type": "string"
+                        },
+                        "displayCond": {
+                            "description": "For conditional diyplaying based on another element, specified by id",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "group"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "childs": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/definitions/formElement"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "else": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "description": "Initial value of the element"
+                                    },
+                                    "styling": {
+                                        "description": "String to define styling",
+                                        "type": "string"
+                                    },
+                                    "required": {
+                                        "description": "If the element is required for submitting the form",
+                                        "type": "boolean"
+                                    },
+                                    "requiredErrorMessage": {
+                                        "description": "Message shown field is required",
+                                        "type": "string"
+                                    },
+                                    "exampleValue": {
+                                        "description": "Value for example form filler"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "checkbox"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "showAsSwitch": {
+                                        "description": "If a switch is displayed instead of a checkbox",
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "input"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "inputType": {
+                                        "description": "html type of the input field",
+                                        "type": "string"
+                                    },
+                                    "placeholder": {
+                                        "description": "Placeholder for the input field",
+                                        "type": "string"
+                                    },
+                                    "autocomplete": {
+                                        "description": "Values that should be suggested in an autocomplete menu",
+                                        "$ref": "#/definitions/suggestionType"
+                                    },
+                                    "validatorRegex": {
+                                        "description": "Regular expression the input value has to match to for a valid form",
+                                        "type": "string"
+                                    },
+                                    "validatorErrorMessage": {
+                                        "description": "Error Message, if the input does not match with the validatorRegex",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "radio"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "pickingOptions": {
+                                        "description": "Availible radio options",
+                                        "$ref": "#/definitions/suggestionType"
+                                    }
+                                },
+                                "required": [
+                                    "pickingOptions"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "dropdown"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "values": {
+                                        "description": "Availible options to select",
+                                        "$ref": "#/definitions/suggestionType"
+                                    },
+                                    "multiple": {
+                                        "description": "If more than one value are selectable",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "values"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "chiplist"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "suggestions": {
+                                        "description": "Availible options to select",
+                                        "$ref": "#/definitions/suggestionType"
+                                    },
+                                    "placeholder": {
+                                        "description": "Placeholder for the field",
+                                        "type": "string"
+                                    },
+                                    "removable": {
+                                        "description": "If the added chips can be removed",
+                                        "type": "boolean"
+                                    },
+                                    "onlySuggestions": {
+                                        "description": "If only the suggestions can be added as chips",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "suggestions"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "table"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "columns": {
+                                        "description": "Elements that define the table",
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/definitions/formElement"
+                                        }
+                                    },
+                                    "deletable": {
+                                        "description": "If the added table-rows can be deleted again",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "columns"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "suggestionType": {
+            "type": [
+                "string",
+                "array"
+            ],
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

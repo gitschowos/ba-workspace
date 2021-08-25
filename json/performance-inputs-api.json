@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/gitschowos/ba-workspace/master/json/schema.json",
     "title": "Performance tests with inputs with http-requested autocomplete suggestions",
     "content": [
         {

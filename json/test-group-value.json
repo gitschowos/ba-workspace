@@ -1,27 +1,27 @@
 {
+    "$schema": "https://raw.githubusercontent.com/gitschowos/ba-workspace/master/json/schema.json",
     "title": "Formular erstellen",
     "content": [
         {
             "type":"group",
             "id":"group",
             "label":"Gruppe",
-            "value":{
-                "eingabefeld":"Mein Test",
-                "auswahl":["Model 3", "Model Y"]
-            },
             "options":{
                 "childs":[
                     {
                         "type":"input",
                         "id":"eingabefeld",
                         "label":"Eingabefeld",
-                        "options":{}
+                        "options":{
+                            "value":"Mein Test"
+                        }
                     },
                     {
                         "type":"dropdown",
                         "id":"auswahl",
                         "label":"Modell auswählen",
                         "options":{
+                            "value":["Model 3", "Model Y"],
                             "multiple":true,
                             "values":["Model S", "Model 3", "Model X", "Model Y"]
                         }

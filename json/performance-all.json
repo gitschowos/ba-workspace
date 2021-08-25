@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/gitschowos/ba-workspace/master/json/schema.json",
     "title":"Performance Test with many elements with many several features",
     "content":[
         {

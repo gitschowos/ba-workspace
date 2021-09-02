@@ -1,22 +1,20 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER, TAB } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ChipListOptions, FormElement } from '../../model/base-model';
+import { ChipListOptions } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
-import { DefaultErrorStateMatcher } from '../../error-state-matcher';
+import { BaseElement } from '../base-element';
 
 @Component({
     selector: 'lib-chiplist',
     templateUrl: './chiplist.component.html',
     styleUrls: ['./chiplist.component.css']
 })
-export class ChiplistComponent implements OnInit {
-    @Input() fControl!: FormControl;
-    @Input() element!: FormElement;
+export class ChiplistComponent extends BaseElement implements OnInit {
 
     options!: ChipListOptions;
 
@@ -28,11 +26,9 @@ export class ChiplistComponent implements OnInit {
 
     @ViewChild('chipInput') chipInput!: ElementRef<HTMLInputElement>;
 
-    matcher!: DefaultErrorStateMatcher;
-
     constructor(
         private suggestions: SuggestionsService
-    ) { }
+    ) { super(); }
 
     ngOnInit(): void {
         this.options = this.element.options as ChipListOptions;
@@ -52,8 +48,6 @@ export class ChiplistComponent implements OnInit {
                 this.fControl.setValue([]);
             }
         });
-
-        this.matcher = new DefaultErrorStateMatcher();
     }
 
     add(event: MatChipInputEvent): void {

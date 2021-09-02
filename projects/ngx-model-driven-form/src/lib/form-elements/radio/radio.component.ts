@@ -1,27 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { DefaultErrorStateMatcher } from '../../error-state-matcher';
-import { FormElement, RadioOptions } from '../../model/base-model';
+import { Component, OnInit } from '@angular/core';
+import { RadioOptions } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
+import { BaseElement } from '../base-element';
 
 @Component({
     selector: 'lib-radio',
     templateUrl: './radio.component.html',
     styleUrls: ['./radio.component.css']
 })
-export class RadioComponent implements OnInit {
-    @Input() fControl!: FormControl;
-    @Input() element!: FormElement;
+export class RadioComponent extends BaseElement implements OnInit {
 
     options!: RadioOptions;
 
     values: string[] = [];
 
-    matcher!: DefaultErrorStateMatcher;
-
     constructor(
         private suggestions: SuggestionsService
-    ) { }
+    ) { super(); }
 
     ngOnInit(): void {
         this.options = this.element.options as RadioOptions;
@@ -33,8 +28,6 @@ export class RadioComponent implements OnInit {
                 this.fControl.markAsTouched();
             }
         });
-
-        this.matcher = new DefaultErrorStateMatcher();
     }
 
     requiredError(): boolean {

@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { SuggestionsService } from '../../suggestions.service';
-import { FormElement, InputFieldOptions } from '../../model/base-model';
-import { DefaultErrorStateMatcher } from '../../error-state-matcher';
+import { InputFieldOptions } from '../../model/base-model';
+import { BaseElement } from '../base-element';
 
 @Component({
     selector: 'lib-input-field',
     templateUrl: './input-field.component.html',
     styleUrls: ['./input-field.component.css']
 })
-export class InputFieldComponent implements OnInit {
-    @Input() fControl!: FormControl;
-    @Input() element!: FormElement;
+export class InputFieldComponent extends BaseElement implements OnInit {
 
     options!: InputFieldOptions;
 
@@ -21,11 +18,9 @@ export class InputFieldComponent implements OnInit {
     autoCompleteOptions: string[] = [];
     filteredOptions!: Observable<string[]>;
 
-    matcher!: DefaultErrorStateMatcher;
-
     constructor(
         private suggestions: SuggestionsService
-    ) { }
+    ) { super(); }
 
     ngOnInit(): void {
         this.options = this.element.options as InputFieldOptions;
@@ -44,8 +39,6 @@ export class InputFieldComponent implements OnInit {
                 map(value => this._filter(value))
             );
         }
-
-        this.matcher = new DefaultErrorStateMatcher();
     }
 
     private _filter(value: string): string[] {

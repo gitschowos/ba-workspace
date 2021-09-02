@@ -1,18 +1,17 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import _ from 'lodash';
 import { CreateFormControlService } from '../../create-form-control.service';
 import { FormElement, TableOptions } from '../../model/base-model';
+import { BaseElement } from '../base-element';
 
 @Component({
     selector: 'lib-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
-    @Input() fControl!: FormControl;
-    @Input() element!: FormElement;
+export class TableComponent extends BaseElement implements OnInit {
 
     options!: TableOptions;
     elements!: FormElement[];
@@ -25,7 +24,7 @@ export class TableComponent implements OnInit {
 
     constructor(
         private formControlService: CreateFormControlService
-    ) { }
+    ) { super(); }
 
     ngOnInit(): void {
         this.options = this.element.options as TableOptions;

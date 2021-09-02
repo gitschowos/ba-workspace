@@ -1,34 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { DefaultErrorStateMatcher } from '../../error-state-matcher';
-import { DropdownOptions, FormElement } from '../../model/base-model';
+import { Component, OnInit } from '@angular/core';
+import { DropdownOptions } from '../../model/base-model';
 import { SuggestionsService } from '../../suggestions.service';
+import { BaseElement } from '../base-element';
 
 @Component({
     selector: 'lib-dropdown',
     templateUrl: './dropdown.component.html',
     styleUrls: ['./dropdown.component.css']
 })
-export class DropdownComponent implements OnInit {
-    @Input() fControl!: FormControl;
-    @Input() element!: FormElement;
+export class DropdownComponent extends BaseElement implements OnInit {
 
     options!: DropdownOptions;
 
     values: string[] = [];
 
-    matcher!: DefaultErrorStateMatcher;
-
     constructor(
         private suggestions: SuggestionsService
-    ) { }
+    ) { super(); }
 
     ngOnInit(): void {
         this.options = this.element.options as DropdownOptions;
         this.suggestions.getSuggestions(this.options.values).subscribe(values => {
             this.values = values;
         });
-        this.matcher = new DefaultErrorStateMatcher();
     }
 
 }

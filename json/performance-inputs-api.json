@@ -4,7 +4,7 @@
     "content": [
         {
             "type": "input",
-            "id": "1",
+            "id": "input1",
             "label": "Input 1",
             "options": {
                 "autocomplete": "api/colors"
@@ -12,7 +12,7 @@
         },
         {
             "type": "input",
-            "id": "2",
+            "id": "input2",
             "label": "Input 2",
             "options": {
                 "autocomplete": "api/colors"
@@ -20,7 +20,7 @@
         },
         {
             "type": "input",
-            "id": "3",
+            "id": "input3",
             "label": "Input 3",
             "options": {
                 "autocomplete": "api/colors"
@@ -28,7 +28,7 @@
         },
         {
             "type": "input",
-            "id": "4",
+            "id": "input4",
             "label": "Input 4",
             "options": {
                 "autocomplete": "api/colors"
@@ -36,7 +36,7 @@
         },
         {
             "type": "input",
-            "id": "5",
+            "id": "input5",
             "label": "Input 5",
             "options": {
                 "autocomplete": "api/colors"
@@ -44,7 +44,7 @@
         },
         {
             "type": "input",
-            "id": "6",
+            "id": "input6",
             "label": "Input 6",
             "options": {
                 "autocomplete": "api/colors"
@@ -52,7 +52,7 @@
         },
         {
             "type": "input",
-            "id": "7",
+            "id": "input7",
             "label": "Input 7",
             "options": {
                 "autocomplete": "api/colors"
@@ -60,7 +60,7 @@
         },
         {
             "type": "input",
-            "id": "8",
+            "id": "input8",
             "label": "Input 8",
             "options": {
                 "autocomplete": "api/colors"
@@ -68,7 +68,7 @@
         },
         {
             "type": "input",
-            "id": "9",
+            "id": "input9",
             "label": "Input 9",
             "options": {
                 "autocomplete": "api/colors"
@@ -76,7 +76,7 @@
         },
         {
             "type": "input",
-            "id": "10",
+            "id": "input10",
             "label": "Input 10",
             "options": {
                 "autocomplete": "api/colors"
@@ -84,7 +84,7 @@
         },
         {
             "type": "input",
-            "id": "11",
+            "id": "input11",
             "label": "Input 11",
             "options": {
                 "autocomplete": "api/colors"
@@ -92,7 +92,7 @@
         },
         {
             "type": "input",
-            "id": "12",
+            "id": "input12",
             "label": "Input 12",
             "options": {
                 "autocomplete": "api/colors"
@@ -100,7 +100,7 @@
         },
         {
             "type": "input",
-            "id": "13",
+            "id": "input13",
             "label": "Input 13",
             "options": {
                 "autocomplete": "api/colors"
@@ -108,7 +108,7 @@
         },
         {
             "type": "input",
-            "id": "14",
+            "id": "input14",
             "label": "Input 14",
             "options": {
                 "autocomplete": "api/colors"
@@ -116,7 +116,7 @@
         },
         {
             "type": "input",
-            "id": "15",
+            "id": "input15",
             "label": "Input 15",
             "options": {
                 "autocomplete": "api/colors"
@@ -124,7 +124,7 @@
         },
         {
             "type": "input",
-            "id": "16",
+            "id": "input16",
             "label": "Input 16",
             "options": {
                 "autocomplete": "api/colors"
@@ -132,7 +132,7 @@
         },
         {
             "type": "input",
-            "id": "17",
+            "id": "input17",
             "label": "Input 17",
             "options": {
                 "autocomplete": "api/colors"
@@ -140,7 +140,7 @@
         },
         {
             "type": "input",
-            "id": "18",
+            "id": "input18",
             "label": "Input 18",
             "options": {
                 "autocomplete": "api/colors"
@@ -148,7 +148,7 @@
         },
         {
             "type": "input",
-            "id": "19",
+            "id": "input19",
             "label": "Input 19",
             "options": {
                 "autocomplete": "api/colors"
@@ -156,7 +156,7 @@
         },
         {
             "type": "input",
-            "id": "20",
+            "id": "input20",
             "label": "Input 20",
             "options": {
                 "autocomplete": "api/colors"
@@ -164,7 +164,7 @@
         },
         {
             "type": "input",
-            "id": "21",
+            "id": "input21",
             "label": "Input 21",
             "options": {
                 "autocomplete": "api/colors"
@@ -172,7 +172,7 @@
         },
         {
             "type": "input",
-            "id": "22",
+            "id": "input22",
             "label": "Input 22",
             "options": {
                 "autocomplete": "api/colors"
@@ -180,7 +180,7 @@
         },
         {
             "type": "input",
-            "id": "23",
+            "id": "input23",
             "label": "Input 23",
             "options": {
                 "autocomplete": "api/colors"
@@ -188,7 +188,7 @@
         },
         {
             "type": "input",
-            "id": "24",
+            "id": "input24",
             "label": "Input 24",
             "options": {
                 "autocomplete": "api/colors"
@@ -196,7 +196,7 @@
         },
         {
             "type": "input",
-            "id": "25",
+            "id": "input25",
             "label": "Input 25",
             "options": {
                 "autocomplete": "api/colors"
@@ -204,7 +204,7 @@
         },
         {
             "type": "input",
-            "id": "26",
+            "id": "input26",
             "label": "Input 26",
             "options": {
                 "autocomplete": "api/colors"
@@ -212,7 +212,7 @@
         },
         {
             "type": "input",
-            "id": "27",
+            "id": "input27",
             "label": "Input 27",
             "options": {
                 "autocomplete": "api/colors"
@@ -220,7 +220,7 @@
         },
         {
             "type": "input",
-            "id": "28",
+            "id": "input28",
             "label": "Input 28",
             "options": {
                 "autocomplete": "api/colors"
@@ -228,7 +228,7 @@
         },
         {
             "type": "input",
-            "id": "29",
+            "id": "input29",
             "label": "Input 29",
             "options": {
                 "autocomplete": "api/colors"
@@ -236,7 +236,7 @@
         },
         {
             "type": "input",
-            "id": "30",
+            "id": "input30",
             "label": "Input 30",
             "options": {
                 "autocomplete": "api/colors"
@@ -244,7 +244,7 @@
         },
         {
             "type": "input",
-            "id": "31",
+            "id": "input31",
             "label": "Input 31",
             "options": {
                 "autocomplete": "api/colors"
@@ -252,7 +252,7 @@
         },
         {
             "type": "input",
-            "id": "32",
+            "id": "input32",
             "label": "Input 32",
             "options": {
                 "autocomplete": "api/colors"
@@ -260,7 +260,7 @@
         },
         {
             "type": "input",
-            "id": "33",
+            "id": "input33",
             "label": "Input 33",
             "options": {
                 "autocomplete": "api/colors"
@@ -268,7 +268,7 @@
         },
         {
             "type": "input",
-            "id": "34",
+            "id": "input34",
             "label": "Input 34",
             "options": {
                 "autocomplete": "api/colors"
@@ -276,7 +276,7 @@
         },
         {
             "type": "input",
-            "id": "35",
+            "id": "input35",
             "label": "Input 35",
             "options": {
                 "autocomplete": "api/colors"
@@ -284,7 +284,7 @@
         },
         {
             "type": "input",
-            "id": "36",
+            "id": "input36",
             "label": "Input 36",
             "options": {
                 "autocomplete": "api/colors"
@@ -292,7 +292,7 @@
         },
         {
             "type": "input",
-            "id": "37",
+            "id": "input37",
             "label": "Input 37",
             "options": {
                 "autocomplete": "api/colors"
@@ -300,7 +300,7 @@
         },
         {
             "type": "input",
-            "id": "38",
+            "id": "input38",
             "label": "Input 38",
             "options": {
                 "autocomplete": "api/colors"
@@ -308,7 +308,7 @@
         },
         {
             "type": "input",
-            "id": "39",
+            "id": "input39",
             "label": "Input 39",
             "options": {
                 "autocomplete": "api/colors"
@@ -316,7 +316,7 @@
         },
         {
             "type": "input",
-            "id": "40",
+            "id": "input40",
             "label": "Input 40",
             "options": {
                 "autocomplete": "api/colors"
@@ -324,7 +324,7 @@
         },
         {
             "type": "input",
-            "id": "41",
+            "id": "input41",
             "label": "Input 41",
             "options": {
                 "autocomplete": "api/colors"
@@ -332,7 +332,7 @@
         },
         {
             "type": "input",
-            "id": "42",
+            "id": "input42",
             "label": "Input 42",
             "options": {
                 "autocomplete": "api/colors"
@@ -340,7 +340,7 @@
         },
         {
             "type": "input",
-            "id": "43",
+            "id": "input43",
             "label": "Input 43",
             "options": {
                 "autocomplete": "api/colors"
@@ -348,7 +348,7 @@
         },
         {
             "type": "input",
-            "id": "44",
+            "id": "input44",
             "label": "Input 44",
             "options": {
                 "autocomplete": "api/colors"
@@ -356,7 +356,7 @@
         },
         {
             "type": "input",
-            "id": "45",
+            "id": "input45",
             "label": "Input 45",
             "options": {
                 "autocomplete": "api/colors"
@@ -364,7 +364,7 @@
         },
         {
             "type": "input",
-            "id": "46",
+            "id": "input46",
             "label": "Input 46",
             "options": {
                 "autocomplete": "api/colors"
@@ -372,7 +372,7 @@
         },
         {
             "type": "input",
-            "id": "47",
+            "id": "input47",
             "label": "Input 47",
             "options": {
                 "autocomplete": "api/colors"
@@ -380,7 +380,7 @@
         },
         {
             "type": "input",
-            "id": "48",
+            "id": "input48",
             "label": "Input 48",
             "options": {
                 "autocomplete": "api/colors"
@@ -388,7 +388,7 @@
         },
         {
             "type": "input",
-            "id": "49",
+            "id": "input49",
             "label": "Input 49",
             "options": {
                 "autocomplete": "api/colors"
@@ -396,7 +396,7 @@
         },
         {
             "type": "input",
-            "id": "50",
+            "id": "input50",
             "label": "Input 50",
             "options": {
                 "autocomplete": "api/colors"
@@ -404,7 +404,7 @@
         },
         {
             "type": "input",
-            "id": "51",
+            "id": "input51",
             "label": "Input 51",
             "options": {
                 "autocomplete": "api/colors"
@@ -412,7 +412,7 @@
         },
         {
             "type": "input",
-            "id": "52",
+            "id": "input52",
             "label": "Input 52",
             "options": {
                 "autocomplete": "api/colors"
@@ -420,7 +420,7 @@
         },
         {
             "type": "input",
-            "id": "53",
+            "id": "input53",
             "label": "Input 53",
             "options": {
                 "autocomplete": "api/colors"
@@ -428,7 +428,7 @@
         },
         {
             "type": "input",
-            "id": "54",
+            "id": "input54",
             "label": "Input 54",
             "options": {
                 "autocomplete": "api/colors"
@@ -436,7 +436,7 @@
         },
         {
             "type": "input",
-            "id": "55",
+            "id": "input55",
             "label": "Input 55",
             "options": {
                 "autocomplete": "api/colors"
@@ -444,7 +444,7 @@
         },
         {
             "type": "input",
-            "id": "56",
+            "id": "input56",
             "label": "Input 56",
             "options": {
                 "autocomplete": "api/colors"
@@ -452,7 +452,7 @@
         },
         {
             "type": "input",
-            "id": "57",
+            "id": "input57",
             "label": "Input 57",
             "options": {
                 "autocomplete": "api/colors"
@@ -460,7 +460,7 @@
         },
         {
             "type": "input",
-            "id": "58",
+            "id": "input58",
             "label": "Input 58",
             "options": {
                 "autocomplete": "api/colors"
@@ -468,7 +468,7 @@
         },
         {
             "type": "input",
-            "id": "59",
+            "id": "input59",
             "label": "Input 59",
             "options": {
                 "autocomplete": "api/colors"
@@ -476,7 +476,7 @@
         },
         {
             "type": "input",
-            "id": "60",
+            "id": "input60",
             "label": "Input 60",
             "options": {
                 "autocomplete": "api/colors"
@@ -484,7 +484,7 @@
         },
         {
             "type": "input",
-            "id": "61",
+            "id": "input61",
             "label": "Input 61",
             "options": {
                 "autocomplete": "api/colors"
@@ -492,7 +492,7 @@
         },
         {
             "type": "input",
-            "id": "62",
+            "id": "input62",
             "label": "Input 62",
             "options": {
                 "autocomplete": "api/colors"
@@ -500,7 +500,7 @@
         },
         {
             "type": "input",
-            "id": "63",
+            "id": "input63",
             "label": "Input 63",
             "options": {
                 "autocomplete": "api/colors"
@@ -508,7 +508,7 @@
         },
         {
             "type": "input",
-            "id": "64",
+            "id": "input64",
             "label": "Input 64",
             "options": {
                 "autocomplete": "api/colors"
@@ -516,7 +516,7 @@
         },
         {
             "type": "input",
-            "id": "65",
+            "id": "input65",
             "label": "Input 65",
             "options": {
                 "autocomplete": "api/colors"
@@ -524,7 +524,7 @@
         },
         {
             "type": "input",
-            "id": "66",
+            "id": "input66",
             "label": "Input 66",
             "options": {
                 "autocomplete": "api/colors"
@@ -532,7 +532,7 @@
         },
         {
             "type": "input",
-            "id": "67",
+            "id": "input67",
             "label": "Input 67",
             "options": {
                 "autocomplete": "api/colors"
@@ -540,7 +540,7 @@
         },
         {
             "type": "input",
-            "id": "68",
+            "id": "input68",
             "label": "Input 68",
             "options": {
                 "autocomplete": "api/colors"
@@ -548,7 +548,7 @@
         },
         {
             "type": "input",
-            "id": "69",
+            "id": "input69",
             "label": "Input 69",
             "options": {
                 "autocomplete": "api/colors"
@@ -556,7 +556,7 @@
         },
         {
             "type": "input",
-            "id": "70",
+            "id": "input70",
             "label": "Input 70",
             "options": {
                 "autocomplete": "api/colors"
@@ -564,7 +564,7 @@
         },
         {
             "type": "input",
-            "id": "71",
+            "id": "input71",
             "label": "Input 71",
             "options": {
                 "autocomplete": "api/colors"
@@ -572,7 +572,7 @@
         },
         {
             "type": "input",
-            "id": "72",
+            "id": "input72",
             "label": "Input 72",
             "options": {
                 "autocomplete": "api/colors"
@@ -580,7 +580,7 @@
         },
         {
             "type": "input",
-            "id": "73",
+            "id": "input73",
             "label": "Input 73",
             "options": {
                 "autocomplete": "api/colors"
@@ -588,7 +588,7 @@
         },
         {
             "type": "input",
-            "id": "74",
+            "id": "input74",
             "label": "Input 74",
             "options": {
                 "autocomplete": "api/colors"
@@ -596,7 +596,7 @@
         },
         {
             "type": "input",
-            "id": "75",
+            "id": "input75",
             "label": "Input 75",
             "options": {
                 "autocomplete": "api/colors"
@@ -604,7 +604,7 @@
         },
         {
             "type": "input",
-            "id": "76",
+            "id": "input76",
             "label": "Input 76",
             "options": {
                 "autocomplete": "api/colors"
@@ -612,7 +612,7 @@
         },
         {
             "type": "input",
-            "id": "77",
+            "id": "input77",
             "label": "Input 77",
             "options": {
                 "autocomplete": "api/colors"
@@ -620,7 +620,7 @@
         },
         {
             "type": "input",
-            "id": "78",
+            "id": "input78",
             "label": "Input 78",
             "options": {
                 "autocomplete": "api/colors"
@@ -628,7 +628,7 @@
         },
         {
             "type": "input",
-            "id": "79",
+            "id": "input79",
             "label": "Input 79",
             "options": {
                 "autocomplete": "api/colors"
@@ -636,7 +636,7 @@
         },
         {
             "type": "input",
-            "id": "80",
+            "id": "input80",
             "label": "Input 80",
             "options": {
                 "autocomplete": "api/colors"
@@ -644,7 +644,7 @@
         },
         {
             "type": "input",
-            "id": "81",
+            "id": "input81",
             "label": "Input 81",
             "options": {
                 "autocomplete": "api/colors"
@@ -652,7 +652,7 @@
         },
         {
             "type": "input",
-            "id": "82",
+            "id": "input82",
             "label": "Input 82",
             "options": {
                 "autocomplete": "api/colors"
@@ -660,7 +660,7 @@
         },
         {
             "type": "input",
-            "id": "83",
+            "id": "input83",
             "label": "Input 83",
             "options": {
                 "autocomplete": "api/colors"
@@ -668,7 +668,7 @@
         },
         {
             "type": "input",
-            "id": "84",
+            "id": "input84",
             "label": "Input 84",
             "options": {
                 "autocomplete": "api/colors"
@@ -676,7 +676,7 @@
         },
         {
             "type": "input",
-            "id": "85",
+            "id": "input85",
             "label": "Input 85",
             "options": {
                 "autocomplete": "api/colors"
@@ -684,7 +684,7 @@
         },
         {
             "type": "input",
-            "id": "86",
+            "id": "input86",
             "label": "Input 86",
             "options": {
                 "autocomplete": "api/colors"
@@ -692,7 +692,7 @@
         },
         {
             "type": "input",
-            "id": "87",
+            "id": "input87",
             "label": "Input 87",
             "options": {
                 "autocomplete": "api/colors"
@@ -700,7 +700,7 @@
         },
         {
             "type": "input",
-            "id": "88",
+            "id": "input88",
             "label": "Input 88",
             "options": {
                 "autocomplete": "api/colors"
@@ -708,7 +708,7 @@
         },
         {
             "type": "input",
-            "id": "89",
+            "id": "input89",
             "label": "Input 89",
             "options": {
                 "autocomplete": "api/colors"
@@ -716,7 +716,7 @@
         },
         {
             "type": "input",
-            "id": "90",
+            "id": "input90",
             "label": "Input 90",
             "options": {
                 "autocomplete": "api/colors"
@@ -724,7 +724,7 @@
         },
         {
             "type": "input",
-            "id": "91",
+            "id": "input91",
             "label": "Input 91",
             "options": {
                 "autocomplete": "api/colors"
@@ -732,7 +732,7 @@
         },
         {
             "type": "input",
-            "id": "92",
+            "id": "input92",
             "label": "Input 92",
             "options": {
                 "autocomplete": "api/colors"
@@ -740,7 +740,7 @@
         },
         {
             "type": "input",
-            "id": "93",
+            "id": "input93",
             "label": "Input 93",
             "options": {
                 "autocomplete": "api/colors"
@@ -748,7 +748,7 @@
         },
         {
             "type": "input",
-            "id": "94",
+            "id": "input94",
             "label": "Input 94",
             "options": {
                 "autocomplete": "api/colors"
@@ -756,7 +756,7 @@
         },
         {
             "type": "input",
-            "id": "95",
+            "id": "input95",
             "label": "Input 95",
             "options": {
                 "autocomplete": "api/colors"
@@ -764,7 +764,7 @@
         },
         {
             "type": "input",
-            "id": "96",
+            "id": "input96",
             "label": "Input 96",
             "options": {
                 "autocomplete": "api/colors"
@@ -772,7 +772,7 @@
         },
         {
             "type": "input",
-            "id": "97",
+            "id": "input97",
             "label": "Input 97",
             "options": {
                 "autocomplete": "api/colors"
@@ -780,7 +780,7 @@
         },
         {
             "type": "input",
-            "id": "98",
+            "id": "input98",
             "label": "Input 98",
             "options": {
                 "autocomplete": "api/colors"
@@ -788,7 +788,7 @@
         },
         {
             "type": "input",
-            "id": "99",
+            "id": "input99",
             "label": "Input 99",
             "options": {
                 "autocomplete": "api/colors"
@@ -796,7 +796,7 @@
         },
         {
             "type": "input",
-            "id": "100",
+            "id": "input100",
             "label": "Input 100",
             "options": {
                 "autocomplete": "api/colors"

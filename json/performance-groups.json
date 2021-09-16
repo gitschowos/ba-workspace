@@ -1,0 +1,1539 @@
+{
+    "$schema": "https://raw.githubusercontent.com/gitschowos/ba-workspace/master/json/schema.json",
+    "title": "Performance test with groups",
+    "content": [
+        {
+            "type": "group",
+            "id": "group1-1",
+            "label": "Gruppe 1-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group1-2",
+                        "label": "Gruppe 1-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group1-3",
+                                    "label": "Gruppe 1-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group1-4",
+                                                "label": "Gruppe 1-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group1-5",
+                                                            "label": "Gruppe 1-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group1-6",
+                                                                        "label": "Gruppe 1-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group1-7",
+                                                                                    "label": "Gruppe 1-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group1-8",
+                                                                                                "label": "Gruppe 1-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group1-9",
+                                                                                                            "label": "Gruppe 1-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group1-10",
+                                                                                                                        "label": "Gruppe 1-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu1-10",
+                                                                                                                                    "label": "Menü 1-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu1-9",
+                                                                                                                        "label": "Menü 1-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu1-8",
+                                                                                                            "label": "Menü 1-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu1-7",
+                                                                                                "label": "Menü 1-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu1-6",
+                                                                                    "label": "Menü 1-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu1-5",
+                                                                        "label": "Menü 1-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu1-4",
+                                                            "label": "Menü 1-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu1-3",
+                                                "label": "Menü 1-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu1-2",
+                                    "label": "Menü 1-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu1-1",
+                        "label": "Menü 1-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group2-1",
+            "label": "Gruppe 2-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group2-2",
+                        "label": "Gruppe 2-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group2-3",
+                                    "label": "Gruppe 2-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group2-4",
+                                                "label": "Gruppe 2-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group2-5",
+                                                            "label": "Gruppe 2-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group2-6",
+                                                                        "label": "Gruppe 2-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group2-7",
+                                                                                    "label": "Gruppe 2-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group2-8",
+                                                                                                "label": "Gruppe 2-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group2-9",
+                                                                                                            "label": "Gruppe 2-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group2-10",
+                                                                                                                        "label": "Gruppe 2-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu2-10",
+                                                                                                                                    "label": "Menü 2-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu2-9",
+                                                                                                                        "label": "Menü 2-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu2-8",
+                                                                                                            "label": "Menü 2-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu2-7",
+                                                                                                "label": "Menü 2-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu2-6",
+                                                                                    "label": "Menü 2-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu2-5",
+                                                                        "label": "Menü 2-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu2-4",
+                                                            "label": "Menü 2-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu2-3",
+                                                "label": "Menü 2-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu2-2",
+                                    "label": "Menü 2-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu2-1",
+                        "label": "Menü 2-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group3-1",
+            "label": "Gruppe 3-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group3-2",
+                        "label": "Gruppe 3-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group3-3",
+                                    "label": "Gruppe 3-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group3-4",
+                                                "label": "Gruppe 3-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group3-5",
+                                                            "label": "Gruppe 3-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group3-6",
+                                                                        "label": "Gruppe 3-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group3-7",
+                                                                                    "label": "Gruppe 3-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group3-8",
+                                                                                                "label": "Gruppe 3-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group3-9",
+                                                                                                            "label": "Gruppe 3-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group3-10",
+                                                                                                                        "label": "Gruppe 3-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu3-10",
+                                                                                                                                    "label": "Menü 3-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu3-9",
+                                                                                                                        "label": "Menü 3-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu3-8",
+                                                                                                            "label": "Menü 3-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu3-7",
+                                                                                                "label": "Menü 3-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu3-6",
+                                                                                    "label": "Menü 3-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu3-5",
+                                                                        "label": "Menü 3-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu3-4",
+                                                            "label": "Menü 3-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu3-3",
+                                                "label": "Menü 3-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu3-2",
+                                    "label": "Menü 3-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu3-1",
+                        "label": "Menü 3-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group4-1",
+            "label": "Gruppe 4-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group4-2",
+                        "label": "Gruppe 4-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group4-3",
+                                    "label": "Gruppe 4-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group4-4",
+                                                "label": "Gruppe 4-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group4-5",
+                                                            "label": "Gruppe 4-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group4-6",
+                                                                        "label": "Gruppe 4-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group4-7",
+                                                                                    "label": "Gruppe 4-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group4-8",
+                                                                                                "label": "Gruppe 4-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group4-9",
+                                                                                                            "label": "Gruppe 4-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group4-10",
+                                                                                                                        "label": "Gruppe 4-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu4-10",
+                                                                                                                                    "label": "Menü 4-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu4-9",
+                                                                                                                        "label": "Menü 4-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu4-8",
+                                                                                                            "label": "Menü 4-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu4-7",
+                                                                                                "label": "Menü 4-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu4-6",
+                                                                                    "label": "Menü 4-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu4-5",
+                                                                        "label": "Menü 4-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu4-4",
+                                                            "label": "Menü 4-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu4-3",
+                                                "label": "Menü 4-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu4-2",
+                                    "label": "Menü 4-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu4-1",
+                        "label": "Menü 4-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group5-1",
+            "label": "Gruppe 5-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group5-2",
+                        "label": "Gruppe 5-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group5-3",
+                                    "label": "Gruppe 5-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group5-4",
+                                                "label": "Gruppe 5-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group5-5",
+                                                            "label": "Gruppe 5-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group5-6",
+                                                                        "label": "Gruppe 5-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group5-7",
+                                                                                    "label": "Gruppe 5-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group5-8",
+                                                                                                "label": "Gruppe 5-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group5-9",
+                                                                                                            "label": "Gruppe 5-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group5-10",
+                                                                                                                        "label": "Gruppe 5-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu5-10",
+                                                                                                                                    "label": "Menü 5-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu5-9",
+                                                                                                                        "label": "Menü 5-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu5-8",
+                                                                                                            "label": "Menü 5-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu5-7",
+                                                                                                "label": "Menü 5-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu5-6",
+                                                                                    "label": "Menü 5-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu5-5",
+                                                                        "label": "Menü 5-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu5-4",
+                                                            "label": "Menü 5-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu5-3",
+                                                "label": "Menü 5-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu5-2",
+                                    "label": "Menü 5-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu5-1",
+                        "label": "Menü 5-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group6-1",
+            "label": "Gruppe 6-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group6-2",
+                        "label": "Gruppe 6-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group6-3",
+                                    "label": "Gruppe 6-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group6-4",
+                                                "label": "Gruppe 6-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group6-5",
+                                                            "label": "Gruppe 6-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group6-6",
+                                                                        "label": "Gruppe 6-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group6-7",
+                                                                                    "label": "Gruppe 6-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group6-8",
+                                                                                                "label": "Gruppe 6-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group6-9",
+                                                                                                            "label": "Gruppe 6-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group6-10",
+                                                                                                                        "label": "Gruppe 6-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu6-10",
+                                                                                                                                    "label": "Menü 6-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu6-9",
+                                                                                                                        "label": "Menü 6-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu6-8",
+                                                                                                            "label": "Menü 6-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu6-7",
+                                                                                                "label": "Menü 6-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu6-6",
+                                                                                    "label": "Menü 6-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu6-5",
+                                                                        "label": "Menü 6-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu6-4",
+                                                            "label": "Menü 6-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu6-3",
+                                                "label": "Menü 6-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu6-2",
+                                    "label": "Menü 6-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu6-1",
+                        "label": "Menü 6-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group7-1",
+            "label": "Gruppe 7-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group7-2",
+                        "label": "Gruppe 7-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group7-3",
+                                    "label": "Gruppe 7-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group7-4",
+                                                "label": "Gruppe 7-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group7-5",
+                                                            "label": "Gruppe 7-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group7-6",
+                                                                        "label": "Gruppe 7-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group7-7",
+                                                                                    "label": "Gruppe 7-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group7-8",
+                                                                                                "label": "Gruppe 7-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group7-9",
+                                                                                                            "label": "Gruppe 7-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group7-10",
+                                                                                                                        "label": "Gruppe 7-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu7-10",
+                                                                                                                                    "label": "Menü 7-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu7-9",
+                                                                                                                        "label": "Menü 7-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu7-8",
+                                                                                                            "label": "Menü 7-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu7-7",
+                                                                                                "label": "Menü 7-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu7-6",
+                                                                                    "label": "Menü 7-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu7-5",
+                                                                        "label": "Menü 7-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu7-4",
+                                                            "label": "Menü 7-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu7-3",
+                                                "label": "Menü 7-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu7-2",
+                                    "label": "Menü 7-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu7-1",
+                        "label": "Menü 7-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group8-1",
+            "label": "Gruppe 8-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group8-2",
+                        "label": "Gruppe 8-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group8-3",
+                                    "label": "Gruppe 8-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group8-4",
+                                                "label": "Gruppe 8-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group8-5",
+                                                            "label": "Gruppe 8-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group8-6",
+                                                                        "label": "Gruppe 8-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group8-7",
+                                                                                    "label": "Gruppe 8-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group8-8",
+                                                                                                "label": "Gruppe 8-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group8-9",
+                                                                                                            "label": "Gruppe 8-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group8-10",
+                                                                                                                        "label": "Gruppe 8-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu8-10",
+                                                                                                                                    "label": "Menü 8-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu8-9",
+                                                                                                                        "label": "Menü 8-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu8-8",
+                                                                                                            "label": "Menü 8-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu8-7",
+                                                                                                "label": "Menü 8-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu8-6",
+                                                                                    "label": "Menü 8-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu8-5",
+                                                                        "label": "Menü 8-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu8-4",
+                                                            "label": "Menü 8-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu8-3",
+                                                "label": "Menü 8-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu8-2",
+                                    "label": "Menü 8-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu8-1",
+                        "label": "Menü 8-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "group",
+            "id": "group9-1",
+            "label": "Gruppe 9-1",
+            "options": {
+                "childs": [
+                    {
+                        "type": "group",
+                        "id": "group9-2",
+                        "label": "Gruppe 9-2",
+                        "options": {
+                            "childs": [
+                                {
+                                    "type": "group",
+                                    "id": "group9-3",
+                                    "label": "Gruppe 9-3",
+                                    "options": {
+                                        "childs": [
+                                            {
+                                                "type": "group",
+                                                "id": "group9-4",
+                                                "label": "Gruppe 9-4",
+                                                "options": {
+                                                    "childs": [
+                                                        {
+                                                            "type": "group",
+                                                            "id": "group9-5",
+                                                            "label": "Gruppe 9-5",
+                                                            "options": {
+                                                                "childs": [
+                                                                    {
+                                                                        "type": "group",
+                                                                        "id": "group9-6",
+                                                                        "label": "Gruppe 9-6",
+                                                                        "options": {
+                                                                            "childs": [
+                                                                                {
+                                                                                    "type": "group",
+                                                                                    "id": "group9-7",
+                                                                                    "label": "Gruppe 9-7",
+                                                                                    "options": {
+                                                                                        "childs": [
+                                                                                            {
+                                                                                                "type": "group",
+                                                                                                "id": "group9-8",
+                                                                                                "label": "Gruppe 9-8",
+                                                                                                "options": {
+                                                                                                    "childs": [
+                                                                                                        {
+                                                                                                            "type": "group",
+                                                                                                            "id": "group9-9",
+                                                                                                            "label": "Gruppe 9-9",
+                                                                                                            "options": {
+                                                                                                                "childs": [
+                                                                                                                    {
+                                                                                                                        "type": "group",
+                                                                                                                        "id": "group9-10",
+                                                                                                                        "label": "Gruppe 9-10",
+                                                                                                                        "options": {
+                                                                                                                            "childs": [
+                                                                                                                                {
+                                                                                                                                    "type": "dropdown",
+                                                                                                                                    "id": "menu9-10",
+                                                                                                                                    "label": "Menü 9-10",
+                                                                                                                                    "options": {
+                                                                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ]
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        "type": "dropdown",
+                                                                                                                        "id": "menu9-9",
+                                                                                                                        "label": "Menü 9-9",
+                                                                                                                        "options": {
+                                                                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "dropdown",
+                                                                                                            "id": "menu9-8",
+                                                                                                            "label": "Menü 9-8",
+                                                                                                            "options": {
+                                                                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            },
+                                                                                            {
+                                                                                                "type": "dropdown",
+                                                                                                "id": "menu9-7",
+                                                                                                "label": "Menü 9-7",
+                                                                                                "options": {
+                                                                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "type": "dropdown",
+                                                                                    "id": "menu9-6",
+                                                                                    "label": "Menü 9-6",
+                                                                                    "options": {
+                                                                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "type": "dropdown",
+                                                                        "id": "menu9-5",
+                                                                        "label": "Menü 9-5",
+                                                                        "options": {
+                                                                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "dropdown",
+                                                            "id": "menu9-4",
+                                                            "label": "Menü 9-4",
+                                                            "options": {
+                                                                "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "dropdown",
+                                                "id": "menu9-3",
+                                                "label": "Menü 9-3",
+                                                "options": {
+                                                    "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "id": "menu9-2",
+                                    "label": "Menü 9-2",
+                                    "options": {
+                                        "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "dropdown",
+                        "id": "menu9-1",
+                        "label": "Menü 9-1",
+                        "options": {
+                            "values": ["Punkt 1","Punkt 2","Punkt 3","Punkt 4","Punkt 5","Punkt 6","Punkt 7","Punkt 8"]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "showClearButton": true,
+    "showResetButton": true,
+    "showExampleFiller": true
+}

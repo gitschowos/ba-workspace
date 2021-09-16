@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+//import hardcodedJson from '../../../../json/test-all.json';
 
 @Component({
   selector: 'app-runtime-form',
@@ -17,6 +18,7 @@ export class RuntimeFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.data = this.http.get("api/testAll");
+        //this.data = of(hardcodedJson);
     }
 
     showSubmission(submittedValue: any) {

@@ -5,6 +5,8 @@ import performanceAll from '../../../../json/performance-all.json';
 import performanceCheckboxes from '../../../../json/performance-checkboxes.json';
 import performanceInputsHardcoded from '../../../../json/performance-inputs-hardcoded.json';
 import performanceInputsApi from '../../../../json/performance-inputs-api.json';
+import performanceGroups from '../../../../json/performance-groups.json';
+import performanceGroupsFlat from '../../../../json/performance-groups-flat.json';
 import mobile from '../../../../json/mobile-de.json';
 import specification from '../../../../json/specification.json';
 import testAll from '../../../../json/test-all.json';
@@ -29,7 +31,7 @@ export class InMemoryDataService implements InMemoryDbService {
             "rot", "grün", "blau", "gelb", "pink", "grau", "schwarz", "weiß", "braun", "magenta", "lila"
         ];
         return { cities, engines, colors, 
-            performanceAll, performanceCheckboxes, performanceInputsHardcoded, performanceInputsApi,
+            performanceAll, performanceCheckboxes, performanceInputsHardcoded, performanceInputsApi, performanceGroups, performanceGroupsFlat,
             mobile, specification, testAll, tableTicketOrder, empty
         };
     }

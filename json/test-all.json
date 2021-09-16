@@ -349,7 +349,7 @@
                             "required": true,
                             "deletable": true,
                             "exampleValue":[
-                                {"table1-input":["Ursulapoppenricht"], "table1-checkbox":false},
+                                {"table1-input":["Bayreuth"], "table1-checkbox":true},
                                 {"table1-input":["Hamburg", "Berlin"], "table1-checkbox":false}
                             ],
                             "columns":[

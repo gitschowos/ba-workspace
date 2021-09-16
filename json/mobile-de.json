@@ -192,5 +192,6 @@
         }
     ],
     "showClearButton": false,
-    "showResetButton": true
+    "showResetButton": true,
+    "showExampleFiller": true
 }

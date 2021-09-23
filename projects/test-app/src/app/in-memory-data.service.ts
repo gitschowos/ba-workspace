@@ -7,7 +7,7 @@ import performanceInputsHardcoded from '../../../../json/performance-inputs-hard
 import performanceInputsApi from '../../../../json/performance-inputs-api.json';
 import performanceGroups from '../../../../json/performance-groups.json';
 import performanceGroupsFlat from '../../../../json/performance-groups-flat.json';
-import mobile from '../../../../json/mobile-de.json';
+import mobile from '../../../../json/car-search.json';
 import specification from '../../../../json/specification.json';
 import testAll from '../../../../json/test-all.json';
 import empty from '../../../../json/empty.json';

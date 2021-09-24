@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { element } from 'protractor';
 <% if(element.options.required || element.options.validatorRegex !== undefined) { %> import { DefaultErrorStateMatcher } from '<%= pathToRoot %>error-state-matcher'; <% } %>
 <% if(element.options.autocomplete !== undefined && !element.options.autocomplete.isHardcoded()) { %> 
 import { ApiService } from '<%= pathToRoot %>api.service';

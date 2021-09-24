@@ -116,6 +116,8 @@ component.ts file (example):
         console.log(submission);
     }
 
+For the generated files you might need to include lodash.
+
 #
 ## Write JSON Form models
 

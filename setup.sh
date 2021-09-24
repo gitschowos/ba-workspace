@@ -11,11 +11,7 @@ echo ===============================
 cd projects/ngx-model-driven-form
 npm run build
 
-echo ===============================
-echo Linking library...
-echo ===============================
 cd ../..
-npm link ./dist/ngx-model-driven-form
 
 echo ===============================
 echo Setup was successful. Have fun!

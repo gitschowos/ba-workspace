@@ -17,7 +17,7 @@ Angular application, to display and test the library implementation in different
 #
 
 ## Setup
-Follow these steps after cloning this Repository to run the library. Steps 1-3 are covered in `setup.sh`.
+Follow these steps after cloning this Repository to run the library. Steps 1-2 are covered in `setup.sh`.
 ### 1. Install dependencies
     npm ci
 ### 2. Build the library ngx-model-driven-form
@@ -27,18 +27,9 @@ Follow these steps after cloning this Repository to run the library. Steps 1-3 a
 
 The build artifacts will be stored in the `dist/ngx-model-driven-form` directory.
 
-### 3. Prepare the generator
-Link the build output with the own workspace for the schematics-generator to work:
+Go back to the root directory of the workspace (`cd ../..`)
 
-Go back to the root directory of the workspace:
-
-    cd ../..
-
-Link the build output:
-
-    npm link ./dist/ngx-model-driven-form
-
-### 4. Start the generator
+### 3. Start the generator
 After the library is built, an Angular Schematics command which starts the generator will be availible:
 
     ng generate ngx-model-driven-form:form
@@ -53,7 +44,7 @@ A valid generator command would be:
 
 The standard location for the generator is the `app/`-Directory of the standard project of the current Angular workspace. For further information how to modify the generator type `ng generate ngx-model-driven-form:form --help`.
 
-### 5. Start the test application
+### 4. Start the test application
 With one generated form in the `app/`-Directory of `test-app` it will build successfully.
 
     ng serve

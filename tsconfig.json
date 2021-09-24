@@ -16,10 +16,10 @@
     "importHelpers": true,
     "paths": {
       "ngx-model-driven-form": [
-        //"dist/ngx-model-driven-form/ngx-model-driven-form",
-        //"dist/ngx-model-driven-form"
+        "dist/ngx-model-driven-form/ngx-model-driven-form",
+        "dist/ngx-model-driven-form"
         // changed this to the following that ng serve works fine for developing
-        "projects/ngx-model-driven-form/src/public-api"
+        //"projects/ngx-model-driven-form/src/public-api"
       ],
       "@angular/*": [
         "./node_modules/@angular/*"

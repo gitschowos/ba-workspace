@@ -1,46 +1,129 @@
 # BaWorkspace
 
-This is the Angular workspace for the bachelor-thesis of Josef Rothballer, Universität Bayreuth.
+This is the Angular workspace for the Bachelor thesis of Josef Rothballer, Universität Bayreuth. The version which was submitted with the thesis can be found on the branch `thesis-submission`.
 
 The overall topic is creating configurable dynamic forms with angular.
-The form is predefined in a JSON file. A UML-Diagram of the structure for the JSON can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf
+The form is predefined in a JSON file. A UML-Diagram of the structure for the JSON can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf. This workspace provides an interpreter as well as a generator to create an Angular form from a JSON specification.
 
-
-The following projects are parts of the workspace:
+The following projects are part of the workspace:
 
 ## ngx-model-driven-form
 
-Angular Library, which has a component that generates a form during runtime (initial page loading) from a predefined JSON model as well as a anglular-cli schematics command that generates Angular components describing a form from the predefined JSON model
+Angular Library, which has a component that interpretes the form during runtime (initial page loading) from a predefined JSON model as well as a anglular-cli schematics command that generates Angular components describing a form from the predefined JSON model. In both approaches the Angular Material library is used for styling.
 
 ## test-app
 
-Angular application, to display and test the implementations in different showcases
-
-
+Angular application, to display and test the library implementation in different showcases
 #
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+## Setup
+Follow these steps after cloning this Repository to run the library.
+### 1. Build the library ngx-model-driven-form
+    cd projects/ngx-model-driven-form
+    npm run build
 
-## Development server
+The build artifacts will be stored in the `dist/ngx-model-driven-form` directory.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+>⚠️ Don't use `ng build ngx-model-driven-form`! It does not include the build for the schematics-generator files.
 
-## Code scaffolding
+### 2. Start the generator
+After the library is built, an Angular Schematics command which starts the generator will be availible:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ng generate ngx-model-driven-form:form
 
-## Build
+The generator needs a json file as `--json-file` Parameter. Example json models can be found at `json/`. A valid generator command would be:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    ng generate ngx-model-driven-form:form --json-file json/test-all.json
 
-## Running unit tests
+The standard location for the generator is the `app/`-Directory of the standard project of the current Angular workspace. For further information how to modify the generator type `ng generate ngx-model-driven-form:form --help`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3. Start the test application
+With one generated form in the `app/`-Directory of `test-app` it will build successfully.
 
-## Running end-to-end tests
+    ng serve
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Or build it with:
 
-## Further help
+    ng build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#
+## Use the library in a different Angular workspace
+To use the library with its interpreter and generator in a different workspace, follow these steps:
+1. build the library (see above)
+2. make sure the Angular Material library is added to your workspace (https://material.angular.io/guide/getting-started)
+3. Add the following property to the `angular.json` of your workspace:
+    
+        "projects"."PROJECT-NAME"."architect"."build"."options"."preserveSymlinks": true
+
+    This enables the Angular compiler to work with linked libraries.
+
+4. Set up a link to the `dist/ngx-model-driven-form`-Directory (the build output):
+   
+        npm link PATH-TO-BUILD-OUTPUT 
+    or
+
+        npm install PATH-TO-BUILD-OUTPUT
+
+Now you can use the generator (see above) or import the module and use the interpreter component:
+
+    import { ModelDrivenFormModule } from 'ngx-model-driven-form';
+    //...
+
+    @NgModule({
+    declarations: [
+        ...
+    ],
+    imports: [
+        ...,
+        ModelDrivenFormModule,
+    ],
+    ...
+    })
+
+Use the component:
+
+    <lib-model-driven-form [inputSpec$]="specification" (submission)="onSubmit($event)"></lib-model-driven-form>
+
+component.ts file (example):
+
+    specification = of(JSON.parse(`
+    {
+        "title": "My form",
+        "content": [
+            {
+                "type":"input",
+                "id":"basic-input",
+                "label":"Basic Input",
+                "options":{
+                    "placeholder":"Type something here...",
+                    "required":true
+                }
+            }
+        ]
+    }
+    `));
+
+    onSubmit(submission: any) {
+        console.log(submission);
+    }
+
+#
+## Write JSON Form models
+
+There is a JSON schema at `json/schema.json`. Put it in your model to get autocomplete suggestions:
+
+    {
+        "$schema": "https://raw.githubusercontent.com/gitschowos/ba-workspace/master/json/schema.json",
+        "title": ...,
+        "content": [
+            ...
+        ],
+        ...
+    }
+
+A typescript Parser of the model is located in `projects/ngx-model-driven-form/src/lib/model/base-model.ts` or `projects/ngx-model-driven-form/form/base-model.ts`.
+
+As mentioned above, the "meta-model" specified with UML can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf
+#
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4. The Angular project and CLI were updated to version 12.0.0 later.

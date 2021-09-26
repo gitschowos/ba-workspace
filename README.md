@@ -3,7 +3,7 @@
 This is the Angular workspace for the Bachelor thesis of Josef Rothballer, Universität Bayreuth. The version which was submitted with the thesis can be found on the branch `thesis-submission`.
 
 The overall topic is creating configurable dynamic forms with angular.
-The form is predefined in a JSON file. A UML-Diagram of the structure for the JSON can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf. This workspace provides an interpreter as well as a generator to create an Angular form from a JSON specification.
+The form is predefined in a JSON file. A UML-Diagram of the structure for the JSON can be found [here](https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf). This workspace provides an interpreter as well as a generator to create an Angular form from a JSON specification.
 
 The following projects are part of the workspace:
 
@@ -59,7 +59,7 @@ Or build it with:
 
 To use the library with its interpreter and generator in a different workspace, follow these steps:
 1. build the library (see above)
-2. make sure the Angular Material library is added to your workspace (https://material.angular.io/guide/getting-started)
+2. make sure the [Angular Material](https://material.angular.io/guide/getting-started) library is added to your workspace
 3. Add the following property to the `angular.json` of your workspace:
     
         "projects"."PROJECT-NAME"."architect"."build"."options"."preserveSymlinks": true
@@ -134,7 +134,7 @@ There is a JSON schema at `json/schema.json`. Put it in your model to get autoco
 
 A typescript Parser of the model is located in `projects/ngx-model-driven-form/src/lib/model/base-model.ts` or `projects/ngx-model-driven-form/form/base-model.ts`.
 
-As mentioned above, the "meta-model" specified with UML can be found here: https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf
+As mentioned above, the "meta-model" specified with UML can be found [here](https://lucid.app/publicSegments/view/59397d68-5ffa-4007-b446-b7e00aa1f827/image.pdf).
 #
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4. The Angular project and CLI were updated to version 12.0.0 later.
